@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Light Me Up Beach Bonfires</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --flame:      #C8562A;
+      --ember:      #A83E18;
+      --sunset:     #E08050;
+      --golden:     #D4A84B;
+      --sand:       #F2E8D5;
+      --cream:      #FAF5EC;
+      --warm-white: #FFFDF8;
+      --blush:      #E8B89A;
+      --ocean:      #5A96A8;
+      --dusk:       #28303A;
+      --text-dark:  #1C2228;
+      --text-mid:   #48545E;
+      --text-light: #8A9098;
+      --white:      #FFFFFF;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body:    'Jost', sans-serif;
+      --radius-sm: 6px; --radius-md: 12px; --radius-lg: 24px; --radius-pill: 999px;
+      --shadow-soft: 0 6px 32px rgba(28,34,40,0.10);
+      --shadow-warm: 0 4px 24px rgba(200,86,42,0.18);
+      --transition: 0.30s cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);background:var(--cream);color:var(--text-dark);line-height:1.72;overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    ul{list-style:none;}
+    img{max-width:100%;display:block;}
+    button,input,select,textarea{font-family:inherit;}
+    .container{max-width:1160px;margin:0 auto;padding:0 28px;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 32px;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:500;font-size:0.84rem;letter-spacing:0.09em;text-transform:uppercase;cursor:pointer;transition:var(--transition);border:none;}
+    .btn-primary{background:var(--flame);color:var(--white);box-shadow:var(--shadow-warm);}
+    .btn-primary:hover{background:var(--ember);transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,86,42,0.32);}
+    .btn-outline{background:transparent;color:var(--flame);border:1.5px solid var(--flame);}
+    .btn-outline:hover{background:var(--flame);color:var(--white);transform:translateY(-2px);}
+    .btn-ghost{background:rgba(255,255,255,0.14);color:var(--white);border:1.5px solid rgba(255,255,255,0.46);backdrop-filter:blur(8px);}
+    .btn-ghost:hover{background:var(--white);color:var(--flame);}
+    .btn-white{background:var(--white);color:var(--flame);font-weight:600;}
+    .btn-white:hover{background:var(--sand);transform:translateY(-2px);}
+    .btn-outline-white{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.52);}
+    .btn-outline-white:hover{background:rgba(255,255,255,0.12);border-color:var(--white);}
+    .section-label{font-family:var(--font-body);font-size:0.72rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--flame);display:block;margin-bottom:10px;}
+    .section-title{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,3rem);font-weight:400;line-height:1.14;color:var(--text-dark);}
+    .section-title em{font-style:italic;color:var(--flame);}
+    .section-subtitle{font-size:0.97rem;color:var(--text-mid);max-width:520px;margin-top:13px;font-weight:300;}
+
+    /* LOGO BANNER */
+    .logo-banner{background:var(--warm-white);text-align:center;padding:26px 28px 18px;border-bottom:1px solid rgba(200,86,42,0.13);}
+    .logo-banner img.logo-img{height:100px;width:auto;margin:0 auto 6px;display:block;object-fit:contain;}
+    .logo-banner .logo-fallback{font-family:var(--font-display);font-size:clamp(1.5rem,3.5vw,2.3rem);font-weight:400;color:var(--text-dark);}
+    .logo-banner .logo-fallback span{color:var(--flame);font-style:italic;}
+    .logo-banner .logo-tagline{font-family:var(--font-display);font-style:italic;font-size:clamp(0.95rem,2vw,1.2rem);color:var(--text-mid);margin-top:4px;}
+    .logo-banner .logo-est{font-size:0.66rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-light);margin-top:3px;}
+
+    /* HEADER */
+    .site-header{position:sticky;top:0;z-index:1000;background:rgba(250,245,236,0.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,86,42,0.13);transition:box-shadow var(--transition);}
+    .site-header.scrolled{box-shadow:0 3px 24px rgba(28,34,40,0.10);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:13px 28px;max-width:1280px;margin:0 auto;gap:16px;}
+    .header-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;flex:1;}
+    .header-nav a{font-size:0.80rem;font-weight:500;letter-spacing:0.06em;color:var(--text-mid);padding:7px 12px;border-radius:var(--radius-pill);transition:var(--transition);white-space:nowrap;}
+    .header-nav a:hover{color:var(--flame);background:rgba(200,86,42,0.07);}
+    .header-actions{flex-shrink:0;}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:transparent;}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--text-dark);border-radius:2px;transition:var(--transition);}
+    .mobile-nav{display:none;flex-direction:column;background:var(--warm-white);border-top:1px solid rgba(200,86,42,0.10);padding:14px 28px 18px;gap:4px;}
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{font-size:0.9rem;font-weight:500;color:var(--text-mid);padding:10px 0;border-bottom:1px solid rgba(200,86,42,0.07);transition:color var(--transition);}
+    .mobile-nav a:hover{color:var(--flame);}
+    .mobile-nav .btn{margin-top:12px;justify-content:center;width:100%;}
+
+    /* HERO */
+    .hero{position:relative;min-height:91vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,34,40,0.22) 0%,rgba(28,34,40,0.50) 55%,rgba(28,34,40,0.76) 100%),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1800&q=80') center/cover no-repeat;z-index:0;}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(200,86,42,0.14) 0%,transparent 55%);}
+    .hero-content{position:relative;z-index:1;text-align:center;padding:60px 28px;max-width:820px;}
+    .hero-eyebrow{font-family:var(--font-body);font-size:0.72rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--golden);display:block;margin-bottom:20px;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2.8rem,7.5vw,6rem);font-weight:300;color:var(--white);line-height:1.08;margin-bottom:24px;opacity:0;animation:fadeUp 0.9s 0.38s forwards;}
+    .hero-title em{font-style:italic;color:var(--golden);display:block;}
+    .hero-sub{font-size:1rem;color:rgba(255,255,255,0.80);font-weight:300;margin-bottom:40px;opacity:0;animation:fadeUp 0.9s 0.55s forwards;}
+    .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 0.9s 0.72s forwards;}
+    .hero-scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;color:rgba(255,255,255,0.44);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;animation:bounce 2.2s infinite;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+
+    /* BOOKING */
+    .booking-section{background:var(--sand);padding:88px 0;position:relative;}
+    .booking-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--golden),var(--flame),var(--blush),var(--ocean));}
+    .booking-wrapper{max-width:700px;margin:0 auto;padding:0 28px;}
+    .booking-header{text-align:center;margin-bottom:44px;}
+    .booking-card{background:var(--warm-white);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);overflow:hidden;}
+    .progress-bar-wrap{background:var(--sand);padding:26px 34px 0;}
+    .progress-steps{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+    .progress-step{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;position:relative;}
+    .progress-step:not(:last-child)::after{content:'';position:absolute;top:17px;left:55%;width:90%;height:2px;background:#ddd;z-index:0;transition:background var(--transition);}
+    .progress-step.completed:not(:last-child)::after{background:var(--flame);}
+    .step-dot{width:34px;height:34px;border-radius:50%;background:var(--sand);border:2px solid #ccc;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:600;color:var(--text-light);transition:var(--transition);z-index:1;position:relative;}
+    .progress-step.active .step-dot{background:var(--flame);border-color:var(--flame);color:var(--white);box-shadow:0 0 0 5px rgba(200,86,42,0.16);}
+    .progress-step.completed .step-dot{background:var(--ember);border-color:var(--ember);color:var(--white);}
+    .step-label{font-size:0.65rem;letter-spacing:0.10em;text-transform:uppercase;color:var(--text-light);font-weight:500;}
+    .progress-step.active .step-label{color:var(--flame);font-weight:600;}
+    .progress-step.completed .step-label{color:var(--ember);}
+    .form-content{padding:34px 34px 38px;}
+    .form-step{display:none;}
+    .form-step.active{display:block;}
+    .form-step-title{font-family:var(--font-display);font-size:1.55rem;font-weight:400;color:var(--text-dark);margin-bottom:5px;}
+    .form-step-desc{font-size:0.86rem;color:var(--text-light);margin-bottom:26px;}
+    .form-group{margin-bottom:20px;}
+    .form-group label{display:block;font-size:0.76rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--text-mid);margin-bottom:7px;}
+    .form-group label .req{color:var(--flame);margin-left:2px;}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid #DDD5C5;border-radius:var(--radius-md);font-size:0.94rem;color:var(--text-dark);background:var(--cream);transition:border-color var(--transition),box-shadow var(--transition);appearance:none;}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 3px rgba(200,86,42,0.11);background:var(--white);}
+    .form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%238A9098' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .service-cards{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:20px;}
+    .service-card{border:1.5px solid #DDD5C5;border-radius:var(--radius-md);padding:14px 16px;cursor:pointer;transition:var(--transition);display:flex;align-items:flex-start;gap:11px;background:var(--cream);}
+    .service-card:hover{border-color:var(--sunset);background:var(--warm-white);}
+    .service-card.selected{border-color:var(--flame);background:rgba(200,86,42,0.05);box-shadow:0 0 0 3px rgba(200,86,42,0.12);}
+    .service-card input[type="radio"]{display:none;}
+    .service-card-icon{font-size:1.2rem;flex-shrink:0;margin-top:1px;color:var(--flame);}
+    .service-card-name{font-size:0.88rem;font-weight:600;color:var(--text-dark);margin-bottom:1px;}
+    .service-card-desc{font-size:0.74rem;color:var(--text-light);line-height:1.4;}
+    .sub-package-wrap{display:none;margin-bottom:20px;}
+    .sub-package-wrap.visible{display:block;}
+    .sub-label{font-size:0.76rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--text-mid);margin-bottom:9px;}
+    .sub-packages{display:flex;flex-direction:column;gap:9px;}
+    .sub-pkg{border:1.5px solid #DDD5C5;border-radius:var(--radius-md);padding:14px 18px;cursor:pointer;transition:var(--transition);background:var(--cream);display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+    .sub-pkg:hover{border-color:var(--sunset);background:var(--warm-white);}
+    .sub-pkg.selected{border-color:var(--flame);background:rgba(200,86,42,0.05);box-shadow:0 0 0 3px rgba(200,86,42,0.12);}
+    .sub-pkg input[type="radio"]{display:none;}
+    .sub-pkg-name{font-family:var(--font-display);font-size:1.02rem;font-weight:400;color:var(--text-dark);margin-bottom:4px;font-style:italic;}
+    .sub-pkg-details{font-size:0.75rem;color:var(--text-mid);line-height:1.55;}
+    .sub-pkg-price{font-family:var(--font-display);font-size:1.25rem;font-weight:600;color:var(--flame);white-space:nowrap;flex-shrink:0;margin-top:2px;}
+    .checkbox-group{display:flex;align-items:flex-start;gap:11px;margin-bottom:15px;}
+    .checkbox-group input[type="checkbox"]{width:19px;height:19px;flex-shrink:0;accent-color:var(--flame);margin-top:2px;cursor:pointer;}
+    .checkbox-group label{font-size:0.87rem;color:var(--text-mid);cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400;}
+    .checkbox-group label a{color:var(--flame);text-decoration:underline;}
+    .form-nav{display:flex;justify-content:space-between;align-items:center;margin-top:30px;gap:11px;}
+    .form-nav .btn{min-width:136px;justify-content:center;}
+    .btn-back{background:transparent;color:var(--text-mid);border:1.5px solid #ccc;}
+    .btn-back:hover{background:var(--sand);border-color:#aaa;transform:none;}
+    .success-message{text-align:center;padding:48px 28px;display:none;}
+    .success-message.show{display:block;}
+    .success-message h3{font-family:var(--font-display);font-size:2rem;font-weight:400;color:var(--text-dark);margin-bottom:10px;}
+    .success-message p{color:var(--text-mid);}
+    .form-notice{background:rgba(200,86,42,0.05);border:1px solid rgba(200,86,42,0.16);border-radius:var(--radius-md);padding:16px 18px;font-size:0.83rem;color:var(--text-mid);margin:20px 0;line-height:1.65;}
+    .form-notice strong{color:var(--text-dark);}
+
+    /* ABOUT */
+    .about-section{padding:108px 0;background:var(--cream);}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:center;}
+    .about-image-wrap{position:relative;}
+    .about-img-main{width:100%;height:500px;object-fit:cover;border-radius:var(--radius-lg);}
+    .about-img-accent{position:absolute;bottom:-28px;right:-28px;width:200px;height:200px;object-fit:cover;border-radius:var(--radius-md);border:5px solid var(--cream);box-shadow:var(--shadow-soft);}
+    .about-badge{position:absolute;top:26px;left:-18px;background:var(--flame);color:var(--white);border-radius:var(--radius-md);padding:15px 18px;text-align:center;box-shadow:var(--shadow-warm);}
+    .about-badge .num{font-family:var(--font-display);font-size:1.9rem;font-weight:600;line-height:1;display:block;}
+    .about-badge .lbl{font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;}
+    .lmu-intro{background:var(--sand);border-left:3px solid var(--flame);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:22px 24px;margin:22px 0 26px;font-size:0.95rem;color:var(--text-mid);line-height:1.82;font-weight:300;}
+    .lmu-intro p{margin-bottom:12px;}
+    .lmu-intro p:last-child{margin-bottom:0;}
+    .lmu-intro .sign{display:block;margin-top:14px;font-family:var(--font-display);font-style:italic;font-size:1.05rem;color:var(--flame);}
+    .about-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+    .about-feature{display:flex;align-items:flex-start;gap:10px;}
+    .about-feature .icon{width:34px;height:34px;background:rgba(200,86,42,0.09);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;color:var(--flame);}
+    .about-feature .feat-text .title{font-size:0.83rem;font-weight:600;color:var(--text-dark);}
+    .about-feature .feat-text .desc{font-size:0.76rem;color:var(--text-light);margin-top:1px;}
+
+    /* PRICING */
+    .pricing-section{padding:108px 0;background:var(--dusk);position:relative;overflow:hidden;}
+    .pricing-section::before{content:'';position:absolute;top:-50%;right:-15%;width:650px;height:650px;background:radial-gradient(circle,rgba(200,86,42,0.10) 0%,transparent 70%);pointer-events:none;}
+    .pricing-header{text-align:center;margin-bottom:10px;}
+    .pricing-header .section-label{color:var(--golden);}
+    .pricing-header .section-title{color:var(--white);}
+    .pricing-tagline{font-family:var(--font-display);font-style:italic;font-size:1.25rem;color:rgba(255,255,255,0.50);text-align:center;margin-bottom:8px;}
+    .pricing-disclaimer{font-size:0.74rem;color:rgba(255,255,255,0.35);text-align:center;letter-spacing:0.06em;margin-bottom:50px;}
+    .pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+    .pricing-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius-lg);padding:32px 26px;position:relative;transition:var(--transition);backdrop-filter:blur(10px);}
+    .pricing-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-5px);box-shadow:0 18px 52px rgba(0,0,0,0.28);}
+    .pricing-card.featured{background:var(--flame);border-color:var(--flame);}
+    .pricing-card.featured:hover{background:var(--ember);}
+    .pricing-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--golden);color:var(--text-dark);font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:5px 18px;border-radius:var(--radius-pill);}
+    .pricing-name{font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:3px;font-style:italic;}
+    .pricing-sub{font-size:0.74rem;color:rgba(255,255,255,0.48);margin-bottom:18px;}
+    .pricing-price{font-family:var(--font-display);font-size:2.8rem;font-weight:500;color:var(--white);line-height:1;margin-bottom:3px;}
+    .pricing-price sup{font-size:1.3rem;vertical-align:top;margin-top:7px;}
+    .pricing-note{font-size:0.72rem;color:rgba(255,255,255,0.42);margin-bottom:22px;line-height:1.55;min-height:2.2em;}
+    .pricing-divider{height:1px;background:rgba(255,255,255,0.10);margin-bottom:18px;}
+    .pricing-features li{display:flex;align-items:flex-start;gap:8px;font-size:0.83rem;color:rgba(255,255,255,0.80);margin-bottom:9px;}
+    .pricing-features li .ck{width:17px;height:17px;background:rgba(255,255,255,0.13);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.62rem;flex-shrink:0;margin-top:1px;}
+    .pricing-cta{margin-top:26px;width:100%;justify-content:center;}
+    .pricing-card.featured .btn-outline{color:var(--white);border-color:rgba(255,255,255,0.55);}
+    .pricing-card.featured .btn-outline:hover{background:var(--white);color:var(--flame);}
+    .social-fire-note{margin-top:34px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius-lg);padding:28px 32px;color:rgba(255,255,255,0.72);font-size:0.88rem;line-height:1.7;}
+    .social-fire-note h4{font-family:var(--font-display);font-style:italic;font-size:1.25rem;color:var(--golden);margin-bottom:7px;}
+    .social-fire-note .sfprice{font-family:var(--font-display);font-size:1.6rem;color:var(--white);font-weight:500;margin:5px 0 10px;}
+
+    /* PICNICS */
+    .picnics-section{padding:108px 0;background:var(--cream);}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .two-col-img{width:100%;height:460px;object-fit:cover;border-radius:var(--radius-lg);}
+    .two-col-text .section-subtitle{max-width:100%;margin-bottom:26px;}
+
+    /* CHAIRS */
+    .chairs-section{padding:108px 0;background:var(--sand);}
+
+    /* LOCATIONS */
+    .locations-section{padding:108px 0;background:var(--warm-white);}
+    .locations-header{text-align:center;margin-bottom:52px;}
+    .locations-header .section-subtitle{margin:13px auto 0;}
+    .locations-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+    .location-card{border-radius:var(--radius-lg);overflow:hidden;position:relative;height:330px;cursor:pointer;}
+    .location-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+    .location-card:hover img{transform:scale(1.05);}
+    .location-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,34,40,0.80) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px;}
+    .location-name{font-family:var(--font-display);font-size:1.35rem;font-weight:400;color:var(--white);margin-bottom:3px;}
+    .location-detail{font-size:0.72rem;color:rgba(255,255,255,0.58);letter-spacing:0.08em;}
+
+    /* FAQ */
+    .faq-section{padding:88px 0;background:var(--cream);}
+    .faq-inner{max-width:740px;margin:0 auto;}
+    details.faq-item{background:var(--warm-white);border-radius:var(--radius-md);padding:20px 22px;border:1px solid rgba(200,86,42,0.11);cursor:pointer;margin-bottom:13px;}
+    details.faq-item summary{font-weight:600;color:var(--text-dark);font-size:0.92rem;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+    details.faq-item summary .plus{color:var(--flame);font-size:1.2rem;margin-left:12px;flex-shrink:0;}
+    details.faq-item p{margin-top:13px;color:var(--text-mid);font-size:0.88rem;font-weight:300;line-height:1.72;}
+
+    /* CTA */
+    .cta-section{padding:116px 0;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--flame) 0%,var(--ember) 45%,#923218 100%);}
+    .cta-section::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1400&q=60') center/cover;opacity:0.07;}
+    .cta-content{position:relative;z-index:1;}
+    .cta-section .section-label{color:var(--golden);}
+    .cta-title{font-family:var(--font-display);font-size:clamp(2.1rem,5vw,3.8rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:18px;}
+    .cta-title em{font-style:italic;}
+    .cta-sub{font-size:0.98rem;color:rgba(255,255,255,0.76);font-weight:300;max-width:460px;margin:0 auto 40px;}
+    .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+    /* FOOTER */
+    .site-footer{background:var(--text-dark);padding:68px 0 34px;}
+    .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:56px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:32px;}
+    .footer-brand .brand-name{font-family:var(--font-display);font-size:1.45rem;font-weight:400;color:var(--white);margin-bottom:3px;}
+    .footer-brand .brand-name span{color:var(--golden);font-style:italic;}
+    .footer-brand .tagline{font-size:0.70rem;letter-spacing:0.20em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:18px;}
+    .footer-brand p{font-size:0.86rem;color:rgba(255,255,255,0.46);line-height:1.72;margin-bottom:22px;font-weight:300;}
+    .footer-actions{display:flex;gap:10px;flex-wrap:wrap;}
+    .footer-col h4{font-size:0.70rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.36);margin-bottom:16px;}
+    .footer-col ul li{margin-bottom:9px;}
+    .footer-col ul li a{font-size:0.86rem;color:rgba(255,255,255,0.58);transition:color var(--transition);}
+    .footer-col ul li a:hover{color:var(--golden);}
+    .social-links{display:flex;gap:9px;margin-top:6px;}
+    .social-link{width:38px;height:38px;border-radius:var(--radius-sm);background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.52);font-size:1rem;transition:var(--transition);}
+    .social-link:hover{background:var(--flame);color:var(--white);transform:translateY(-2px);}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+    .footer-bottom p{font-size:0.76rem;color:rgba(255,255,255,0.26);}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .about-grid,.two-col{grid-template-columns:1fr;gap:44px;}
+      .about-img-accent{display:none;}
+      .pricing-grid{grid-template-columns:1fr 1fr;}
+      .locations-grid{grid-template-columns:1fr 1fr;}
+      .footer-top{grid-template-columns:1fr 1fr;}
+      .footer-top>div:first-child{grid-column:1/-1;}
+    }
+    @media(max-width:768px){
+      .header-nav,.header-actions{display:none;}
+      .nav-toggle{display:flex;}
+      .pricing-grid{grid-template-columns:1fr;}
+      .locations-grid{grid-template-columns:1fr 1fr;}
+      .service-cards{grid-template-columns:1fr;}
+      .about-features{grid-template-columns:1fr;}
+      .form-content{padding:22px 18px 26px;}
+      .progress-bar-wrap{padding:18px 18px 0;}
+      .footer-top{grid-template-columns:1fr;gap:32px;}
+      .footer-bottom{flex-direction:column;text-align:center;}
+      .form-row{grid-template-columns:1fr;}
+    }
+    @media(max-width:480px){
+      .locations-grid{grid-template-columns:1fr;}
+      .hero-actions,.cta-actions{flex-direction:column;align-items:center;}
+      .form-nav{flex-direction:column;}
+      .form-nav .btn{width:100%;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO BANNER -->
+  <div class="logo-banner">
+    <!--
+      Replace the src below with your actual logo URL, e.g.:
+      src="https://yourdomain.com/images/lmu-logo.png"
+    -->
+    <img
+      class="logo-img"
+      src="YOUR_LOGO_URL_HERE"
+      alt="Light Me Up Beach Bonfires"
+      onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"
+    />
+    <div class="logo-fallback" id="logo-fallback">
+      Light Me <span>Up</span> Beach Bonfires
+    </div>
+    <div class="logo-tagline">"Let us light up your night!"</div>
+    <div class="logo-est">Est. 2015</div>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <nav class="header-nav">
+        <a href="#bonfire-packages">Beach Bonfires</a>
+        <a href="#chairs-section">Beach Chairs &amp; Umbrellas</a>
+        <a href="#picnics-section">Beach Picnics</a>
+        <a href="#booking">Event Planning</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#booking" class="btn btn-primary">Book Now</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#bonfire-packages">Beach Bonfires</a>
+      <a href="#chairs-section">Beach Chairs &amp; Umbrellas</a>
+      <a href="#picnics-section">Beach Picnics</a>
+      <a href="#booking">Event Planning</a>
+      <a href="#faq">FAQ</a>
+      <a href="#booking" class="btn btn-primary">Book Now</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Panama City Beach &middot; 30A &middot; Destin, FL &mdash; Est. 2015</span>
+      <h1 class="hero-title">
+        Let us light up
+        <em>your night</em>
+      </h1>
+      <p class="hero-sub">One of the first beach bonfire companies on the Emerald Coast &mdash; family owned, family operated, and still doing it for the love of it.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn btn-primary">Book Your Experience</a>
+        <a href="#about" class="btn btn-ghost">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12l7 7 7-7" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Scroll
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-section" id="booking">
+    <div class="booking-wrapper">
+      <div class="booking-header">
+        <span class="section-label">Reserve Your Experience</span>
+        <h2 class="section-title">Book Your <em>Beach Bonfire</em></h2>
+        <p class="section-subtitle" style="margin:12px auto 0;text-align:center;">Fill out the form below and the LMU team will be in touch within 24 hours to confirm your reservation.</p>
+      </div>
+
+      <div class="booking-card">
+        <div class="progress-bar-wrap">
+          <div class="progress-steps">
+            <div class="progress-step active"><div class="step-dot">1</div><span class="step-label">Your Info</span></div>
+            <div class="progress-step"><div class="step-dot">2</div><span class="step-label">Services</span></div>
+            <div class="progress-step"><div class="step-dot">3</div><span class="step-label">Location</span></div>
+            <div class="progress-step"><div class="step-dot">4</div><span class="step-label">Confirm</span></div>
+          </div>
+        </div>
+
+        <div class="form-content">
+
+          <!-- STEP 1 -->
+          <div class="form-step active" id="step-1">
+            <h3 class="form-step-title">Tell us about yourself</h3>
+            <p class="form-step-desc">We'd love to know who's joining us on the beach.</p>
+            <div class="form-group">
+              <label>Full Name <span class="req">*</span></label>
+              <input type="text" id="f-name" placeholder="Jane Smith" />
+            </div>
+            <div class="form-group">
+              <label>Email Address <span class="req">*</span></label>
+              <input type="email" id="f-email" placeholder="jane@example.com" />
+            </div>
+            <div class="form-group">
+              <label>Phone Number <span class="req">*</span></label>
+              <input type="tel" id="f-phone" placeholder="(850) 555-0000" />
+            </div>
+            <div class="form-nav">
+              <span></span>
+              <button class="btn btn-primary" onclick="nextStep(1)">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="form-step" id="step-2">
+            <h3 class="form-step-title">Choose your experience</h3>
+            <p class="form-step-desc">Select a service, then choose your specific package below.</p>
+
+            <div class="form-group">
+              <label>Service Category <span class="req">*</span></label>
+            </div>
+            <div class="service-cards">
+              <label class="service-card" onclick="selectService(this,'bonfire')">
+                <input type="radio" name="service-cat" value="bonfire" />
+                <div class="service-card-icon">&#9650;</div>
+                <div><div class="service-card-name">Beach Bonfire</div><div class="service-card-desc">Classic beachside fire, fully set up and cleaned up</div></div>
+              </label>
+              <label class="service-card" onclick="selectService(this,'picnic')">
+                <input type="radio" name="service-cat" value="picnic" />
+                <div class="service-card-icon">&#9632;</div>
+                <div><div class="service-card-name">Beach Picnic</div><div class="service-card-desc">Styled beach picnic setup for any occasion</div></div>
+              </label>
+              <label class="service-card" onclick="selectService(this,'bonfire-picnic')">
+                <input type="radio" name="service-cat" value="bonfire-picnic" />
+                <div class="service-card-icon">&#9679;</div>
+                <div><div class="service-card-name">Bonfire + Picnic</div><div class="service-card-desc">The full evening &mdash; fire and feast combined</div></div>
+              </label>
+              <label class="service-card" onclick="selectService(this,'hotel')">
+                <input type="radio" name="service-cat" value="hotel" />
+                <div class="service-card-icon">&#9670;</div>
+                <div><div class="service-card-name">Hotel / Social Fire</div><div class="service-card-desc">Select hotel locations only &mdash; shared fire experience</div></div>
+              </label>
+            </div>
+
+            <!-- Bonfire packages -->
+            <div class="sub-package-wrap" id="sub-bonfire">
+              <div class="sub-label">Select Your Bonfire Package <span style="color:var(--flame)">*</span></div>
+              <div class="sub-packages">
+                <label class="sub-pkg" onclick="selectSubPkg(this)">
+                  <input type="radio" name="sub-pkg" value="one-love" />
+                  <div>
+                    <div class="sub-pkg-name">"One Love"</div>
+                    <div class="sub-pkg-details">2 hr fire &middot; 2 chairs &middot; Tiki torches &middot; Side table &middot; S'mores for 2 &middot; Roasting sticks &middot; Bluetooth speaker &middot; Setup, breakdown &amp; cleanup &middot; Beach bonfire permit<br/><em style="color:var(--flame);font-size:0.72rem;">Couples only &mdash; date night for two. Add roses +$60</em></div>
+                  </div>
+                  <div class="sub-pkg-price">$469</div>
+                </label>
+                <label class="sub-pkg" onclick="selectSubPkg(this)">
+                  <input type="radio" name="sub-pkg" value="high-tide" />
+                  <div>
+                    <div class="sub-pkg-name">"High Tide or Low Tide"</div>
+                    <div class="sub-pkg-details">2 hr fire &middot; Up to 8 chairs &middot; Tiki torches &middot; Side table &middot; S'mores for up to 8 &middot; Roasting sticks &middot; Bluetooth speaker &middot; Setup, breakdown &amp; cleanup &middot; Beach bonfire permit</div>
+                  </div>
+                  <div class="sub-pkg-price">$569</div>
+                </label>
+                <label class="sub-pkg" onclick="selectSubPkg(this)">
+                  <input type="radio" name="sub-pkg" value="three-little-birds" />
+                  <div>
+                    <div class="sub-pkg-name">"Three Little Birds"</div>
+                    <div class="sub-pkg-details">3 hr fire &middot; Up to 12 chairs &middot; Tiki torches &middot; 6ft table &middot; S'mores for up to 12 &middot; Roasting sticks &middot; Bluetooth speaker &middot; Sparklers &middot; Chalkboard greeting upon request &middot; Setup, breakdown &amp; cleanup &middot; Beach bonfire permit<br/><em style="color:var(--text-light);font-size:0.72rem;">Parties over 30: additional permitting fees apply</em></div>
+                  </div>
+                  <div class="sub-pkg-price">$669</div>
+                </label>
+                <label class="sub-pkg" onclick="selectSubPkg(this)">
+                  <input type="radio" name="sub-pkg" value="roots-rock-reggae" />
+                  <div>
+                    <div class="sub-pkg-name">"Roots, Rock, Reggae"</div>
+                    <div class="sub-pkg-details">3 hr fire &middot; Up to 20 chairs &middot; Tiki torches &middot; (2) 6ft tables &middot; S'mores for up to 20 &middot; Roasting sticks &middot; Large Bluetooth speaker &middot; Sparklers &middot; 1 set of cornhole &middot; Chalkboard greeting upon request &middot; Setup, breakdown &amp; cleanup &middot; Beach bonfire permit<br/><em style="color:var(--text-light);font-size:0.72rem;">Parties over 30: additional permitting fees apply</em></div>
+                  </div>
+                  <div class="sub-pkg-price">$869</div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Picnic packages -->
+            <div class="sub-package-wrap" id="sub-picnic">
+              <div class="sub-label">Select Your Picnic Package <span style="color:var(--flame)">*</span></div>
+              <div class="sub-packages">
+                <label class="sub-pkg" onclick="selectSubPkg(this)">
+                  <input type="radio" name="sub-pkg" value="picnic-romance" />
+                  <div>
+                    <div class="sub-pkg-name">Romantic Beach Picnic</div>
+                    <div class="sub-pkg-details">Styled low-table setup &middot; Blankets &amp; pillows &middot; Candles &amp; florals &middot; Charcuterie board &middot; 2-hour setup window &middot; Setup &amp; cleanup included</div>
+                  </div>
+                  <div class="sub-pkg-price">Inquire</div>
+                </label>
+                <label class="sub-pkg" onclick="selectSubPkg(this)">
+                  <input type="radio" name="sub-pkg" value="picnic-family" />
+                  <div>
+                    <div class="sub-pkg-name">Family / Group Picnic</div>
+                    <div class="sub-pkg-details">Styled setup for groups &middot; Low seating &middot; Coordinated linens &amp; decor &middot; Customized theme options &middot; Setup &amp; cleanup included</div>
+                  </div>
+                  <div class="sub-pkg-price">Inquire</div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Bonfire + Picnic -->
+            <div class="sub-package-wrap" id="sub-bonfire-picnic">
+              <div class="sub-label">Select Your Combined Package <span style="color:var(--flame)">*</span></div>
+              <div class="sub-packages">
+                <label class="sub-pkg" onclick="selectSubPkg(this)">
+                  <input type="radio" name="sub-pkg" value="bp-small" />
+                  <div>
+                    <div class="sub-pkg-name">Fire &amp; Feast &mdash; Small</div>
+                    <div class="sub-pkg-details">Bonfire up to 8 guests + styled picnic setup &middot; 3-hour experience &middot; Tiki torches &middot; S'mores &middot; Bluetooth speaker &middot; Full setup &amp; cleanup</div>
+                  </div>
+                  <div class="sub-pkg-price">Inquire</div>
+                </label>
+                <label class="sub-pkg" onclick="selectSubPkg(this)">
+                  <input type="radio" name="sub-pkg" value="bp-large" />
+                  <div>
+                    <div class="sub-pkg-name">Fire &amp; Feast &mdash; Large</div>
+                    <div class="sub-pkg-details">Bonfire up to 20 guests + styled picnic setup &middot; 4-hour experience &middot; Full decor package &middot; Cornhole &middot; Sparklers &middot; Full setup &amp; cleanup</div>
+                  </div>
+                  <div class="sub-pkg-price">Inquire</div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Hotel / Social Fire -->
+            <div class="sub-package-wrap" id="sub-hotel">
+              <div class="sub-label">Social Fire Details <span style="color:var(--flame)">*</span></div>
+              <div class="sub-packages">
+                <label class="sub-pkg" onclick="selectSubPkg(this)">
+                  <input type="radio" name="sub-pkg" value="social-fire" />
+                  <div>
+                    <div class="sub-pkg-name">Social Fire &mdash; Hotel Property</div>
+                    <div class="sub-pkg-details">Select hotel locations only &middot; Shared community fire experience &middot; Per-person pricing &middot; Please specify your hotel name in the location step</div>
+                  </div>
+                  <div class="sub-pkg-price">$45/person</div>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top:18px;">
+              <label>Add-Ons (Optional)</label>
+              <select id="f-addons" multiple style="height:auto;padding:0;">
+                <option style="padding:10px 16px;" value="roses">Roses (One Love package) &mdash; +$60</option>
+                <option style="padding:10px 16px;" value="extra-chairs">Extra Chairs (per chair) &mdash; +$10</option>
+                <option style="padding:10px 16px;" value="umbrella">Beach Umbrella &mdash; +$25</option>
+                <option style="padding:10px 16px;" value="chalkboard">Chalkboard Greeting Sign &mdash; +$15</option>
+                <option style="padding:10px 16px;" value="sparklers">Sparklers &mdash; +$20</option>
+                <option style="padding:10px 16px;" value="cornhole">Cornhole Set &mdash; +$30</option>
+                <option style="padding:10px 16px;" value="photos">Photography (30 min) &mdash; +$150</option>
+                <option style="padding:10px 16px;" value="florals">Floral Arrangements &mdash; +$85</option>
+              </select>
+              <p style="font-size:0.73rem;color:var(--text-light);margin-top:5px;">Hold Ctrl / Cmd to select multiple options</p>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Preferred Date 1 <span class="req">*</span></label>
+                <input type="date" id="f-date1" />
+              </div>
+              <div class="form-group">
+                <label>Preferred Date 2 (optional)</label>
+                <input type="date" id="f-date2" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Number of Guests <span class="req">*</span></label>
+              <input type="number" id="f-guests" placeholder="Enter number of guests" min="1" max="500" />
+            </div>
+
+            <div class="form-nav">
+              <button class="btn btn-back" onclick="prevStep(2)">Back</button>
+              <button class="btn btn-primary" onclick="nextStep(2)">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="form-step" id="step-3">
+            <h3 class="form-step-title">Where's the magic happening?</h3>
+            <p class="form-step-desc">Let us know where to set up your perfect beach experience.</p>
+            <div class="form-group">
+              <label>Rental / Hotel Name (Optional)</label>
+              <input type="text" id="f-rental" placeholder="e.g. WaterColor Inn, VRBO address, resort name..." />
+            </div>
+            <div class="form-group">
+              <label>Beach / Bonfire Location <span class="req">*</span></label>
+              <select id="f-location">
+                <option value="">Select your area</option>
+                <optgroup label="30A Corridor">
+                  <option>Seaside, FL</option>
+                  <option>Rosemary Beach, FL</option>
+                  <option>Alys Beach, FL</option>
+                  <option>WaterColor, FL</option>
+                  <option>Grayton Beach, FL</option>
+                  <option>Blue Mountain Beach, FL</option>
+                  <option>Santa Rosa Beach, FL</option>
+                  <option>Inlet Beach, FL</option>
+                </optgroup>
+                <optgroup label="Walton County">
+                  <option>Miramar Beach, FL</option>
+                  <option>Dune Allen Beach, FL</option>
+                </optgroup>
+                <optgroup label="Bay County">
+                  <option>Panama City Beach, FL</option>
+                  <option>Mexico Beach, FL</option>
+                </optgroup>
+                <optgroup label="Destin Area">
+                  <option>Destin, FL</option>
+                  <option>Fort Walton Beach, FL</option>
+                </optgroup>
+                <optgroup label="Hotel Property">
+                  <option>Hotel / Resort (specify above)</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Additional Notes</label>
+              <textarea id="f-notes" rows="3" placeholder="Nearest beach access, condo name, landmark, or anything that helps us find you..."></textarea>
+            </div>
+            <div class="form-nav">
+              <button class="btn btn-back" onclick="prevStep(3)">Back</button>
+              <button class="btn btn-primary" onclick="nextStep(3)">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="form-step" id="step-4">
+            <h3 class="form-step-title">Almost there!</h3>
+            <p class="form-step-desc">Please review our policies and confirm your booking request.</p>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="f-policy" />
+              <label for="f-policy">
+                I have read and agree to the <a href="#faq">Light Me Up Beach Bonfires policies</a>, including cancellation, weather, and permit guidelines. <span style="color:var(--flame)">*</span>
+              </label>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="f-sms" />
+              <label for="f-sms">
+                I agree to receive text messages from Light Me Up Beach Bonfires, including booking confirmations, updates, and occasional promotions. Message and data rates may apply.
+              </label>
+            </div>
+
+            <div class="form-notice">
+              <strong>What happens next?</strong><br/>
+              Once you submit, our team will reach out within 24 hours to confirm your date, go over all the details, and collect a deposit to lock in your spot. We can't wait to see you on the beach!
+            </div>
+
+            <div class="form-nav">
+              <button class="btn btn-back" onclick="prevStep(4)">Back</button>
+              <button class="btn btn-primary" onclick="submitForm()">Send My Request</button>
+            </div>
+          </div>
+
+          <!-- SUCCESS -->
+          <div class="success-message" id="success-msg">
+            <div style="font-size:2.8rem;margin-bottom:14px;color:var(--golden);">&#9733;</div>
+            <h3>You're all set!</h3>
+            <p>Thank you for reaching out. The LMU team will be in touch within 24 hours to confirm your beach experience. We can't wait to see you!</p>
+            <p style="margin-top:12px;font-style:italic;font-family:var(--font-display);font-size:1.1rem;color:var(--flame);">Love, The LMU Team</p>
+            <a href="#" class="btn btn-primary" style="margin-top:26px;display:inline-flex;">Back to Top</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap">
+          <img class="about-img-main"
+            src="https://images.unsplash.com/photo-1590073242678-70ee3fc28f8a?w=900&q=80"
+            alt="Beach bonfire on the Florida Gulf Coast"
+          />
+          <img class="about-img-accent"
+            src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=400&q=80"
+            alt="Bonfire flames close up"
+          />
+          <div class="about-badge">
+            <span class="num">10+</span>
+            <span class="lbl">Years on<br/>the beach</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">Family <em>owned</em> &amp; operated since 2015</h2>
+          <div class="lmu-intro">
+            <p>Hey there!</p>
+            <p>We are Light Me Up Beach Bonfires! Our family owned and operated business was established in 2015 as one of the very first beach bonfire companies on the Gulf Coast. Over the years, we have transformed this sweet industry into what it is today.</p>
+            <p>We offer beach bonfires, picnics, dining, special events, back-yard and in-home parties, beach chair rentals, and more &mdash; from Panama City Beach, 30A, and all the way to Destin, FL. Scroll down and click on your location to view our packages, pricing, and to inquire or book.</p>
+            <p>As always, we look forward to serving you, your friends, and your families. See you on the beach!</p>
+            <span class="sign">Love, The LMU Team</span>
+          </div>
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="icon">&#9829;</div>
+              <div class="feat-text"><div class="title">Family Business</div><div class="desc">Owned and operated by real people who love the beach</div></div>
+            </div>
+            <div class="about-feature">
+              <div class="icon">&#9830;</div>
+              <div class="feat-text"><div class="title">Est. 2015</div><div class="desc">One of the very first bonfire companies on the Emerald Coast</div></div>
+            </div>
+            <div class="about-feature">
+              <div class="icon">&#9733;</div>
+              <div class="feat-text"><div class="title">We Handle Everything</div><div class="desc">Setup, permits, firewood, and full cleanup every time</div></div>
+            </div>
+            <div class="about-feature">
+              <div class="icon">&#9737;</div>
+              <div class="feat-text"><div class="title">All Are Welcome</div><div class="desc">Couples, families, and big groups &mdash; everyone belongs around the fire</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BONFIRE PACKAGES -->
+  <section class="pricing-section" id="bonfire-packages">
+    <div class="container">
+      <div class="pricing-header">
+        <span class="section-label">Beach Bonfire Packages</span>
+        <h2 class="section-title" style="color:var(--white);">Inspired by <em>the Legend himself</em></h2>
+      </div>
+      <p class="pricing-tagline">Let's get together and feeeeel alright!</p>
+      <p class="pricing-disclaimer">Listed price does not include tax, processing, or gratuity.</p>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <div class="pricing-name">"One Love"</div>
+          <div class="pricing-sub">Date night for two &mdash; couples only</div>
+          <div class="pricing-price"><sup>$</sup>469</div>
+          <div class="pricing-note">Add Roses &mdash; +$60</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li><span class="ck">&#10003;</span>2-hour fire</li>
+            <li><span class="ck">&#10003;</span>2 chairs</li>
+            <li><span class="ck">&#10003;</span>Tiki torches</li>
+            <li><span class="ck">&#10003;</span>Side table</li>
+            <li><span class="ck">&#10003;</span>S'mores for 2</li>
+            <li><span class="ck">&#10003;</span>Roasting sticks</li>
+            <li><span class="ck">&#10003;</span>Bluetooth speaker</li>
+            <li><span class="ck">&#10003;</span>Setup, breakdown &amp; cleanup</li>
+            <li><span class="ck">&#10003;</span>Beach bonfire permit</li>
+          </ul>
+          <a href="#booking" class="btn btn-outline pricing-cta">Book One Love</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-name">"High Tide or Low Tide"</div>
+          <div class="pricing-sub">Families &amp; small groups</div>
+          <div class="pricing-price"><sup>$</sup>569</div>
+          <div class="pricing-note">&nbsp;</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li><span class="ck">&#10003;</span>2-hour fire</li>
+            <li><span class="ck">&#10003;</span>Up to 8 chairs</li>
+            <li><span class="ck">&#10003;</span>Tiki torches</li>
+            <li><span class="ck">&#10003;</span>Side table</li>
+            <li><span class="ck">&#10003;</span>S'mores for up to 8</li>
+            <li><span class="ck">&#10003;</span>Roasting sticks</li>
+            <li><span class="ck">&#10003;</span>Bluetooth speaker</li>
+            <li><span class="ck">&#10003;</span>Setup, breakdown &amp; cleanup</li>
+            <li><span class="ck">&#10003;</span>Beach bonfire permit</li>
+          </ul>
+          <a href="#booking" class="btn btn-outline pricing-cta">Book High Tide</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-name">"Three Little Birds"</div>
+          <div class="pricing-sub">Mid-size gatherings &amp; celebrations</div>
+          <div class="pricing-price"><sup>$</sup>669</div>
+          <div class="pricing-note">Parties over 30: additional permitting fees apply</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li><span class="ck">&#10003;</span>3-hour fire</li>
+            <li><span class="ck">&#10003;</span>Up to 12 chairs</li>
+            <li><span class="ck">&#10003;</span>Tiki torches</li>
+            <li><span class="ck">&#10003;</span>6ft table</li>
+            <li><span class="ck">&#10003;</span>S'mores for up to 12</li>
+            <li><span class="ck">&#10003;</span>Roasting sticks</li>
+            <li><span class="ck">&#10003;</span>Bluetooth speaker</li>
+            <li><span class="ck">&#10003;</span>Sparklers</li>
+            <li><span class="ck">&#10003;</span>Chalkboard greeting upon request</li>
+            <li><span class="ck">&#10003;</span>Setup, breakdown &amp; cleanup</li>
+            <li><span class="ck">&#10003;</span>Beach bonfire permit</li>
+          </ul>
+          <a href="#booking" class="btn btn-outline pricing-cta">Book Three Little Birds</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-name">"Roots, Rock, Reggae"</div>
+          <div class="pricing-sub">Large groups &amp; big nights</div>
+          <div class="pricing-price"><sup>$</sup>869</div>
+          <div class="pricing-note">Parties over 30: additional permitting fees apply</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li><span class="ck">&#10003;</span>3-hour fire</li>
+            <li><span class="ck">&#10003;</span>Up to 20 chairs</li>
+            <li><span class="ck">&#10003;</span>Tiki torches</li>
+            <li><span class="ck">&#10003;</span>(2) 6ft tables</li>
+            <li><span class="ck">&#10003;</span>S'mores for up to 20</li>
+            <li><span class="ck">&#10003;</span>Roasting sticks</li>
+            <li><span class="ck">&#10003;</span>Large Bluetooth speaker</li>
+            <li><span class="ck">&#10003;</span>Sparklers</li>
+            <li><span class="ck">&#10003;</span>1 set of cornhole</li>
+            <li><span class="ck">&#10003;</span>Chalkboard greeting upon request</li>
+            <li><span class="ck">&#10003;</span>Setup, breakdown &amp; cleanup</li>
+            <li><span class="ck">&#10003;</span>Beach bonfire permit</li>
+          </ul>
+          <a href="#booking" class="btn btn-outline pricing-cta">Book Roots, Rock, Reggae</a>
+        </div>
+
+      </div>
+
+      <div class="social-fire-note">
+        <h4>Social Fire &mdash; Select Hotel Locations Only</h4>
+        <div class="sfprice">$45 <span style="font-size:1rem;font-weight:300;color:rgba(255,255,255,0.55);">per person</span></div>
+        <p>Available at select hotel properties only. A shared community fire experience for resort guests. Contact us to confirm your hotel is on our list, and mention your property in the booking form above.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEACH PICNICS -->
+  <section class="picnics-section" id="picnics-section">
+    <div class="container">
+      <div class="two-col">
+        <img
+          class="two-col-img"
+          src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=900&q=80"
+          alt="Styled beach picnic setup on the Florida coast"
+        />
+        <div class="two-col-text">
+          <span class="section-label">Beach Picnics</span>
+          <h2 class="section-title">A little slice of <em>paradise</em>, styled just for you</h2>
+          <p class="section-subtitle">Our beach picnics are designed and set up by the LMU team from start to finish, so all you have to do is show up and enjoy. Whether it is a romantic evening for two, a birthday out on the sand, or a family gathering, we create a beautiful and personalized setup right at the water's edge.</p>
+          <p class="section-subtitle" style="margin-top:12px;">We work with coordinated linens, low seating, candles, florals, charcuterie, and more. Every detail is handled &mdash; setup and cleanup always included.</p>
+          <a href="#booking" class="btn btn-primary" style="margin-top:28px;">Explore Picnic Packages</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEACH CHAIRS -->
+  <section class="chairs-section" id="chairs-section">
+    <div class="container">
+      <div class="two-col">
+        <div class="two-col-text">
+          <span class="section-label">Beach Chairs &amp; Umbrellas</span>
+          <h2 class="section-title">Everything you need for a <em>perfect beach day</em></h2>
+          <p class="section-subtitle">Skip the hassle of hauling gear down to the water. We deliver, set up, and pick up your beach chairs and umbrella right at your spot, so you can walk straight out and relax from the moment you hit the sand.</p>
+          <p class="section-subtitle" style="margin-top:12px;">Available as a standalone rental or as an add-on to any bonfire or picnic package. Perfect for families and groups staying anywhere along 30A, Panama City Beach, or Destin who want a simple, easy beach day.</p>
+          <a href="#booking" class="btn btn-primary" style="margin-top:28px;">Reserve Beach Chairs</a>
+        </div>
+        <img
+          class="two-col-img"
+          src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=900&q=80"
+          alt="Beach chairs and umbrella set up on a Florida beach"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="locations-section" id="locations">
+    <div class="container">
+      <div class="locations-header">
+        <span class="section-label">Where We Serve</span>
+        <h2 class="section-title">Florida's most <em>beautiful</em> shores</h2>
+        <p class="section-subtitle" style="margin:13px auto 0;">From Panama City Beach all the way to Destin &mdash; we've got the whole Emerald Coast covered.</p>
+      </div>
+      <div class="locations-grid">
+        <div class="location-card">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="30A" />
+          <div class="location-overlay">
+            <div class="location-name">30A</div>
+            <div class="location-detail">Seaside &middot; Rosemary &middot; Alys &middot; WaterColor</div>
+          </div>
+        </div>
+        <div class="location-card">
+          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80" alt="Bay County" />
+          <div class="location-overlay">
+            <div class="location-name">Bay County</div>
+            <div class="location-detail">Panama City Beach &middot; Mexico Beach</div>
+          </div>
+        </div>
+        <div class="location-card">
+          <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&q=80" alt="Walton County" />
+          <div class="location-overlay">
+            <div class="location-name">Walton County</div>
+            <div class="location-detail">Miramar Beach &middot; Dune Allen &middot; Inlet Beach</div>
+          </div>
+        </div>
+        <div class="location-card">
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80" alt="Destin and Hotels" />
+          <div class="location-overlay">
+            <div class="location-name">Destin &amp; Hotels</div>
+            <div class="location-detail">Destin, FL &middot; Select Hotel Properties</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:44px;">
+        <span class="section-label">FAQ &amp; Policies</span>
+        <h2 class="section-title">Good to <em>know</em></h2>
+      </div>
+      <div class="faq-inner">
+        <details class="faq-item">
+          <summary>What is your cancellation policy? <span class="plus">+</span></summary>
+          <p>Cancellations made 72 or more hours in advance receive a full refund. Within 48 hours, a 50% credit is issued toward a future booking. Cancellations within 24 hours are non-refundable, but we are always happy to work with you on rescheduling when possible.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if there is bad weather? <span class="plus">+</span></summary>
+          <p>Safety always comes first. If weather conditions prevent a safe bonfire &mdash; high winds, lightning, or a red-flag beach day &mdash; we will work with you to find a new date at no extra charge. We monitor conditions closely and will reach out as early as possible.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How far in advance should I book? <span class="plus">+</span></summary>
+          <p>We recommend booking at least 3 to 5 days in advance, especially during peak season from June through August. Last-minute requests are sometimes possible &mdash; just reach out and we will do our best to make it happen.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you handle all the permits? <span class="plus">+</span></summary>
+          <p>Every package includes the beach bonfire permit for your location. We take care of all required county and local permits so you do not have to think about it. Just show up and enjoy the fire.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to bring anything? <span class="plus">+</span></summary>
+          <p>Not a thing. Everything you need is included in your package. We arrive before you, set everything up, and clean up afterward. All you need to bring is yourself and the people you love.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What add-ons are available? <span class="plus">+</span></summary>
+          <p>You can add roses for the One Love package, extra chairs, beach umbrellas, chalkboard signs, sparklers, cornhole, photography sessions, and floral arrangements. You can select your add-ons when you fill out the booking form above.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <div class="container cta-content">
+      <span class="section-label">Ready to Get Started?</span>
+      <h2 class="cta-title">Make tonight <em>unforgettable</em></h2>
+      <p class="cta-sub">Whether it's a quiet night for two or a big family gathering, we're ready to make it a night nobody forgets. See you on the beach.</p>
+      <div class="cta-actions">
+        <a href="#booking" class="btn btn-white">Book Your Experience</a>
+        <a href="mailto:hello@lightmeupbonfires.com" class="btn btn-outline-white">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-name">Light Me <span>Up</span> Beach Bonfires</div>
+          <div class="tagline">Family Owned &amp; Operated &middot; Est. 2015</div>
+          <p>One of the first beach bonfire companies on the Emerald Coast, serving Panama City Beach, 30A, and Destin since 2015. We look forward to seeing you and your family on the beach.</p>
+          <div class="footer-actions">
+            <a href="#booking" class="btn btn-primary">Book Now</a>
+            <a href="mailto:hello@lightmeupbonfires.com" class="btn btn-outline">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#bonfire-packages">Beach Bonfires</a></li>
+            <li><a href="#chairs-section">Beach Chairs &amp; Umbrellas</a></li>
+            <li><a href="#picnics-section">Beach Picnics</a></li>
+            <li><a href="#booking">Event Planning</a></li>
+            <li><a href="#faq">FAQ &amp; Policies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Follow Along</h4>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+          <div style="margin-top:26px;">
+            <h4>Contact</h4>
+            <p style="font-size:0.86rem;color:rgba(255,255,255,0.50);font-weight:300;line-height:1.72;">
+              hello@lightmeupbonfires.com<br/>
+              (850) 555-FIRE<br/>
+              Panama City Beach to Destin, FL
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Light Me Up Beach Bonfires. All rights reserved.</p>
+        <p style="font-size:0.70rem;color:rgba(255,255,255,0.18);">Family Owned &amp; Operated &middot; Bay County &middot; Walton County &middot; 30A &middot; Destin</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* STICKY HEADER */
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
+
+    /* MOBILE NAV */
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    navToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+    /* SCROLL TO BOOKING from pricing CTAs */
+    document.querySelectorAll('.pricing-cta').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    /* FORM LOGIC */
+    function updateProgress(step) {
+      document.querySelectorAll('.progress-step').forEach((el, i) => {
+        el.classList.remove('active', 'completed');
+        if (i + 1 < step) el.classList.add('completed');
+        if (i + 1 === step) el.classList.add('active');
+      });
+    }
+
+    function showStep(step) {
+      document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById('step-' + step);
+      if (target) target.classList.add('active');
+      updateProgress(step);
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function nextStep(from) {
+      if (from === 1) {
+        const name  = document.getElementById('f-name').value.trim();
+        const email = document.getElementById('f-email').value.trim();
+        const phone = document.getElementById('f-phone').value.trim();
+        if (!name || !email || !phone) { alert('Please fill in all required fields.'); return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+      }
+      if (from === 2) {
+        const cat = document.querySelector('input[name="service-cat"]:checked');
+        if (!cat) { alert('Please select a service category.'); return; }
+        const pkg = document.querySelector('input[name="sub-pkg"]:checked');
+        if (!pkg) { alert('Please select a specific package.'); return; }
+        const date1 = document.getElementById('f-date1').value;
+        if (!date1) { alert('Please enter at least one preferred date.'); return; }
+        const guests = document.getElementById('f-guests').value.trim();
+        if (!guests || isNaN(guests) || parseInt(guests) < 1) { alert('Please enter the number of guests.'); return; }
+      }
+      if (from === 3) {
+        const loc = document.getElementById('f-location').value;
+        if (!loc) { alert('Please select a beach or bonfire location.'); return; }
+      }
+      if (from < 4) showStep(from + 1);
+    }
+
+    function prevStep(from) {
+      if (from > 1) showStep(from - 1);
+    }
+
+    function selectService(card, type) {
+      document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      // Hide all sub-panels and clear selections
+      document.querySelectorAll('.sub-package-wrap').forEach(p => p.classList.remove('visible'));
+      document.querySelectorAll('input[name="sub-pkg"]').forEach(r => r.checked = false);
+      document.querySelectorAll('.sub-pkg').forEach(p => p.classList.remove('selected'));
+      // Show relevant panel
+      const panelMap = { bonfire: 'sub-bonfire', picnic: 'sub-picnic', 'bonfire-picnic': 'sub-bonfire-picnic', hotel: 'sub-hotel' };
+      const panelId = panelMap[type];
+      if (panelId) document.getElementById(panelId).classList.add('visible');
+    }
+
+    function selectSubPkg(card) {
+      document.querySelectorAll('.sub-pkg').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+    }
+
+    function submitForm() {
+      if (!document.getElementById('f-policy').checked) {
+        alert('Please agree to our policies to continue.');
+        return;
+      }
+      document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+      document.getElementById('success-msg').classList.add('show');
+      document.querySelector('.progress-bar-wrap').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
