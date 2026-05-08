@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Fire — Rosemary Beach Inn | Light Me Up Beach Bonfires</title>
+  <meta name="description" content="Book a Social Fire at Rosemary Beach Inn on 30A. Private beach bonfire experience by Light Me Up Beach Bonfires." />
+  <style>
+    :root {
+      --flame:      #C8562A;
+      --ember:      #A83E18;
+      --sunset:     #E08050;
+      --golden:     #D4A84B;
+      --sand:       #F2E8D5;
+      --cream:      #FAF5EC;
+      --warm-white: #FFFDF8;
+      --blush:      #E8B89A;
+      --ocean:      #5A96A8;
+      --dusk:       #28303A;
+      --text-dark:  #1C2228;
+      --text-mid:   #48545E;
+      --text-light: #8A9098;
+      --white:      #FFFFFF;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body:    'Jost', sans-serif;
+      --radius-sm: 6px; --radius-md: 12px; --radius-lg: 24px; --radius-pill: 999px;
+      --shadow-soft: 0 6px 32px rgba(28,34,40,0.10);
+      --shadow-warm: 0 4px 24px rgba(200,86,42,0.18);
+      --transition: 0.30s cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);background:var(--cream);color:var(--text-dark);line-height:1.72;overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    ul{list-style:none;}
+    img{max-width:100%;display:block;}
+    button,input,select,textarea{font-family:inherit;}
+    .container{max-width:1160px;margin:0 auto;padding:0 28px;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 32px;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:500;font-size:0.84rem;letter-spacing:0.09em;text-transform:uppercase;cursor:pointer;transition:var(--transition);border:none;}
+    .btn-primary{background:var(--flame);color:var(--white);box-shadow:var(--shadow-warm);}
+    .btn-primary:hover{background:var(--ember);transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,86,42,0.32);}
+    .btn-outline{background:transparent;color:var(--flame);border:1.5px solid var(--flame);}
+    .btn-outline:hover{background:var(--flame);color:var(--white);transform:translateY(-2px);}
+    .btn-ghost{background:rgba(255,255,255,0.14);color:var(--white);border:1.5px solid rgba(255,255,255,0.46);backdrop-filter:blur(8px);}
+    .btn-ghost:hover{background:var(--white);color:var(--flame);}
+    .section-label{font-family:var(--font-body);font-size:0.72rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--flame);display:block;margin-bottom:10px;}
+    .section-title{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,3rem);font-weight:400;line-height:1.14;color:var(--text-dark);}
+    .section-title em{font-style:italic;color:var(--flame);}
+
+    /* LOGO BANNER */
+    .logo-banner{background:var(--warm-white);text-align:center;padding:26px 28px 18px;border-bottom:1px solid rgba(200,86,42,0.13);}
+    .logo-banner img.logo-img{height:100px;width:auto;margin:0 auto 6px;display:block;object-fit:contain;}
+    .logo-banner .logo-fallback{font-family:var(--font-display);font-size:clamp(1.5rem,3.5vw,2.3rem);font-weight:400;color:var(--text-dark);}
+    .logo-banner .logo-fallback span{color:var(--flame);font-style:italic;}
+    .logo-banner .logo-tagline{font-family:var(--font-display);font-style:italic;font-size:clamp(0.95rem,2vw,1.2rem);color:var(--text-mid);margin-top:4px;}
+    .logo-banner .logo-est{font-size:0.66rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-light);margin-top:3px;}
+
+    /* HEADER */
+    .site-header{position:sticky;top:0;z-index:1000;background:rgba(250,245,236,0.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,86,42,0.13);transition:box-shadow var(--transition);}
+    .site-header.scrolled{box-shadow:0 3px 24px rgba(28,34,40,0.10);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:13px 28px;max-width:1280px;margin:0 auto;gap:16px;}
+    .header-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;flex:1;}
+    .header-nav a{font-size:0.80rem;font-weight:500;letter-spacing:0.06em;color:var(--text-mid);padding:7px 12px;border-radius:var(--radius-pill);transition:var(--transition);white-space:nowrap;}
+    .header-nav a:hover{color:var(--flame);background:rgba(200,86,42,0.07);}
+    .header-nav a.active{color:var(--flame);background:rgba(200,86,42,0.09);font-weight:600;}
+    .header-actions{flex-shrink:0;}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:transparent;}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--text-dark);border-radius:2px;transition:var(--transition);}
+    .mobile-nav{display:none;flex-direction:column;background:var(--warm-white);border-top:1px solid rgba(200,86,42,0.10);padding:14px 28px 18px;gap:4px;}
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{font-size:0.9rem;font-weight:500;color:var(--text-mid);padding:10px 0;border-bottom:1px solid rgba(200,86,42,0.07);transition:color var(--transition);}
+    .mobile-nav a:hover{color:var(--flame);}
+    .mobile-nav .btn{margin-top:12px;justify-content:center;width:100%;}
+
+    /* HERO */
+    .hero{position:relative;min-height:72vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,34,40,0.10) 0%,rgba(28,34,40,0.48) 60%,rgba(28,34,40,0.78) 100%),url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1800&q=80') center/cover no-repeat;z-index:0;}
+    .hero-content{position:relative;z-index:1;text-align:center;padding:60px 28px;max-width:760px;}
+    .hero-eyebrow{font-family:var(--font-body);font-size:0.72rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--golden);display:block;margin-bottom:16px;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,5rem);font-weight:300;color:var(--white);line-height:1.08;margin-bottom:18px;opacity:0;animation:fadeUp 0.9s 0.38s forwards;}
+    .hero-title em{font-style:italic;color:var(--golden);display:block;}
+    .hero-sub{font-size:0.97rem;color:rgba(255,255,255,0.78);font-weight:300;margin-bottom:36px;opacity:0;animation:fadeUp 0.9s 0.55s forwards;}
+    .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 0.9s 0.70s forwards;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+    /* MAIN CONTENT */
+    .info-section{background:var(--warm-white);padding:80px 0;}
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;max-width:960px;margin:0 auto;}
+    .info-text h2{font-family:var(--font-display);font-size:clamp(1.7rem,3.2vw,2.6rem);font-weight:400;color:var(--text-dark);margin-bottom:16px;line-height:1.18;}
+    .info-text h2 em{font-style:italic;color:var(--flame);}
+    .info-text p{font-size:0.92rem;color:var(--text-mid);font-weight:300;line-height:1.78;margin-bottom:14px;}
+    .includes-list{display:flex;flex-direction:column;gap:10px;margin:22px 0 28px;}
+    .includes-list li{display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--text-mid);}
+    .includes-list li .ck{color:var(--flame);font-size:1rem;flex-shrink:0;}
+
+    /* QR SECTION */
+    .qr-card{background:var(--cream);border:1.5px solid rgba(200,86,42,0.16);border-radius:var(--radius-lg);padding:36px 30px;text-align:center;}
+    .qr-placeholder{width:180px;height:180px;background:var(--sand);border:2px dashed rgba(200,86,42,0.30);border-radius:var(--radius-md);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;}
+    .qr-placeholder span{font-size:0.74rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);}
+    .qr-card h3{font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--text-dark);margin-bottom:8px;}
+    .qr-card p{font-size:0.84rem;color:var(--text-mid);font-weight:300;line-height:1.65;}
+
+    /* FOOTER */
+    .site-footer{background:var(--text-dark);padding:68px 0 34px;}
+    .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:56px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:32px;}
+    .footer-brand .brand-name{font-family:var(--font-display);font-size:1.45rem;font-weight:400;color:var(--white);margin-bottom:3px;}
+    .footer-brand .brand-name span{color:var(--golden);font-style:italic;}
+    .footer-brand .tagline{font-size:0.70rem;letter-spacing:0.20em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:18px;}
+    .footer-brand p{font-size:0.86rem;color:rgba(255,255,255,0.46);line-height:1.72;margin-bottom:22px;font-weight:300;}
+    .footer-actions{display:flex;gap:10px;flex-wrap:wrap;}
+    .footer-col h4{font-size:0.70rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.36);margin-bottom:16px;}
+    .footer-col ul li{margin-bottom:9px;}
+    .footer-col ul li a{font-size:0.86rem;color:rgba(255,255,255,0.58);transition:color var(--transition);}
+    .footer-col ul li a:hover{color:var(--golden);}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+    .footer-bottom p{font-size:0.76rem;color:rgba(255,255,255,0.26);}
+    .btn-outline-footer{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.30);}
+
+    @media(max-width:768px){
+      .header-nav,.header-actions{display:none;}
+      .nav-toggle{display:flex;}
+      .info-grid{grid-template-columns:1fr;}
+      .footer-top{grid-template-columns:1fr;gap:32px;}
+      .footer-bottom{flex-direction:column;text-align:center;}
+    }
+  </style>
+  <link rel="stylesheet" href="lmu-design.css" />
+</head>
+<body>
+
+  <!-- LOGO BANNER -->
+  <div class="logo-banner">
+    <img class="logo-img" src="lmu-logo.webp" alt="Light Me Up Beach Bonfires"
+      onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';" />
+    <div class="logo-fallback" id="logo-fallback">Light Me <span>Up</span> Beach Bonfires</div>
+    <div class="logo-tagline">"Let us light up your night!"</div>
+    <div class="logo-est">Est. 2015</div>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <nav class="header-nav">
+        <a href="beach-bonfire.html">Beach Bonfires</a>
+        <a href="social-fires.html" class="active">Social Fires</a>
+        <a href="beach-picnics.html">Beach Picnics</a>
+        <a href="beach-chairs.html">Beach Chairs &amp; Umbrellas</a>
+        <a href="event-planning.html">Event Planning</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#book" class="btn btn-primary">Book Now</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="beach-bonfire.html">Beach Bonfires</a>
+      <a href="social-fires.html">Social Fires</a>
+      <a href="beach-picnics.html">Beach Picnics</a>
+      <a href="beach-chairs.html">Beach Chairs &amp; Umbrellas</a>
+      <a href="event-planning.html">Event Planning</a>
+      <a href="faq.html">FAQ</a>
+      <a href="#book" class="btn btn-primary">Book Now</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Social Fire &mdash; 30A &middot; Rosemary Beach</span>
+      <h1 class="hero-title">
+        Rosemary Beach Inn
+        <em>Social Fire</em>
+      </h1>
+      <p class="hero-sub">An intimate beach bonfire in one of 30A's most beautiful communities — set up steps from the Gulf by the LMU team.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn btn-primary">Reserve Your Spot</a>
+        <a href="social-fires.html" class="btn btn-ghost">Back to Social Fires</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO + QR -->
+  <section class="info-section" id="book">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-text">
+          <span class="section-label">Rosemary Beach Inn &mdash; 30A</span>
+          <h2>Fire &amp; charm in <em>Rosemary Beach</em></h2>
+          <p>The stunning coastal architecture and quiet beach access at Rosemary Beach make it the perfect setting for an intimate Social Fire. One of 30A's most beloved communities, now with a bonfire included.</p>
+          <p>Everything is handled: permits, setup, the fire, chairs, tiki torches, s'mores, and cleanup. You just walk out and enjoy the evening.</p>
+          <ul class="includes-list">
+            <li><span class="ck">&#10003;</span> Private beach access bonfire at Rosemary Beach</li>
+            <li><span class="ck">&#10003;</span> Beach chairs &amp; tiki torches</li>
+            <li><span class="ck">&#10003;</span> S'mores kit for the whole group</li>
+            <li><span class="ck">&#10003;</span> Full LMU setup &amp; breakdown</li>
+            <li><span class="ck">&#10003;</span> All permits handled by LMU</li>
+          </ul>
+          <a href="social-fires.html" class="btn btn-outline" style="margin-top:4px;">View All Social Fire Hotels</a>
+        </div>
+
+        <div class="qr-card">
+          <div class="qr-placeholder">
+            <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="rgba(200,86,42,0.35)" stroke-width="1.2">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h2v2h-2zM18 14h3v3h-3zM14 18h2v3h-2zM18 20h3"/>
+            </svg>
+            <span>QR Code</span>
+            <span>Coming Soon</span>
+          </div>
+          <h3>Scan to Book</h3>
+          <p>Scan the QR code above to reserve your Social Fire spot at Rosemary Beach Inn. Spots are limited — book early to secure your date!</p>
+          <p style="margin-top:14px;font-size:0.80rem;color:var(--text-light);">Questions? Call us at <strong style="color:var(--text-dark);">850-381-9452</strong> or email <strong style="color:var(--text-dark);">hello@lightmeupbonfires.com</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-name">Light Me <span>Up</span> Beach Bonfires</div>
+          <div class="tagline">Family Owned &amp; Operated &middot; Est. 2015</div>
+          <p>One of the first beach bonfire companies on the Emerald Coast, serving Panama City Beach, Walton County, and 30A since 2015.</p>
+          <div class="footer-actions">
+            <a href="beach-bonfire.html#booking" class="btn btn-primary">Book Now</a>
+            <a href="mailto:hello@lightmeupbonfires.com" class="btn btn-outline-footer">Contact Us</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="beach-bonfire.html">Beach Bonfires</a></li>
+            <li><a href="social-fires.html">Social Fires</a></li>
+            <li><a href="beach-picnics.html">Beach Picnics</a></li>
+            <li><a href="beach-chairs.html">Beach Chairs &amp; Umbrellas</a></li>
+            <li><a href="event-planning.html">Event Planning</a></li>
+            <li><a href="faq.html">FAQ &amp; Policies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p style="font-size:0.86rem;color:rgba(255,255,255,0.50);font-weight:300;line-height:1.72;">
+            hello@lightmeupbonfires.com<br/>
+            (850) 555-FIRE<br/>
+            Panama City Beach to 30A
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Light Me Up Beach Bonfires. All rights reserved.</p>
+        <p style="font-size:0.70rem;color:rgba(255,255,255,0.18);">Family Owned &amp; Operated &middot; Bay County &middot; Walton County &middot; 30A</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    navToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+  </script>
+</body>
+</html>
