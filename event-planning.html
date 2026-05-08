@@ -79,7 +79,7 @@
 
     /* HERO */
     .hero{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-    .hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,34,40,0.18) 0%,rgba(28,34,40,0.48) 55%,rgba(28,34,40,0.74) 100%),url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1800&q=80') center/cover no-repeat;z-index:0;}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,34,40,0.18) 0%,rgba(28,34,40,0.48) 55%,rgba(28,34,40,0.74) 100%),url('https://www.dropbox.com/scl/fi/raes6yyncnth21xhdeqx9/IMG_6610.webp?rlkey=60d9jy2v8wnq5qs0c6xjdilvw&st=gtn9qr7y&raw=1') center/cover no-repeat;z-index:0;}
     .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(200,86,42,0.12) 0%,transparent 55%);}
     .hero-content{position:relative;z-index:1;text-align:center;padding:60px 28px;max-width:820px;}
     .hero-eyebrow{font-family:var(--font-body);font-size:0.72rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--golden);display:block;margin-bottom:20px;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
@@ -216,6 +216,7 @@
 
     /* RESPONSIVE */
     @media(max-width:1024px){
+      .occasions-two-col{grid-template-columns:1fr!important;}
       .occasions-grid{grid-template-columns:1fr 1fr;}
       .what-grid{grid-template-columns:1fr;gap:44px;}
       .what-img{height:380px;}
@@ -244,6 +245,23 @@
       .process-steps{grid-template-columns:1fr;}
       .includes-grid{grid-template-columns:1fr;}
     }
+    .lg-overlay{position:fixed;inset:0;background:rgba(28,34,40,0.60);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px;}
+    .lg-overlay.open{display:flex;}
+    .lg-modal{background:var(--warm-white);border-radius:var(--radius-lg);box-shadow:0 24px 80px rgba(28,34,40,0.32);max-width:500px;width:100%;position:relative;overflow:hidden;}
+    .lg-modal-img{width:100%;height:210px;object-fit:cover;display:block;}
+    .lg-modal-body{padding:26px 28px 30px;}
+    .lg-caption{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean);margin-bottom:9px;}
+    .lg-modal-title{font-family:var(--font-display);font-size:1.55rem;font-weight:400;color:var(--text-dark);line-height:1.2;margin-bottom:9px;}
+    .lg-modal-sub{font-size:0.88rem;color:var(--text-mid);margin-bottom:20px;line-height:1.65;font-weight:300;}
+    .lg-form{display:flex;gap:10px;flex-wrap:wrap;}
+    .lg-form input[type="email"]{flex:1;min-width:0;padding:12px 16px;border:1.5px solid #DDD5C5;border-radius:var(--radius-md);font-size:0.93rem;color:var(--text-dark);background:var(--cream);font-family:inherit;transition:border-color 0.2s;}
+    .lg-form input[type="email"]:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 3px rgba(200,86,42,0.11);}
+    .lg-close{position:absolute;top:10px;right:12px;background:rgba(28,34,40,0.45);border:none;color:#fff;width:28px;height:28px;border-radius:50%;font-size:0.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:2;}
+    .lg-close:hover{background:rgba(28,34,40,0.72);}
+    .lg-success{display:none;text-align:center;padding:16px 0 6px;}
+    .lg-success.show{display:block;}
+    .lg-form-wrap.hide{display:none;}
+    @media(max-width:480px){.lg-form{flex-direction:column;}.lg-modal-img{height:160px;}}
   </style>
   <link rel="stylesheet" href="lmu-design.css" />
 </head>
@@ -335,82 +353,46 @@
   <!-- OCCASIONS -->
   <section class="occasions-section">
     <div class="container">
-      <div class="occasions-header">
-        <span class="section-label">Events We Love to Create</span>
-        <h2 class="section-title">Every occasion <em>deserves the beach</em></h2>
-      </div>
-      <div class="occasions-grid">
+      <div class="occasions-two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
 
-        <div class="occasion-card">
-          <img class="occasion-card-img"
-            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80"
-            alt="Beach proposal at sunset"
-          />
-          <div class="occasion-card-body">
-            <div class="occasion-icon">&#128141;</div>
-            <div class="occasion-name">Proposals</div>
-            <p class="occasion-desc">The most important question of your life deserves the most beautiful backdrop. We&rsquo;ll set the scene perfectly — down to the last petal — before you arrive.</p>
-          </div>
+        <!-- LEFT: 4-photo collage -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <img src="https://www.dropbox.com/scl/fi/uuozwvjq21zr2vzunbz6b/IMG_7884_Original.webp?rlkey=r9hx8d2m2hunpko0gnnulnuvu&st=ft1ywmnc&raw=1" alt="Beach event" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block;" />
+          <img src="https://www.dropbox.com/scl/fi/78jsi1fi8t5gva7n7cl9k/IMG_8891_Original.webp?rlkey=oap0uqzkklonn6wn8nirc36m2&st=idujwvg6&raw=1" alt="Beach event" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block;margin-top:32px;" />
+          <img src="https://www.dropbox.com/scl/fi/6urenq4m7q5it66a7v8ao/IMG_9917_Original.webp?rlkey=5py4nwbznqbx4rjzoo7eqekri&st=qkq2hiay&raw=1" alt="Beach event" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block;" />
+          <img src="https://www.dropbox.com/scl/fi/jceakbm13egirdrnfacv4/IMG_9981.webp?rlkey=7j6tkndifbchrw1pl5xi3bsat&st=fbi1smg8&raw=1" alt="Beach event" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block;margin-top:32px;" />
         </div>
 
-        <div class="occasion-card">
-          <img class="occasion-card-img"
-            src="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=600&q=80"
-            alt="Intimate beach wedding"
-          />
-          <div class="occasion-card-body">
-            <div class="occasion-icon">&#9825;</div>
-            <div class="occasion-name">Beach Weddings</div>
-            <p class="occasion-desc">Intimate ceremonies and receptions on the sand, designed and executed by the LMU team. Let us help you plan the ceremony you&rsquo;ve always imagined.</p>
-          </div>
-        </div>
-
-        <div class="occasion-card">
-          <img class="occasion-card-img"
-            src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&q=80"
-            alt="Birthday celebration on the beach"
-          />
-          <div class="occasion-card-body">
-            <div class="occasion-icon">&#127881;</div>
-            <div class="occasion-name">Milestone Birthdays</div>
-            <p class="occasion-desc">A milestone birthday calls for a beach night no one forgets. We&rsquo;ll build it around the guest of honor and make sure every detail is just right.</p>
-          </div>
-        </div>
-
-        <div class="occasion-card">
-          <img class="occasion-card-img"
-            src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=600&q=80"
-            alt="Bachelorette party on the beach"
-          />
-          <div class="occasion-card-body">
-            <div class="occasion-icon">&#127885;</div>
-            <div class="occasion-name">Bachelorette &amp; Bachelor</div>
-            <p class="occasion-desc">The last night of freedom should be unforgettable. We&rsquo;ll set up a gorgeous beach experience that&rsquo;s as beautiful as it is fun.</p>
-          </div>
-        </div>
-
-        <div class="occasion-card">
-          <img class="occasion-card-img"
-            src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80"
-            alt="Corporate team event on the beach"
-          />
-          <div class="occasion-card-body">
-            <div class="occasion-icon">&#128203;</div>
-            <div class="occasion-name">Corporate Events</div>
-            <p class="occasion-desc">Team retreats, client appreciation events, and company celebrations &mdash; we create memorable outdoor experiences that bring people together.</p>
-          </div>
-        </div>
-
-        <div class="occasion-card">
-          <img class="occasion-card-img"
-            src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=600&q=80"
-            alt="Family reunion beach gathering"
-          />
-          <div class="occasion-card-body">
-            <div class="occasion-icon">&#127963;</div>
-            <div class="occasion-name">Family Reunions &amp; Gatherings</div>
-            <p class="occasion-desc">Bring the whole family together around the fire and under the stars. We handle the setup and cleanup &mdash; you make the memories.</p>
-          </div>
+        <!-- RIGHT: header + bulleted list -->
+        <div style="padding-top:16px;">
+          <span class="section-label">Events We Love to Create</span>
+          <h2 class="section-title" style="margin-bottom:32px;">Every occasion <em>deserves the beach</em></h2>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0;">
+            <li style="padding:18px 0;border-bottom:1px solid rgba(200,86,42,0.10);display:flex;align-items:baseline;gap:16px;">
+              <span style="width:28px;height:1px;background:var(--flame);display:inline-block;flex-shrink:0;position:relative;top:-4px;"></span>
+              <span style="font-family:var(--font-display);font-size:1.45rem;font-style:italic;color:var(--text-dark);font-weight:300;">Proposals</span>
+            </li>
+            <li style="padding:18px 0;border-bottom:1px solid rgba(200,86,42,0.10);display:flex;align-items:baseline;gap:16px;">
+              <span style="width:28px;height:1px;background:var(--flame);display:inline-block;flex-shrink:0;position:relative;top:-4px;"></span>
+              <span style="font-family:var(--font-display);font-size:1.45rem;font-style:italic;color:var(--text-dark);font-weight:300;">Beach Weddings</span>
+            </li>
+            <li style="padding:18px 0;border-bottom:1px solid rgba(200,86,42,0.10);display:flex;align-items:baseline;gap:16px;">
+              <span style="width:28px;height:1px;background:var(--flame);display:inline-block;flex-shrink:0;position:relative;top:-4px;"></span>
+              <span style="font-family:var(--font-display);font-size:1.45rem;font-style:italic;color:var(--text-dark);font-weight:300;">Milestone Birthdays</span>
+            </li>
+            <li style="padding:18px 0;border-bottom:1px solid rgba(200,86,42,0.10);display:flex;align-items:baseline;gap:16px;">
+              <span style="width:28px;height:1px;background:var(--flame);display:inline-block;flex-shrink:0;position:relative;top:-4px;"></span>
+              <span style="font-family:var(--font-display);font-size:1.45rem;font-style:italic;color:var(--text-dark);font-weight:300;">Bachelorette &amp; Bachelor</span>
+            </li>
+            <li style="padding:18px 0;border-bottom:1px solid rgba(200,86,42,0.10);display:flex;align-items:baseline;gap:16px;">
+              <span style="width:28px;height:1px;background:var(--flame);display:inline-block;flex-shrink:0;position:relative;top:-4px;"></span>
+              <span style="font-family:var(--font-display);font-size:1.45rem;font-style:italic;color:var(--text-dark);font-weight:300;">Corporate Events</span>
+            </li>
+            <li style="padding:18px 0;display:flex;align-items:baseline;gap:16px;">
+              <span style="width:28px;height:1px;background:var(--flame);display:inline-block;flex-shrink:0;position:relative;top:-4px;"></span>
+              <span style="font-family:var(--font-display);font-size:1.45rem;font-style:italic;color:var(--text-dark);font-weight:300;">Family Reunions &amp; Gatherings</span>
+            </li>
+          </ul>
         </div>
 
       </div>
@@ -418,59 +400,6 @@
   </section>
 
   <!-- WHAT WE DO -->
-  <section class="what-section" id="what-we-do">
-    <div class="container">
-      <div class="what-grid">
-        <img
-          class="what-img"
-          src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=900&q=80"
-          alt="LMU team setting up a beach event"
-        />
-        <div>
-          <span class="section-label">What We Offer</span>
-          <h2 class="section-title">Everything your event <em>needs</em></h2>
-          <p class="section-subtitle">We start with a conversation, then build the entire experience around your vision, your guests, and your moment.</p>
-          <div class="services-list">
-            <div class="service-item">
-              <div class="service-item-icon">&#9650;</div>
-              <div>
-                <div class="service-item-title">Beach Bonfires</div>
-                <div class="service-item-desc">From intimate date-night fires to large group celebrations — fully permitted, set up, and cleaned up for you.</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <div class="service-item-icon">&#127956;</div>
-              <div>
-                <div class="service-item-title">Styled Picnics &amp; Dining</div>
-                <div class="service-item-desc">Low-table setups, coordinated linens, florals, candles, and charcuterie — styled to your theme and palette.</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <div class="service-item-icon">&#128247;</div>
-              <div>
-                <div class="service-item-title">Photography Add-On</div>
-                <div class="service-item-desc">Add our partnered photographer Allie Way to capture every moment — from candid fire glow to posed portraits.</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <div class="service-item-icon">&#127881;</div>
-              <div>
-                <div class="service-item-title">Full Decor &amp; Theming</div>
-                <div class="service-item-desc">Custom welcome signs, florals, sparklers, glow packages, and more — all the details that make a night feel special.</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <div class="service-item-icon">&#128203;</div>
-              <div>
-                <div class="service-item-title">Event Permitting</div>
-                <div class="service-item-desc">We handle all required county permits and special event permitting so you don&rsquo;t have to think about it.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- HOW IT WORKS -->
   <section class="process-section">
@@ -504,21 +433,6 @@
     </div>
   </section>
 
-  <!-- INCLUDES -->
-  <section class="includes-section">
-    <div class="includes-inner">
-      <span class="section-label">Always Covered</span>
-      <h2 class="section-title" style="color:var(--white);">What every event <em>includes</em></h2>
-      <div class="includes-grid">
-        <div class="include-tile"><div class="include-icon">&#128203;</div><div class="include-name">All Required Permits</div></div>
-        <div class="include-tile"><div class="include-icon">&#128119;</div><div class="include-name">Dedicated Event Staff</div></div>
-        <div class="include-tile"><div class="include-icon">&#9201;</div><div class="include-name">On-Time Setup</div></div>
-        <div class="include-tile"><div class="include-icon">&#128722;</div><div class="include-name">Full Cleanup</div></div>
-        <div class="include-tile"><div class="include-icon">&#128241;</div><div class="include-name">Direct Communication</div></div>
-        <div class="include-tile"><div class="include-icon">&#9829;</div><div class="include-name">10+ Years of Experience</div></div>
-      </div>
-    </div>
-  </section>
 
   <!-- BOOKING FORM -->
   <section class="booking-section" id="booking">

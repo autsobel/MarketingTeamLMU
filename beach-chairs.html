@@ -55,13 +55,22 @@
     .section-title em{font-style:italic;color:var(--flame);}
     .section-subtitle{font-size:0.97rem;color:var(--text-mid);max-width:520px;margin-top:13px;font-weight:300;}
 
+    /* BURN BAN BANNER */
+    .burn-ban-bar{background:#7a2818;color:#fff;font-size:0.80rem;font-weight:500;letter-spacing:0.04em;padding:10px 20px;display:none;align-items:center;justify-content:center;gap:10px;position:relative;z-index:1100;}
+    .burn-ban-bar.active{display:flex;}
+    .burn-ban-bar .burn-ban-text{line-height:1.4;text-align:center;}
+    .burn-ban-bar .burn-ban-close{background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:1.1rem;padding:2px 6px;margin-left:4px;flex-shrink:0;transition:color 0.2s;line-height:1;}
+    .burn-ban-bar .burn-ban-close:hover{color:#fff;}
+
     /* LOGO BANNER */
-    .logo-banner{background:var(--warm-white);text-align:center;padding:26px 28px 18px;border-bottom:1px solid rgba(200,86,42,0.13);}
-    .logo-banner img.logo-img{height:100px;width:auto;margin:0 auto 6px;display:block;object-fit:contain;}
-    .logo-banner .logo-fallback{font-family:var(--font-display);font-size:clamp(1.5rem,3.5vw,2.3rem);font-weight:400;color:var(--text-dark);}
+    .logo-banner{background:var(--warm-white);display:flex;align-items:center;gap:18px;padding:11px 28px;border-bottom:1px solid rgba(200,86,42,0.13);}
+    .logo-banner img.logo-img{height:58px;width:auto;margin:0;display:block;object-fit:contain;flex-shrink:0;}
+    .logo-banner-text{text-align:left;}
+    .logo-banner .logo-fallback{font-family:var(--font-display);font-size:clamp(1.05rem,2.5vw,1.55rem);font-weight:400;color:var(--text-dark);}
     .logo-banner .logo-fallback span{color:var(--flame);font-style:italic;}
-    .logo-banner .logo-tagline{font-family:var(--font-display);font-style:italic;font-size:clamp(0.95rem,2vw,1.2rem);color:var(--text-mid);margin-top:4px;}
-    .logo-banner .logo-est{font-size:0.66rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-light);margin-top:3px;}
+    .logo-banner .logo-tagline{font-family:var(--font-display);font-style:italic;font-size:0.88rem;color:var(--text-mid);margin-top:1px;}
+    .logo-banner .logo-est{font-size:0.60rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-light);margin-top:2px;}
+    @media(max-width:768px){.logo-banner{flex-direction:column;align-items:center;text-align:center;padding:22px 28px 16px;gap:6px;}.logo-banner img.logo-img{height:80px;}.logo-banner-text{text-align:center;}.logo-banner .logo-fallback{font-size:clamp(1.3rem,4vw,1.8rem);}}
 
     /* HEADER */
     .site-header{position:sticky;top:0;z-index:1000;background:rgba(250,245,236,0.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,86,42,0.13);transition:box-shadow var(--transition);}
@@ -82,7 +91,7 @@
 
     /* HERO */
     .hero{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-    .hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,34,40,0.12) 0%,rgba(28,34,40,0.44) 55%,rgba(28,34,40,0.70) 100%),url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1800&q=80') center/cover no-repeat;z-index:0;}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,34,40,0.12) 0%,rgba(28,34,40,0.44) 55%,rgba(28,34,40,0.70) 100%),url('https://www.dropbox.com/scl/fi/rfcsrkk2y9elomnknt21z/IMG_7762.webp?rlkey=lvrhst0b42q1i7bezvm6dclxt&st=mhmm2m3t&raw=1') center/cover no-repeat;z-index:0;}
     .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(90,150,168,0.12) 0%,transparent 55%);}
     .hero-content{position:relative;z-index:1;text-align:center;padding:60px 28px;max-width:820px;}
     .hero-eyebrow{font-family:var(--font-body);font-size:0.72rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--golden);display:block;margin-bottom:20px;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
@@ -109,7 +118,7 @@
     .pricing-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ocean),var(--golden),var(--flame),var(--blush));}
     .pricing-header{text-align:center;margin-bottom:52px;}
     .rental-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-    .rental-card{background:var(--warm-white);border-radius:var(--radius-lg);padding:36px 28px;box-shadow:var(--shadow-soft);text-align:center;transition:var(--transition);border:2px solid transparent;}
+    .rental-card{background:var(--warm-white);border-radius:var(--radius-lg);padding:24px 22px;box-shadow:var(--shadow-soft);text-align:center;transition:var(--transition);border:2px solid transparent;}
     .rental-card:hover{transform:translateY(-5px);box-shadow:0 18px 52px rgba(28,34,40,0.13);}
     .rental-card.popular{border-color:var(--flame);}
     .popular-badge{display:inline-block;background:var(--flame);color:var(--white);font-size:0.63rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 14px;border-radius:var(--radius-pill);margin-bottom:14px;}
@@ -247,24 +256,42 @@
       .form-nav .btn{width:100%;}
       .how-steps{grid-template-columns:1fr;}
     }
+    .lg-overlay{position:fixed;inset:0;background:rgba(28,34,40,0.60);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px;}
+    .lg-overlay.open{display:flex;}
+    .lg-modal{background:var(--warm-white);border-radius:var(--radius-lg);box-shadow:0 24px 80px rgba(28,34,40,0.32);max-width:500px;width:100%;position:relative;overflow:hidden;}
+    .lg-modal-img{width:100%;height:210px;object-fit:cover;display:block;}
+    .lg-modal-body{padding:26px 28px 30px;}
+    .lg-caption{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean);margin-bottom:9px;}
+    .lg-modal-title{font-family:var(--font-display);font-size:1.55rem;font-weight:400;color:var(--text-dark);line-height:1.2;margin-bottom:9px;}
+    .lg-modal-sub{font-size:0.88rem;color:var(--text-mid);margin-bottom:20px;line-height:1.65;font-weight:300;}
+    .lg-form{display:flex;gap:10px;flex-wrap:wrap;}
+    .lg-form input[type="email"]{flex:1;min-width:0;padding:12px 16px;border:1.5px solid #DDD5C5;border-radius:var(--radius-md);font-size:0.93rem;color:var(--text-dark);background:var(--cream);font-family:inherit;transition:border-color 0.2s;}
+    .lg-form input[type="email"]:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 3px rgba(200,86,42,0.11);}
+    .lg-close{position:absolute;top:10px;right:12px;background:rgba(28,34,40,0.45);border:none;color:#fff;width:28px;height:28px;border-radius:50%;font-size:0.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:2;}
+    .lg-close:hover{background:rgba(28,34,40,0.72);}
+    .lg-success{display:none;text-align:center;padding:16px 0 6px;}
+    .lg-success.show{display:block;}
+    .lg-form-wrap.hide{display:none;}
+    @media(max-width:480px){.lg-form{flex-direction:column;}.lg-modal-img{height:160px;}}
   </style>
   <link rel="stylesheet" href="lmu-design.css" />
 </head>
 <body>
 
+  <!-- BURN BAN BANNER (chairs page: burn ban not relevant but kept for consistency) -->
+  <div class="burn-ban-bar" id="burn-ban-bar" role="alert">
+    <span class="burn-ban-text" id="burn-ban-text"></span>
+    <button class="burn-ban-close" onclick="document.getElementById('burn-ban-bar').style.display='none'" aria-label="Dismiss">&#10005;</button>
+  </div>
+
   <!-- LOGO BANNER -->
   <div class="logo-banner">
-    <img
-      class="logo-img"
-      src="lmu-logo.webp"
-      alt="Light Me Up Beach Bonfires"
-      onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"
-    />
-    <div class="logo-fallback" id="logo-fallback">
-      Light Me <span>Up</span> Beach Bonfires
+    <img class="logo-img" src="lmu-logo.webp" alt="Light Me Up Beach Bonfires" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';" />
+    <div class="logo-banner-text">
+      <div class="logo-fallback" id="logo-fallback">Light Me <span>Up</span> Beach Bonfires</div>
+      <div class="logo-tagline">"Let us light up your night!"</div>
+      <div class="logo-est">Est. 2015</div>
     </div>
-    <div class="logo-tagline">"Let us light up your night!"</div>
-    <div class="logo-est">Est. 2015</div>
   </div>
 
   <!-- STICKY HEADER -->
@@ -293,6 +320,9 @@
     </div>
     <nav class="mobile-nav" id="mobile-nav">
       <a href="beach-bonfire.html">Beach Bonfires</a>
+      <a href="bonfire-pcb.html" style="padding-left:22px;font-size:0.83rem;color:var(--text-light);">&#8627; Panama City Beach</a>
+      <a href="bonfire-30a.html" style="padding-left:22px;font-size:0.83rem;color:var(--text-light);">&#8627; 30A</a>
+      <a href="social-fires.html" style="padding-left:22px;font-size:0.83rem;color:var(--text-light);">&#8627; Social Fires</a>
       <a href="beach-picnics.html">Beach Picnics</a>
       <a href="beach-chairs.html">Beach Chairs &amp; Umbrellas</a>
       <a href="event-planning.html">Event Planning</a>
@@ -366,20 +396,14 @@
         <p class="section-subtitle" style="margin:13px auto 0;text-align:center;">All rentals include free delivery, setup, and pickup at your beach location.</p>
       </div>
 
-      <!-- Image placeholders -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:56px;">
-        <div style="height:280px;background:rgba(90,150,168,0.08);border:2px dashed rgba(90,150,168,0.28);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:0.80rem;letter-spacing:0.10em;text-transform:uppercase;">Photo Placeholder</div>
-        <div style="height:280px;background:rgba(90,150,168,0.08);border:2px dashed rgba(90,150,168,0.28);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:0.80rem;letter-spacing:0.10em;text-transform:uppercase;">Photo Placeholder</div>
-      </div>
 
       <!-- Beach Chair Rental -->
       <div style="text-align:center;margin-bottom:28px;">
         <span class="section-label">Beach Chair Rental</span>
       </div>
-      <div class="rental-cards" style="grid-template-columns:1fr 1fr;max-width:780px;margin:0 auto 56px;">
+      <div class="rental-cards" style="grid-template-columns:1fr 1fr;max-width:720px;margin:0 auto 40px;">
 
         <div class="rental-card">
-          <div class="rental-icon">&#127958;</div>
           <div class="rental-name">Fold Out Set</div>
           <p class="rental-desc">The classic beach setup &mdash; folding chairs with foot rests so you can kick back and soak it all in.</p>
           <ul class="rental-features" style="margin-bottom:26px;">
@@ -393,7 +417,6 @@
 
         <div class="rental-card popular">
           <div class="popular-badge">Most Popular</div>
-          <div class="rental-icon">&#9728;</div>
           <div class="rental-name">Lounge Set</div>
           <p class="rental-desc">Lay flat, soak in the sun, and truly do nothing &mdash; the ultimate full-day beach lounging experience.</p>
           <ul class="rental-features" style="margin-bottom:26px;">
@@ -407,51 +430,40 @@
 
       </div>
 
-      <!-- Add-ons -->
-      <div style="max-width:780px;margin:0 auto 56px;">
-        <div style="text-align:center;margin-bottom:28px;">
-          <span class="section-label">Add-Ons</span>
-          <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:400;color:var(--text-dark);">Build your <em style="color:var(--flame);font-style:italic;">perfect setup</em></h3>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div style="background:var(--warm-white);border-radius:var(--radius-md);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;border:1.5px solid rgba(200,86,42,0.10);">
-            <span style="font-size:0.88rem;color:var(--text-dark);font-weight:500;">Single Umbrella</span>
-            <span style="font-family:var(--font-display);font-size:1.1rem;color:var(--flame);">Inquire</span>
-          </div>
-          <div style="background:var(--warm-white);border-radius:var(--radius-md);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;border:1.5px solid rgba(200,86,42,0.10);">
-            <span style="font-size:0.88rem;color:var(--text-dark);font-weight:500;">Single Fold-Out Chair</span>
-            <span style="font-family:var(--font-display);font-size:1.1rem;color:var(--flame);">Inquire</span>
-          </div>
-          <div style="background:var(--warm-white);border-radius:var(--radius-md);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;border:1.5px solid rgba(200,86,42,0.10);">
-            <span style="font-size:0.88rem;color:var(--text-dark);font-weight:500;">Single Lounge Chair</span>
-            <span style="font-family:var(--font-display);font-size:1.1rem;color:var(--flame);">Inquire</span>
-          </div>
-        </div>
-      </div>
+      <!-- Add-ons + Paddle Board -->
+      <div style="max-width:720px;margin:0 auto 0;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
 
-      <!-- Paddle Board Rental -->
-      <div style="max-width:780px;margin:0 auto;">
-        <div style="text-align:center;margin-bottom:28px;">
-          <span class="section-label">Also Available</span>
-          <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:400;color:var(--text-dark);">Paddle Board <em style="color:var(--flame);font-style:italic;">Rental</em></h3>
-        </div>
-        <div style="background:var(--warm-white);border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow-soft);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;border:1.5px solid rgba(90,150,168,0.16);">
-          <div>
-            <p style="font-size:0.94rem;color:var(--text-mid);line-height:1.72;margin-bottom:18px;">Hit the water on a stand-up paddle board &mdash; delivered directly to your beach. No hauling, no hassle.</p>
-            <ul style="display:flex;flex-direction:column;gap:9px;">
-              <li style="display:flex;align-items:flex-start;gap:9px;font-size:0.85rem;color:var(--text-mid);"><span style="color:var(--flame);">&#10003;</span> Free delivery to your beach location</li>
-              <li style="display:flex;align-items:flex-start;gap:9px;font-size:0.85rem;color:var(--text-mid);"><span style="color:var(--flame);">&#10003;</span> Daily rates available</li>
-              <li style="display:flex;align-items:flex-start;gap:9px;font-size:0.85rem;color:var(--text-mid);"><span style="color:var(--flame);">&#10003;</span> Weekly rates available</li>
-            </ul>
+        <div>
+          <div style="text-align:center;margin-bottom:16px;">
+            <span class="section-label">Add-Ons</span>
           </div>
-          <div style="text-align:center;">
-            <div style="font-family:var(--font-display);font-size:1.9rem;font-weight:500;color:var(--flame);line-height:1;">Inquire</div>
-            <div style="font-size:0.72rem;color:var(--text-light);margin-top:4px;letter-spacing:0.06em;">for daily &amp; weekly rates</div>
-            <a href="#booking" class="btn btn-ocean" style="margin-top:16px;font-size:0.78rem;padding:10px 20px;">Reserve a Board</a>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="background:var(--warm-white);border-radius:var(--radius-md);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border:1.5px solid rgba(200,86,42,0.10);">
+              <span style="font-size:0.86rem;color:var(--text-dark);font-weight:500;">Single Umbrella</span>
+              <span style="font-family:var(--font-display);font-size:1rem;color:var(--flame);">Inquire</span>
+            </div>
+            <div style="background:var(--warm-white);border-radius:var(--radius-md);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border:1.5px solid rgba(200,86,42,0.10);">
+              <span style="font-size:0.86rem;color:var(--text-dark);font-weight:500;">Single Fold-Out Chair</span>
+              <span style="font-family:var(--font-display);font-size:1rem;color:var(--flame);">Inquire</span>
+            </div>
+            <div style="background:var(--warm-white);border-radius:var(--radius-md);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border:1.5px solid rgba(200,86,42,0.10);">
+              <span style="font-size:0.86rem;color:var(--text-dark);font-weight:500;">Single Lounge Chair</span>
+              <span style="font-family:var(--font-display);font-size:1rem;color:var(--flame);">Inquire</span>
+            </div>
           </div>
         </div>
-        <!-- Paddle board image placeholder -->
-        <div style="height:220px;background:rgba(90,150,168,0.08);border:2px dashed rgba(90,150,168,0.28);border-radius:var(--radius-lg);margin-top:16px;display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:0.80rem;letter-spacing:0.10em;text-transform:uppercase;">Photo Placeholder</div>
+
+        <div>
+          <div style="text-align:center;margin-bottom:16px;">
+            <span class="section-label">Also Available</span>
+          </div>
+          <div style="background:var(--warm-white);border-radius:var(--radius-lg);padding:22px 20px;box-shadow:var(--shadow-soft);border:1.5px solid rgba(90,150,168,0.16);">
+            <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:400;color:var(--text-dark);font-style:italic;margin-bottom:8px;">Paddle Board Rental</div>
+            <p style="font-size:0.84rem;color:var(--text-mid);line-height:1.65;margin-bottom:14px;">Delivered directly to your beach — no hauling, no hassle. Daily &amp; weekly rates available.</p>
+            <a href="#booking" class="btn btn-outline" style="width:100%;justify-content:center;font-size:0.80rem;padding:10px 16px;">Inquire About Board Rental</a>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -468,50 +480,13 @@
     </div>
   </div>
 
-  <!-- WHAT WE BRING -->
-  <section class="features-section">
+  <!-- PHOTO COLLAGE -->
+  <section style="padding:60px 0;background:var(--cream);">
     <div class="container">
-      <div class="features-grid">
-        <img
-          class="features-img"
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80"
-          alt="Beach chairs and umbrella set up on white sand beach"
-        />
-        <div>
-          <span class="section-label">Why Book With LMU</span>
-          <h2 class="section-title">No hauling. <em>No hassle.</em> Just the beach.</h2>
-          <p class="section-subtitle">We've been serving the Emerald Coast since 2015. Our team knows these beaches, knows the best spots, and knows how to make a beach day feel effortless.</p>
-          <div class="features-list">
-            <div class="feature-item">
-              <div class="feature-icon">&#128646;</div>
-              <div>
-                <div class="feature-title">Delivered to Your Spot</div>
-                <div class="feature-desc">We set up at or near your beach access so you walk straight from your rental to your chairs.</div>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">&#9729;</div>
-              <div>
-                <div class="feature-title">Premium Equipment</div>
-                <div class="feature-desc">Clean, comfortable chairs and sturdy umbrellas &mdash; no sand-crusted, wobbly rental gear.</div>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">&#9997;</div>
-              <div>
-                <div class="feature-title">Easy Booking</div>
-                <div class="feature-desc">Reserve online or by phone &mdash; we confirm quickly and handle all the logistics for you.</div>
-              </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">&#9829;</div>
-              <div>
-                <div class="feature-title">Family Owned &amp; Operated</div>
-                <div class="feature-desc">You're booking with real people who live here, love these beaches, and genuinely care about your experience.</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;max-width:960px;margin:0 auto;">
+        <img src="https://www.dropbox.com/scl/fi/7i5rzx5h5vkt5k05gs9ua/572714EB-B2B7-451B-A2D8-4A80E18B7E52.webp?rlkey=qr52bry7zfihf8dxxpwj5jodl&st=uhq5gb94&raw=1" alt="Beach day with LMU" style="width:100%;height:260px;object-fit:cover;border-radius:var(--radius-lg);display:block;" />
+        <img src="https://www.dropbox.com/scl/fi/37hgii2by97k1sr159yt6/CBAE65DC-A967-4E9F-B65C-6F2E608FFE0B.webp?rlkey=jxiobe8zn2q53oavq4y8m3e10&st=2gtnhrit&raw=1" alt="Beach chairs at sunset" style="width:100%;height:260px;object-fit:cover;border-radius:var(--radius-lg);display:block;" />
+        <img src="https://www.dropbox.com/scl/fi/3hd8tvue0bcmbv8u7x0ov/IMG-0937.webp?rlkey=ismicg5ml1vn83kvfdj5f8uf7&st=q0c9hh2h&raw=1" alt="LMU beach experience" style="width:100%;height:260px;object-fit:cover;border-radius:var(--radius-lg);display:block;" />
       </div>
     </div>
   </section>
@@ -535,45 +510,11 @@
   </section>
 
   <!-- POLICIES -->
-  <section style="background:var(--cream);padding:80px 0;border-top:1px solid rgba(200,86,42,0.08);" id="policies">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:44px;">
-        <span class="section-label">Good to Know</span>
-        <h2 class="section-title">Beach Chair Rental <em>Policies</em></h2>
-      </div>
-      <div style="max-width:780px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-
-        <div style="background:var(--warm-white);border-radius:var(--radius-lg);padding:28px 26px;box-shadow:var(--shadow-soft);border:1.5px solid rgba(200,86,42,0.08);">
-          <div style="font-size:1.3rem;margin-bottom:10px;">&#128205;</div>
-          <h4 style="font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--text-dark);margin-bottom:8px;">Locations</h4>
-          <p style="font-size:0.84rem;color:var(--text-mid);line-height:1.72;">Beach chair and paddle board rentals are available in the <strong>Panama City Beach</strong> area only.</p>
-        </div>
-
-        <div style="background:var(--warm-white);border-radius:var(--radius-lg);padding:28px 26px;box-shadow:var(--shadow-soft);border:1.5px solid rgba(200,86,42,0.08);">
-          <div style="font-size:1.3rem;margin-bottom:10px;">&#128179;</div>
-          <h4 style="font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--text-dark);margin-bottom:8px;">Payment</h4>
-          <p style="font-size:0.84rem;color:var(--text-mid);line-height:1.72;"><strong>Full amount is due at booking.</strong> We accept all major credit cards. Your reservation is not confirmed until payment is received.</p>
-        </div>
-
-        <div style="background:var(--warm-white);border-radius:var(--radius-lg);padding:28px 26px;box-shadow:var(--shadow-soft);border:1.5px solid rgba(200,86,42,0.08);">
-          <div style="font-size:1.3rem;margin-bottom:10px;">&#127814;</div>
-          <h4 style="font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--text-dark);margin-bottom:8px;">Inclement Weather</h4>
-          <p style="font-size:0.84rem;color:var(--text-mid);line-height:1.72;">In the event of severe weather, we will work with you to reschedule or apply a credit toward a future rental. We monitor conditions closely and will reach out in advance if needed.</p>
-        </div>
-
-        <div style="background:var(--warm-white);border-radius:var(--radius-lg);padding:28px 26px;box-shadow:var(--shadow-soft);border:1.5px solid rgba(200,86,42,0.08);">
-          <div style="font-size:1.3rem;margin-bottom:10px;">&#10060;</div>
-          <h4 style="font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--text-dark);margin-bottom:8px;">Cancellations</h4>
-          <p style="font-size:0.84rem;color:var(--text-mid);line-height:1.72;">A <strong>$100 cancellation fee</strong> applies to cancellations made within 24 hours of your scheduled rental start time.</p>
-        </div>
-
-        <div style="background:var(--warm-white);border-radius:var(--radius-lg);padding:28px 26px;box-shadow:var(--shadow-soft);border:1.5px solid rgba(200,86,42,0.08);grid-column:1/-1;">
-          <div style="font-size:1.3rem;margin-bottom:10px;">&#9200;</div>
-          <h4 style="font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--text-dark);margin-bottom:8px;">Setup &amp; Breakdown Times</h4>
-          <p style="font-size:0.84rem;color:var(--text-mid);line-height:1.72;">Chairs and equipment are set up and ready for you by <strong>9AM</strong>. Breakdown and pickup is at <strong>5PM</strong>. During September&ndash;November, setup is by <strong>10AM</strong>.</p>
-        </div>
-
-      </div>
+  <section style="background:var(--cream);padding:56px 0;border-top:1px solid rgba(200,86,42,0.08);" id="policies">
+    <div class="container" style="text-align:center;">
+      <span class="section-label">Good to Know</span>
+      <h2 class="section-title" style="margin-bottom:20px;">Beach Chair Rental <em>Policies</em></h2>
+      <a href="faq.html#chair-policies" class="btn btn-outline" style="margin-top:8px;">View Chair Rental Policies</a>
     </div>
   </section>
 
@@ -590,15 +531,15 @@
         <div class="progress-bar-wrap">
           <div class="progress-steps">
             <div class="progress-step active"><div class="step-dot">1</div><span class="step-prog-label">Your Info</span></div>
-            <div class="progress-step"><div class="step-dot">2</div><span class="step-prog-label">Rental</span></div>
-            <div class="progress-step"><div class="step-dot">3</div><span class="step-prog-label">Location</span></div>
+            <div class="progress-step"><div class="step-dot">2</div><span class="step-prog-label">Location</span></div>
+            <div class="progress-step"><div class="step-dot">3</div><span class="step-prog-label">Package</span></div>
             <div class="progress-step"><div class="step-dot">4</div><span class="step-prog-label">Confirm</span></div>
           </div>
         </div>
 
         <div class="form-content">
 
-          <!-- STEP 1 -->
+          <!-- STEP 1: Info -->
           <div class="form-step active" id="step-1">
             <h3 class="form-step-title">Tell us about yourself</h3>
             <p class="form-step-desc">We'd love to know who's coming to the beach.</p>
@@ -620,58 +561,8 @@
             </div>
           </div>
 
-          <!-- STEP 2 -->
+          <!-- STEP 2: Location -->
           <div class="form-step" id="step-2">
-            <h3 class="form-step-title">What do you need?</h3>
-            <p class="form-step-desc">Tell us your rental type, dates, and number of chairs or sets.</p>
-
-            <div class="form-group">
-              <label>Rental Type <span class="req">*</span></label>
-              <select id="f-rental-type">
-                <option value="">Select rental type</option>
-                <option>Chair Rental ($15 / chair)</option>
-                <option>Chair + Umbrella Set ($55 / set)</option>
-                <option>Group Package (custom quote)</option>
-                <option>Add-on to Bonfire Package</option>
-                <option>Add-on to Picnic Package</option>
-              </select>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label>Preferred Date 1 <span class="req">*</span></label>
-                <input type="date" id="f-date1" />
-              </div>
-              <div class="form-group">
-                <label>Preferred Date 2 (optional)</label>
-                <input type="date" id="f-date2" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label>Number of Chairs <span class="req">*</span></label>
-                <input type="number" id="f-chairs" placeholder="e.g. 4" min="1" max="100" />
-              </div>
-              <div class="form-group">
-                <label>Number of Umbrellas</label>
-                <input type="number" id="f-umbrellas" placeholder="e.g. 2" min="0" max="50" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Number of Guests</label>
-              <input type="number" id="f-guests" placeholder="Total people in your group" min="1" max="200" />
-            </div>
-
-            <div class="form-nav">
-              <button class="btn btn-back" onclick="prevStep(2)">Back</button>
-              <button class="btn btn-primary" onclick="nextStep(2)">Continue</button>
-            </div>
-          </div>
-
-          <!-- STEP 3 -->
-          <div class="form-step" id="step-3">
             <h3 class="form-step-title">Where are you staying?</h3>
             <p class="form-step-desc">Let us know where to deliver your chairs and umbrella.</p>
             <div class="form-group">
@@ -704,18 +595,97 @@
             </div>
             <div class="form-group">
               <label>Additional Notes</label>
-              <textarea id="f-notes" rows="3" placeholder="Nearest beach access, condo name, landmark, or anything that helps us find you..."></textarea>
+              <textarea id="f-loc-notes" rows="2" placeholder="Nearest beach access, condo name, landmark, or anything that helps us find you..."></textarea>
             </div>
+            <div class="form-nav">
+              <button class="btn btn-back" onclick="prevStep(2)">Back</button>
+              <button class="btn btn-primary" onclick="nextStep(2)">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Package Selection -->
+          <div class="form-step" id="step-3">
+            <h3 class="form-step-title">Choose your package</h3>
+            <p class="form-step-desc">Select a rental package and tell us your dates and group size.</p>
+
+            <div class="form-group">
+              <label>Rental Package <span class="req">*</span></label>
+              <div class="sub-packages">
+                <label class="sub-pkg" onclick="selectChairPkg(this)">
+                  <input type="radio" name="chair-pkg" value="chair-only" />
+                  <div>
+                    <div class="sub-pkg-name">Chair Rental</div>
+                    <div class="sub-pkg-details">Individual beach chairs &middot; Delivered, set up &amp; picked up &middot; Per chair</div>
+                  </div>
+                </label>
+                <label class="sub-pkg" onclick="selectChairPkg(this)">
+                  <input type="radio" name="chair-pkg" value="chair-umbrella" />
+                  <div>
+                    <div class="sub-pkg-name">Chair + Umbrella Set</div>
+                    <div class="sub-pkg-details">2 chairs &amp; 1 umbrella &middot; Perfect for pairs &middot; Delivered, set up &amp; picked up &middot; Per set</div>
+                  </div>
+                </label>
+                <label class="sub-pkg" onclick="selectChairPkg(this)">
+                  <input type="radio" name="chair-pkg" value="group-package" />
+                  <div>
+                    <div class="sub-pkg-name">Group Package</div>
+                    <div class="sub-pkg-details">Custom quote for large groups &middot; Multiple sets &middot; Perfect for reunions, events &amp; getaways &middot; Mention group size in notes</div>
+                  </div>
+                </label>
+                <label class="sub-pkg" onclick="selectChairPkg(this)">
+                  <input type="radio" name="chair-pkg" value="bonfire-addon" />
+                  <div>
+                    <div class="sub-pkg-name">Add-on to Bonfire Package</div>
+                    <div class="sub-pkg-details">Adding chairs to an existing bonfire booking &middot; Per chair &middot; Mention your bonfire booking date in notes</div>
+                  </div>
+                </label>
+                <label class="sub-pkg" onclick="selectChairPkg(this)">
+                  <input type="radio" name="chair-pkg" value="picnic-addon" />
+                  <div>
+                    <div class="sub-pkg-name">Add-on to Picnic Package</div>
+                    <div class="sub-pkg-details">Adding chairs to an existing picnic booking &middot; Mention your picnic booking date in notes</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Preferred Date 1 <span class="req">*</span></label>
+                <input type="date" id="f-date1" />
+              </div>
+              <div class="form-group">
+                <label>Preferred Date 2 (optional)</label>
+                <input type="date" id="f-date2" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Number of Chairs <span class="req">*</span></label>
+                <input type="number" id="f-chairs" placeholder="e.g. 4" min="1" max="100" />
+              </div>
+              <div class="form-group">
+                <label>Number of Umbrellas</label>
+                <input type="number" id="f-umbrellas" placeholder="e.g. 2" min="0" max="50" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Additional Notes</label>
+              <textarea id="f-notes" rows="3" placeholder="Number of guests, any special requests, or details about your group..."></textarea>
+            </div>
+
             <div class="form-nav">
               <button class="btn btn-back" onclick="prevStep(3)">Back</button>
               <button class="btn btn-primary" onclick="nextStep(3)">Continue</button>
             </div>
           </div>
 
-          <!-- STEP 4 -->
+          <!-- STEP 4: Confirm -->
           <div class="form-step" id="step-4">
             <h3 class="form-step-title">Almost there!</h3>
-            <p class="form-step-desc">Please review our policies and confirm your booking request.</p>
+            <p class="form-step-desc">Please review our policies and confirm your reservation request.</p>
 
             <div class="checkbox-group">
               <input type="checkbox" id="f-policy" />
@@ -733,12 +703,12 @@
 
             <div class="form-notice">
               <strong>What happens next?</strong><br/>
-              Once you submit, our team will reach out within 24 hours to confirm your reservation, time window, and any final details. We look forward to setting up a great day for you!
+              Once you submit, our team will reach out within 24 hours to confirm your reservation, time window, and any final details. We look forward to setting up a great beach day for you!
             </div>
 
             <div class="form-nav">
               <button class="btn btn-back" onclick="prevStep(4)">Back</button>
-              <button class="btn btn-primary" onclick="submitForm()">Send My Request</button>
+              <button class="btn btn-primary" onclick="submitChairForm()">Send My Request</button>
             </div>
           </div>
 
@@ -847,6 +817,12 @@
       document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    function selectChairPkg(card) {
+      document.querySelectorAll('.sub-pkg').forEach(c => { c.classList.remove('selected'); c.querySelector('input[type="radio"]').checked = false; });
+      card.classList.add('selected');
+      card.querySelector('input[type="radio"]').checked = true;
+    }
+
     function nextStep(from) {
       if (from === 1) {
         const name  = document.getElementById('f-name').value.trim();
@@ -856,16 +832,16 @@
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
       }
       if (from === 2) {
-        const type = document.getElementById('f-rental-type').value;
-        if (!type) { alert('Please select a rental type.'); return; }
+        const loc = document.getElementById('f-location').value;
+        if (!loc) { alert('Please select a beach location.'); return; }
+      }
+      if (from === 3) {
+        const pkg = document.querySelector('input[name="chair-pkg"]:checked');
+        if (!pkg) { alert('Please select a rental package to continue.'); return; }
         const date1 = document.getElementById('f-date1').value;
         if (!date1) { alert('Please enter at least one preferred date.'); return; }
         const chairs = document.getElementById('f-chairs').value.trim();
         if (!chairs || isNaN(chairs) || parseInt(chairs) < 1) { alert('Please enter the number of chairs.'); return; }
-      }
-      if (from === 3) {
-        const loc = document.getElementById('f-location').value;
-        if (!loc) { alert('Please select a beach location.'); return; }
       }
       if (from < 4) showStep(from + 1);
     }
@@ -874,7 +850,7 @@
       if (from > 1) showStep(from - 1);
     }
 
-    function submitForm() {
+    function submitChairForm() {
       if (!document.getElementById('f-policy').checked) {
         alert('Please agree to our policies to continue.');
         return;
@@ -883,6 +859,20 @@
       document.getElementById('success-msg').classList.add('show');
       document.querySelector('.progress-bar-wrap').style.display = 'none';
     }
+  </script>
+  <script>
+    /* Burn ban not typically relevant for chairs, but keep consistent.
+       Set BURN_BAN_ACTIVE = true below to show the banner on this page. */
+    var BURN_BAN_ACTIVE = false;
+    var BURN_BAN_DATE   = 'May 1, 2026';
+    (function () {
+      var bar = document.getElementById('burn-ban-bar');
+      if (BURN_BAN_ACTIVE && bar) {
+        document.getElementById('burn-ban-text').textContent =
+          '⚠️ NOTICE: Burn bans have been active since ' + BURN_BAN_DATE + ' due to dry weather. All bonfires are currently on hold.';
+        bar.classList.add('active');
+      }
+    })();
   </script>
 </body>
 </html>

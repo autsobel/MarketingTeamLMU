@@ -51,13 +51,22 @@
     .section-title em{font-style:italic;color:var(--flame);}
     .section-subtitle{font-size:0.97rem;color:var(--text-mid);max-width:520px;margin-top:13px;font-weight:300;}
 
+    /* BURN BAN BANNER */
+    .burn-ban-bar{background:#7a2818;color:#fff;font-size:0.80rem;font-weight:500;letter-spacing:0.04em;padding:10px 20px;display:none;align-items:center;justify-content:center;gap:10px;position:relative;z-index:1100;}
+    .burn-ban-bar.active{display:flex;}
+    .burn-ban-bar .burn-ban-text{line-height:1.4;text-align:center;}
+    .burn-ban-bar .burn-ban-close{background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:1.1rem;padding:2px 6px;margin-left:4px;flex-shrink:0;transition:color 0.2s;line-height:1;}
+    .burn-ban-bar .burn-ban-close:hover{color:#fff;}
+
     /* LOGO BANNER */
-    .logo-banner{background:var(--warm-white);text-align:center;padding:26px 28px 18px;border-bottom:1px solid rgba(200,86,42,0.13);}
-    .logo-banner img.logo-img{height:100px;width:auto;margin:0 auto 6px;display:block;object-fit:contain;}
-    .logo-banner .logo-fallback{font-family:var(--font-display);font-size:clamp(1.5rem,3.5vw,2.3rem);font-weight:400;color:var(--text-dark);}
+    .logo-banner{background:var(--warm-white);display:flex;align-items:center;gap:18px;padding:11px 28px;border-bottom:1px solid rgba(200,86,42,0.13);}
+    .logo-banner img.logo-img{height:58px;width:auto;margin:0;display:block;object-fit:contain;flex-shrink:0;}
+    .logo-banner-text{text-align:left;}
+    .logo-banner .logo-fallback{font-family:var(--font-display);font-size:clamp(1.05rem,2.5vw,1.55rem);font-weight:400;color:var(--text-dark);}
     .logo-banner .logo-fallback span{color:var(--flame);font-style:italic;}
-    .logo-banner .logo-tagline{font-family:var(--font-display);font-style:italic;font-size:clamp(0.95rem,2vw,1.2rem);color:var(--text-mid);margin-top:4px;}
-    .logo-banner .logo-est{font-size:0.66rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--text-light);margin-top:3px;}
+    .logo-banner .logo-tagline{font-family:var(--font-display);font-style:italic;font-size:0.88rem;color:var(--text-mid);margin-top:1px;}
+    .logo-banner .logo-est{font-size:0.60rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-light);margin-top:2px;}
+    @media(max-width:768px){.logo-banner{flex-direction:column;align-items:center;text-align:center;padding:22px 28px 16px;gap:6px;}.logo-banner img.logo-img{height:80px;}.logo-banner-text{text-align:center;}.logo-banner .logo-fallback{font-size:clamp(1.3rem,4vw,1.8rem);}}
 
     /* HEADER */
     .site-header{position:sticky;top:0;z-index:1000;background:rgba(250,245,236,0.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,86,42,0.13);transition:box-shadow var(--transition);}
@@ -78,7 +87,7 @@
 
     /* HERO */
     .hero{position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-    .hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,34,40,0.20) 0%,rgba(28,34,40,0.52) 55%,rgba(28,34,40,0.78) 100%),url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80') center/cover no-repeat;z-index:0;}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,34,40,0.20) 0%,rgba(28,34,40,0.52) 55%,rgba(28,34,40,0.78) 100%),url('https://www.dropbox.com/scl/fi/jl9a51oh5ulxzc7stnme2/IMG_7450.webp?rlkey=eusivsmo7qs501mhaa02yvmyd&st=ehpkd4nf&raw=1') center/cover no-repeat;z-index:0;}
     .hero-content{position:relative;z-index:1;text-align:center;padding:60px 28px;max-width:760px;}
     .hero-eyebrow{font-family:var(--font-body);font-size:0.72rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--golden);display:block;margin-bottom:18px;}
     .hero-title{font-family:var(--font-display);font-size:clamp(2.6rem,7vw,5rem);font-weight:300;color:var(--white);line-height:1.10;margin-bottom:20px;}
@@ -202,24 +211,42 @@
     @media(max-width:1024px){.hotels-grid{grid-template-columns:1fr 1fr;}.what-inner{grid-template-columns:1fr;gap:36px;}.includes-grid{grid-template-columns:1fr 1fr;}}
     @media(max-width:768px){.hotels-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;gap:36px;}.includes-grid{grid-template-columns:1fr;}.header-nav,.header-actions{display:none;}.nav-toggle{display:flex;}}
     @media(max-width:480px){.hero-title{font-size:2.4rem;}.form-row{grid-template-columns:1fr;}.form-nav{flex-direction:column;}.form-nav .btn{width:100%;}}
+    .lg-overlay{position:fixed;inset:0;background:rgba(28,34,40,0.60);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px;}
+    .lg-overlay.open{display:flex;}
+    .lg-modal{background:var(--warm-white);border-radius:var(--radius-lg);box-shadow:0 24px 80px rgba(28,34,40,0.32);max-width:500px;width:100%;position:relative;overflow:hidden;}
+    .lg-modal-img{width:100%;height:210px;object-fit:cover;display:block;}
+    .lg-modal-body{padding:26px 28px 30px;}
+    .lg-caption{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean);margin-bottom:9px;}
+    .lg-modal-title{font-family:var(--font-display);font-size:1.55rem;font-weight:400;color:var(--text-dark);line-height:1.2;margin-bottom:9px;}
+    .lg-modal-sub{font-size:0.88rem;color:var(--text-mid);margin-bottom:20px;line-height:1.65;font-weight:300;}
+    .lg-form{display:flex;gap:10px;flex-wrap:wrap;}
+    .lg-form input[type="email"]{flex:1;min-width:0;padding:12px 16px;border:1.5px solid #DDD5C5;border-radius:var(--radius-md);font-size:0.93rem;color:var(--text-dark);background:var(--cream);font-family:inherit;transition:border-color 0.2s;}
+    .lg-form input[type="email"]:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 3px rgba(200,86,42,0.11);}
+    .lg-close{position:absolute;top:10px;right:12px;background:rgba(28,34,40,0.45);border:none;color:#fff;width:28px;height:28px;border-radius:50%;font-size:0.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:2;}
+    .lg-close:hover{background:rgba(28,34,40,0.72);}
+    .lg-success{display:none;text-align:center;padding:16px 0 6px;}
+    .lg-success.show{display:block;}
+    .lg-form-wrap.hide{display:none;}
+    @media(max-width:480px){.lg-form{flex-direction:column;}.lg-modal-img{height:160px;}}
   </style>
   <link rel="stylesheet" href="lmu-design.css" />
 </head>
 <body>
 
+  <!-- BURN BAN BANNER -->
+  <div class="burn-ban-bar" id="burn-ban-bar" role="alert">
+    <span class="burn-ban-text" id="burn-ban-text"></span>
+    <button class="burn-ban-close" onclick="document.getElementById('burn-ban-bar').style.display='none'" aria-label="Dismiss">&#10005;</button>
+  </div>
+
   <!-- LOGO BANNER -->
   <div class="logo-banner">
-    <img
-      class="logo-img"
-      src="lmu-logo.webp"
-      alt="Light Me Up Beach Bonfires"
-      onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"
-    />
-    <div class="logo-fallback" id="logo-fallback">
-      Light Me <span>Up</span> Beach Bonfires
+    <img class="logo-img" src="lmu-logo.webp" alt="Light Me Up Beach Bonfires" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';" />
+    <div class="logo-banner-text">
+      <div class="logo-fallback" id="logo-fallback">Light Me <span>Up</span> Beach Bonfires</div>
+      <div class="logo-tagline">"Let us light up your night!"</div>
+      <div class="logo-est">Est. 2015</div>
     </div>
-    <div class="logo-tagline">"Let us light up your night!"</div>
-    <div class="logo-est">Est. 2015</div>
   </div>
 
   <!-- STICKY HEADER -->
@@ -248,7 +275,9 @@
     </div>
     <nav class="mobile-nav" id="mobile-nav">
       <a href="beach-bonfire.html">Beach Bonfires</a>
-      <a href="social-fires.html">— Social Fires</a>
+      <a href="bonfire-pcb.html" style="padding-left:22px;font-size:0.83rem;color:var(--text-light);">&#8627; Panama City Beach</a>
+      <a href="bonfire-30a.html" style="padding-left:22px;font-size:0.83rem;color:var(--text-light);">&#8627; 30A</a>
+      <a href="social-fires.html" style="padding-left:22px;font-size:0.83rem;color:var(--text-light);">&#8627; Social Fires</a>
       <a href="beach-picnics.html">Beach Picnics</a>
       <a href="beach-chairs.html">Beach Chairs &amp; Umbrellas</a>
       <a href="event-planning.html">Event Planning</a>
@@ -685,6 +714,18 @@
       document.getElementById('success-msg').classList.add('show');
       document.querySelector('.progress-bar-wrap').style.display = 'none';
     }
+  </script>
+  <script>
+    var BURN_BAN_ACTIVE = true;
+    var BURN_BAN_DATE   = 'May 1, 2026';
+    (function () {
+      var bar = document.getElementById('burn-ban-bar');
+      if (BURN_BAN_ACTIVE && bar) {
+        document.getElementById('burn-ban-text').textContent =
+          '⚠️ NOTICE: Burn bans have been active since ' + BURN_BAN_DATE + ' due to dry weather. All bonfires are currently on hold.';
+        bar.classList.add('active');
+      }
+    })();
   </script>
 </body>
 </html>
