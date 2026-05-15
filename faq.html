@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policies & FAQ | Light Me Up Beach Bonfires</title>
+  <meta name="description" content="Beach bonfire, event, and beach chair rental policies for Light Me Up Beach Bonfires — 30A, Panama City Beach & Walton County." />
+  <style>
+    :root {
+      --flame:      #C8562A;
+      --ember:      #A83E18;
+      --sunset:     #E08050;
+      --golden:     #D4A84B;
+      --sand:       #F2E8D5;
+      --cream:      #FAF5EC;
+      --warm-white: #FFFDF8;
+      --blush:      #E8B89A;
+      --ocean:      #5A96A8;
+      --dusk:       #28303A;
+      --text-dark:  #1C2228;
+      --text-mid:   #48545E;
+      --text-light: #8A9098;
+      --white:      #FFFFFF;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body:    'Jost', sans-serif;
+      --radius-sm: 6px; --radius-md: 12px; --radius-lg: 24px; --radius-pill: 999px;
+      --shadow-soft: 0 6px 32px rgba(28,34,40,0.10);
+      --shadow-warm: 0 4px 24px rgba(200,86,42,0.18);
+      --transition: 0.30s cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);background:var(--cream);color:var(--text-dark);line-height:1.72;overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    ul{list-style:none;}
+    img{max-width:100%;display:block;}
+    button,input,select,textarea{font-family:inherit;}
+    .container{max-width:1160px;margin:0 auto;padding:0 28px;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 32px;border-radius:var(--radius-pill);font-family:var(--font-body);font-weight:500;font-size:0.84rem;letter-spacing:0.09em;text-transform:uppercase;cursor:pointer;transition:var(--transition);border:none;}
+    .btn-primary{background:var(--flame);color:var(--white);box-shadow:var(--shadow-warm);}
+    .btn-primary:hover{background:var(--ember);transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,86,42,0.32);}
+    .btn-outline{background:transparent;color:var(--flame);border:1.5px solid var(--flame);}
+    .btn-outline:hover{background:var(--flame);color:var(--white);transform:translateY(-2px);}
+    .btn-ghost{background:rgba(255,255,255,0.14);color:var(--white);border:1.5px solid rgba(255,255,255,0.46);backdrop-filter:blur(8px);}
+    .btn-ghost:hover{background:var(--white);color:var(--flame);}
+    .btn-white{background:var(--white);color:var(--flame);font-weight:600;}
+    .btn-white:hover{background:var(--sand);transform:translateY(-2px);}
+    .btn-outline-white{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.52);}
+    .btn-outline-white:hover{background:rgba(255,255,255,0.12);border-color:var(--white);}
+    .section-label{font-family:var(--font-body);font-size:0.72rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--flame);display:block;margin-bottom:10px;}
+    .section-title{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,3rem);font-weight:400;line-height:1.14;color:var(--text-dark);}
+    .section-title em{font-style:italic;color:var(--flame);}
+
+    /* LOGO BANNER */
+    .logo-banner{background:var(--warm-white);display:flex;align-items:center;gap:18px;padding:11px 28px;border-bottom:1px solid rgba(200,86,42,0.13);}
+    .logo-banner img.logo-img{height:58px;width:auto;margin:0;display:block;object-fit:contain;flex-shrink:0;}
+    .logo-banner-text{text-align:left;}
+    .logo-banner .logo-fallback{font-family:var(--font-display);font-size:clamp(1.05rem,2.5vw,1.55rem);font-weight:400;color:var(--text-dark);}
+    .logo-banner .logo-fallback span{color:var(--flame);font-style:italic;}
+    .logo-banner .logo-tagline{font-family:var(--font-display);font-style:italic;font-size:0.88rem;color:var(--text-mid);margin-top:1px;}
+    .logo-banner .logo-est{font-size:0.60rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-light);margin-top:2px;}
+    @media(max-width:768px){.logo-banner{flex-direction:column;align-items:center;text-align:center;padding:22px 28px 16px;gap:6px;}.logo-banner img.logo-img{height:80px;}.logo-banner-text{text-align:center;}.logo-banner .logo-fallback{font-size:clamp(1.3rem,4vw,1.8rem);}.logo-banner .logo-tagline,.logo-banner .logo-est{display:block;}}
+
+    /* HEADER */
+    .site-header{position:sticky;top:0;z-index:1000;background:rgba(250,245,236,0.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,86,42,0.13);transition:box-shadow var(--transition);}
+    .site-header.scrolled{box-shadow:0 3px 24px rgba(28,34,40,0.10);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:13px 28px;max-width:1280px;margin:0 auto;gap:16px;}
+    .header-nav{display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;flex:1;}
+    .header-nav a{font-size:0.80rem;font-weight:500;letter-spacing:0.06em;color:var(--text-mid);padding:7px 12px;border-radius:var(--radius-pill);transition:var(--transition);white-space:nowrap;}
+    .header-nav a:hover{color:var(--flame);background:rgba(200,86,42,0.07);}
+    .header-nav a.active{color:var(--flame);background:rgba(200,86,42,0.09);font-weight:600;}
+    .header-actions{flex-shrink:0;}
+    .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:transparent;}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--text-dark);border-radius:2px;transition:var(--transition);}
+    .mobile-nav{display:none;flex-direction:column;background:var(--warm-white);border-top:1px solid rgba(200,86,42,0.10);padding:14px 28px 18px;gap:4px;}
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{font-size:0.9rem;font-weight:500;color:var(--text-mid);padding:10px 0;border-bottom:1px solid rgba(200,86,42,0.07);transition:color var(--transition);}
+    .mobile-nav a:hover{color:var(--flame);}
+    .mobile-nav .btn{margin-top:12px;justify-content:center;width:100%;}
+
+    /* PAGE HEADER */
+    .page-header{background:var(--dusk);padding:80px 0 72px;position:relative;overflow:hidden;text-align:center;}
+    .page-header::before{content:'';position:absolute;inset:0;background:url('Website Images/HomeLandingHero.webp') center/cover;opacity:0.12;}
+    .page-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--golden),var(--flame),var(--blush),var(--ocean));}
+    .page-header-content{position:relative;z-index:1;}
+    .page-header .section-label{color:var(--golden);}
+    .page-header-title{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:14px;}
+    .page-header-title em{font-style:italic;color:var(--golden);}
+    .page-header-sub{font-size:0.96rem;color:rgba(255,255,255,0.60);font-weight:300;max-width:540px;margin:0 auto;}
+
+    /* JUMP NAV */
+    .jump-nav{background:var(--warm-white);border-bottom:1px solid rgba(200,86,42,0.10);padding:18px 28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:sticky;top:65px;z-index:900;}
+    .jump-link{font-size:0.78rem;font-weight:500;letter-spacing:0.06em;color:var(--text-mid);padding:6px 16px;border-radius:var(--radius-pill);border:1.5px solid rgba(200,86,42,0.18);transition:var(--transition);white-space:nowrap;}
+    .jump-link:hover{border-color:var(--flame);color:var(--flame);background:rgba(200,86,42,0.05);}
+
+    /* POLICY SECTIONS */
+    .policy-section{padding:80px 0;}
+    .policy-section:nth-child(even){background:var(--warm-white);}
+    .policy-section:nth-child(odd){background:var(--cream);}
+    .policy-inner{max-width:860px;margin:0 auto;padding:0 28px;}
+    .policy-section-header{margin-bottom:36px;}
+    .policy-section-label{font-size:0.68rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--flame);display:block;margin-bottom:8px;}
+    .policy-section-title{font-family:var(--font-display);font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:400;color:var(--text-dark);line-height:1.14;}
+    .policy-section-title em{font-style:italic;color:var(--flame);}
+    .policy-section-intro{font-size:0.94rem;color:var(--text-mid);font-weight:300;line-height:1.75;margin-top:12px;}
+
+    /* ACCORDION ITEMS */
+    details.policy-item{background:var(--warm-white);border-radius:var(--radius-md);border:1.5px solid rgba(200,86,42,0.12);margin-bottom:10px;transition:border-color var(--transition);}
+    .policy-section:nth-child(even) details.policy-item{background:var(--cream);}
+    details.policy-item[open]{border-color:var(--flame);}
+    details.policy-item summary{font-weight:600;font-size:0.93rem;color:var(--text-dark);padding:18px 22px;list-style:none;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;}
+    details.policy-item summary::-webkit-details-marker{display:none;}
+    details.policy-item summary .plus{color:var(--flame);font-size:1.4rem;font-weight:300;line-height:1;flex-shrink:0;margin-left:14px;transition:transform var(--transition);}
+    details.policy-item[open] summary .plus{transform:rotate(45deg);}
+    .policy-body{padding:0 22px 22px;font-size:0.88rem;color:var(--text-mid);font-weight:300;line-height:1.80;}
+    .policy-body p{margin-bottom:10px;}
+    .policy-body p:last-child{margin-bottom:0;}
+    .policy-body ul{padding-left:0;display:flex;flex-direction:column;gap:7px;margin:10px 0;}
+    .policy-body ul li{padding-left:18px;position:relative;}
+    .policy-body ul li::before{content:'—';position:absolute;left:0;color:var(--flame);font-weight:500;}
+    .policy-body strong{color:var(--text-dark);font-weight:600;}
+    .policy-body .highlight{background:rgba(200,86,42,0.06);border-left:3px solid var(--flame);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:12px 16px;margin:12px 0;}
+    .policy-body .highlight strong{font-size:0.86rem;}
+    .policy-body .warning{background:rgba(200,86,42,0.08);border:1px solid rgba(200,86,42,0.22);border-radius:var(--radius-md);padding:14px 16px;margin:12px 0;font-size:0.86rem;}
+    .policy-body .warning strong{color:var(--flame);}
+    .fee-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.84rem;}
+    .fee-table th{text-align:left;font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-light);padding:8px 12px;border-bottom:2px solid rgba(200,86,42,0.14);}
+    .fee-table td{padding:9px 12px;border-bottom:1px solid rgba(200,86,42,0.08);color:var(--text-mid);}
+    .fee-table td:last-child{font-family:var(--font-display);font-size:1.05rem;color:var(--flame);font-weight:500;}
+    .fee-table tr:last-child td{border-bottom:none;}
+    .rules-link{display:inline-flex;align-items:center;gap:8px;background:var(--dusk);color:var(--white);font-size:0.78rem;font-weight:500;letter-spacing:0.10em;text-transform:uppercase;padding:10px 20px;border-radius:var(--radius-pill);margin:8px 8px 8px 0;transition:var(--transition);}
+    .rules-link:hover{background:var(--flame);}
+    .no-rule{background:rgba(200,86,42,0.08);border:2px solid var(--flame);border-radius:var(--radius-md);padding:16px 18px;margin:12px 0;font-size:0.88rem;font-weight:500;color:var(--text-dark);display:flex;align-items:flex-start;gap:10px;}
+    .no-rule .nr-icon{font-size:1.2rem;flex-shrink:0;}
+    .no-rule .nr-text strong{display:block;color:var(--flame);font-size:0.92rem;margin-bottom:3px;}
+
+    /* THANK YOU */
+    .thankyou-section{background:var(--sand);padding:60px 0;text-align:center;border-top:1px solid rgba(200,86,42,0.10);}
+    .thankyou-inner{max-width:620px;margin:0 auto;padding:0 28px;}
+    .thankyou-inner h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;color:var(--text-dark);margin-bottom:12px;}
+    .thankyou-inner h2 em{font-style:italic;color:var(--flame);}
+    .thankyou-inner p{font-size:0.94rem;color:var(--text-mid);font-weight:300;line-height:1.72;}
+
+    /* BOOKING */
+    .booking-section{background:var(--sand);padding:88px 0;position:relative;}
+    .booking-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--golden),var(--flame),var(--blush),var(--ocean));}
+    .booking-wrapper{max-width:700px;margin:0 auto;padding:0 28px;}
+    .booking-header{text-align:center;margin-bottom:44px;}
+    .booking-card{background:var(--warm-white);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);overflow:hidden;}
+    .progress-bar-wrap{background:var(--sand);padding:26px 34px 0;}
+    .progress-steps{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+    .progress-step{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;position:relative;}
+    .progress-step:not(:last-child)::after{content:'';position:absolute;top:17px;left:55%;width:90%;height:2px;background:#ddd;z-index:0;transition:background var(--transition);}
+    .progress-step.completed:not(:last-child)::after{background:var(--flame);}
+    .step-dot{width:34px;height:34px;border-radius:50%;background:var(--sand);border:2px solid #ccc;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:600;color:var(--text-light);transition:var(--transition);z-index:1;position:relative;}
+    .progress-step.active .step-dot{background:var(--flame);border-color:var(--flame);color:var(--white);box-shadow:0 0 0 5px rgba(200,86,42,0.16);}
+    .progress-step.completed .step-dot{background:var(--ember);border-color:var(--ember);color:var(--white);}
+    .step-prog-label{font-size:0.65rem;letter-spacing:0.10em;text-transform:uppercase;color:var(--text-light);font-weight:500;}
+    .progress-step.active .step-prog-label{color:var(--flame);font-weight:600;}
+    .progress-step.completed .step-prog-label{color:var(--ember);}
+    .form-content{padding:34px 34px 38px;}
+    .form-step{display:none;}
+    .form-step.active{display:block;}
+    .form-step-title{font-family:var(--font-display);font-size:1.55rem;font-weight:400;color:var(--text-dark);margin-bottom:5px;}
+    .form-step-desc{font-size:0.86rem;color:var(--text-light);margin-bottom:26px;}
+    .form-group{margin-bottom:20px;}
+    .form-group label{display:block;font-size:0.76rem;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--text-mid);margin-bottom:7px;}
+    .form-group label .req{color:var(--flame);margin-left:2px;}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid #DDD5C5;border-radius:var(--radius-md);font-size:0.94rem;color:var(--text-dark);background:var(--cream);transition:border-color var(--transition),box-shadow var(--transition);appearance:none;}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--flame);box-shadow:0 0 0 3px rgba(200,86,42,0.11);background:var(--white);}
+    .form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%238A9098' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .checkbox-group{display:flex;align-items:flex-start;gap:11px;margin-bottom:15px;}
+    .checkbox-group input[type="checkbox"]{width:19px;height:19px;flex-shrink:0;accent-color:var(--flame);margin-top:2px;cursor:pointer;}
+    .checkbox-group label{font-size:0.87rem;color:var(--text-mid);cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400;}
+    .checkbox-group label a{color:var(--flame);text-decoration:underline;}
+    .form-nav{display:flex;justify-content:space-between;align-items:center;margin-top:30px;gap:11px;}
+    .form-nav .btn{min-width:136px;justify-content:center;}
+    .btn-back{background:transparent;color:var(--text-mid);border:1.5px solid #ccc;}
+    .btn-back:hover{background:var(--sand);border-color:#aaa;transform:none;}
+    .success-message{text-align:center;padding:48px 28px;display:none;}
+    .success-message.show{display:block;}
+    .success-message h3{font-family:var(--font-display);font-size:2rem;font-weight:400;color:var(--text-dark);margin-bottom:10px;}
+    .success-message p{color:var(--text-mid);}
+    .form-notice{background:rgba(200,86,42,0.05);border:1px solid rgba(200,86,42,0.16);border-radius:var(--radius-md);padding:16px 18px;font-size:0.83rem;color:var(--text-mid);margin:20px 0;line-height:1.65;}
+    .form-notice strong{color:var(--text-dark);}
+
+    /* CTA */
+    .cta-section{padding:88px 0;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--flame) 0%,var(--ember) 45%,#923218 100%);}
+    .cta-section::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1400&q=60') center/cover;opacity:0.07;}
+    .cta-content{position:relative;z-index:1;}
+    .cta-section .section-label{color:var(--golden);}
+    .cta-title{font-family:var(--font-display);font-size:clamp(2.1rem,5vw,3.8rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:18px;}
+    .cta-title em{font-style:italic;}
+    .cta-sub{font-size:0.98rem;color:rgba(255,255,255,0.76);font-weight:300;max-width:460px;margin:0 auto 40px;}
+    .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+    /* FOOTER */
+    .site-footer{background:var(--text-dark);padding:68px 0 34px;}
+    .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:56px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:32px;}
+    .footer-brand .brand-name{font-family:var(--font-display);font-size:1.45rem;font-weight:400;color:var(--white);margin-bottom:3px;}
+    .footer-brand .brand-name span{color:var(--golden);font-style:italic;}
+    .footer-brand .tagline{font-size:0.70rem;letter-spacing:0.20em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:18px;}
+    .footer-brand p{font-size:0.86rem;color:rgba(255,255,255,0.46);line-height:1.72;margin-bottom:22px;font-weight:300;}
+    .footer-actions{display:flex;gap:10px;flex-wrap:wrap;}
+    .footer-col h4{font-size:0.70rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.36);margin-bottom:16px;}
+    .footer-col ul li{margin-bottom:9px;}
+    .footer-col ul li a{font-size:0.86rem;color:rgba(255,255,255,0.58);transition:color var(--transition);}
+    .footer-col ul li a:hover{color:var(--golden);}
+    .social-links{display:flex;gap:9px;margin-top:6px;}
+    .social-link{width:38px;height:38px;border-radius:var(--radius-sm);background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.52);font-size:1rem;transition:var(--transition);}
+    .social-link:hover{background:var(--flame);color:var(--white);transform:translateY(-2px);}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+    .footer-bottom p{font-size:0.76rem;color:rgba(255,255,255,0.26);}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .header-nav,.header-actions{display:none;}
+      .nav-toggle{display:flex;}
+      .jump-nav{top:56px;gap:8px;padding:12px 16px;}
+      .jump-link{font-size:0.72rem;padding:5px 12px;}
+      .form-content{padding:22px 18px 26px;}
+      .progress-bar-wrap{padding:18px 18px 0;}
+      .footer-top{grid-template-columns:1fr;gap:32px;}
+      .footer-bottom{flex-direction:column;text-align:center;}
+      .form-row{grid-template-columns:1fr;}
+    }
+    @media(max-width:480px){
+      .cta-actions{flex-direction:column;align-items:center;}
+      .form-nav{flex-direction:column;}
+      .form-nav .btn{width:100%;}
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="lmu-design.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="lib/lmu-backend.js"></script>
+  <script src="components/booking-wizard.js"></script>
+</head>
+<body>
+
+  <!-- LOGO BANNER -->
+  <div class="logo-banner">
+    <img
+      class="logo-img"
+      src="lmu-logo.webp"
+      alt="Light Me Up Beach Bonfires"
+      onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';"
+    />
+    <div class="logo-banner-text">
+      <div class="logo-fallback" id="logo-fallback">Light Me <span>Up</span> Beach Bonfires</div>
+      <div class="logo-tagline">"Let us light up your night!"</div>
+      <div class="logo-est">Est. 2015</div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <nav class="header-nav">
+        <span class="nav-item">
+          <a href="beach-bonfire.html">Beach Bonfires</a>
+          <div class="nav-dropdown">
+            <a href="social-fires.html">Social Fires</a>
+          </div>
+        </span>
+        <a href="beach-picnics.html">Beach Picnics</a>
+        <a href="beach-chairs.html">Beach Chairs &amp; Umbrellas</a>
+        <a href="event-planning.html">Event Planning</a>
+        <a href="faq.html" class="active">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#booking" class="btn btn-primary">Book Now</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="beach-bonfire.html">Beach Bonfires</a>
+      <a href="social-fires.html" style="padding-left:22px;font-size:0.83rem;color:var(--text-light);">&#8627; Social Fires</a>
+      <a href="beach-picnics.html">Beach Picnics</a>
+      <a href="beach-chairs.html">Beach Chairs &amp; Umbrellas</a>
+      <a href="event-planning.html">Event Planning</a>
+      <a href="faq.html">FAQ</a>
+      <a href="#booking" class="btn btn-primary">Book Now</a>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container page-header-content">
+      <span class="section-label">Know Before You Go</span>
+      <h1 class="page-header-title">Policies &amp; <em>FAQ</em></h1>
+      <p class="page-header-sub">Everything you need to know before your beach experience &mdash; organized, honest, and written to keep things simple for you.</p>
+    </div>
+  </div>
+
+  <!-- JUMP NAV -->
+  <div class="jump-nav">
+    <a href="#bonfire-policies" class="jump-link">Bonfire &amp; Event Policies</a>
+    <a href="#chair-policies" class="jump-link">Chair Rental Policies</a>
+  </div>
+
+  <!-- ===== SECTION 1: BONFIRE + EVENT POLICIES ===== -->
+  <section class="policy-section" id="bonfire-policies">
+    <div class="policy-inner">
+      <div class="policy-section-header">
+        <span class="policy-section-label">Beach Bonfire &amp; Events</span>
+        <h2 class="policy-section-title">Bonfire &amp; Event <em>Policies</em></h2>
+        <p class="policy-section-intro">We&rsquo;re so excited to host your beach bonfire! Our goal is to make your experience seamless, safe, and unforgettable. Please take a moment to read through our policies below.</p>
+      </div>
+
+      <details class="policy-item">
+        <summary>Booking &amp; Payment <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>We keep things simple &mdash; your bonfire is officially booked once full payment is received.</p>
+          <ul>
+            <li>Full payment is due at time of booking.</li>
+            <li>If payment isn&rsquo;t made within 24 hours, your spot will automatically be released.</li>
+            <li>A portion of every booking covers your non-refundable deposit, which includes the cost of required fire permitting.</li>
+            <li>All sales final.</li>
+          </ul>
+          <div class="highlight">
+            <strong>Deposits &mdash; Included in Package Price</strong><br/>
+            These deposits help us secure your permit, staff your event, and reserve your spot on the beach.<br/><br/>
+            <strong>Bonfires:</strong> $175 non-refundable deposit<br/>
+            <strong>Picnics or Private Events:</strong> 50% non-refundable deposit
+          </div>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Bonfire Permitting <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>Every bonfire requires a county fire permit. We handle that for you!</p>
+          <ul>
+            <li>The cost of one permit is included in your package price.</li>
+            <li>The fire department only issues a limited number per night, per access point, so specific locations aren&rsquo;t always guaranteed.</li>
+            <li>We purchase permits two weeks before your event, or immediately if your event is booked within that window.</li>
+            <li>If your preferred beach access isn&rsquo;t available, we&rsquo;ll contact you with alternate options.</li>
+            <li>All permits are non-refundable and non-transferable, rain or shine.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Special Event Permitting &mdash; 30A / Walton County Only <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>Hosting 30 or more guests (yes, kids count), or having food delivered? You&rsquo;ll need a Special Event Permit from South Walton County. We take care of the paperwork for you, but please note:</p>
+          <ul>
+            <li>These permits are non-refundable and non-transferable once purchased.</li>
+            <li>The county only issues one special event permit per access, per night, so availability isn&rsquo;t guaranteed.</li>
+          </ul>
+          <strong style="display:block;margin:14px 0 8px;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-light);">Permit Fees</strong>
+          <table class="fee-table">
+            <thead>
+              <tr><th>Guest Count</th><th>Permit Fee</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1 – 29 people</td><td>$250</td></tr>
+              <tr><td>30 – 50 people</td><td>$350</td></tr>
+              <tr><td>51 – 75 people</td><td>$600</td></tr>
+              <tr><td>76+ people</td><td>$1,200</td></tr>
+            </tbody>
+          </table>
+          <p>If your guest count grows after booking, we&rsquo;ll help you secure the proper permit. If none are available, we&rsquo;ll go over new date/location options together.</p>
+          <div class="warning">
+            <strong>Important:</strong> Not disclosing the actual headcount of your event, and having it exceed 30 people, may result in full cancellation without refund.
+          </div>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Rain &amp; Weather Policy <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>We totally get it &mdash; beach weather can be unpredictable!</p>
+          <ul>
+            <li>You may cancel up to 48 hours before your event due to weather and receive a full refund minus the $175 deposit.</li>
+            <li>Cancellations made within 48 hours of your event are not refundable, even if the weather changes.</li>
+            <li>If the beach is closed or conditions are unsafe (lightning, extreme winds, high tides), we&rsquo;ll work with you to reschedule for another available date.</li>
+          </ul>
+          <div class="highlight">
+            <strong>All reschedules (for any reason) are $125</strong> to purchase a new permit and depend on both company and permit availability.
+          </div>
+          <p>We always monitor local weather closely and will reach out if anything looks questionable before your event.</p>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Reschedules <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>We&rsquo;re happy to help you move your event when possible! Because beach permits are non-refundable and non-transferable, reschedules require a new permit. A <strong>$125 reschedule fee</strong> covers this cost and helps us adjust staffing.</p>
+          <p>Please note that availability is limited during peak season, so early notice helps us find you the best new date!</p>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Cancellations &mdash; Non-Weather Related <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>Plans change, things happen &mdash; we understand!</p>
+          <ul>
+            <li><strong>Cancel more than 48 hours before your bonfire:</strong> Full refund minus the $175 non-refundable deposit.</li>
+            <li><strong>Cancel under 48 hours:</strong> A $100 late cancellation fee will also apply in addition to the deposit forfeiture.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Burn Bans <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>If the county enacts a burn ban, all beach fires must pause. While no refunds are issued for burn bans, you can choose between:</p>
+          <ul>
+            <li>A credit toward a future bonfire with no expiration, <strong>or</strong></li>
+            <li>A Light Me Up Gift Card for the full value of your reservation.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Refunds <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>If a refund applies (for example, due to weather, closures, or cancellations), refunds will be processed in the order of event dates. Please allow <strong>up to 30 days</strong> for processing and <strong>7 – 10 business days</strong> for funds to appear once issued.</p>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Private Beachfront Homes &mdash; 30A / Walton County Only <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>We&rsquo;re happy to set up bonfires at private beachfront homes (pending approval and access). Because these setups require special coordination and more complex labor, a <strong>$75 convenience fee</strong> applies.</p>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Holidays <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>We love celebrating, too!</p>
+          <ul>
+            <li><strong>No fires are permitted on July 4th</strong> (county regulation).</li>
+            <li>Fires are available on other holidays, though staffing is limited.</li>
+            <li>A <strong>$100 holiday fee</strong> applies to bonfires on major holidays (Thanksgiving, Christmas, New Year&rsquo;s Eve, etc.) &mdash; this goes directly to your attendant as a holiday working bonus.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Service Fee &amp; Gratuity <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>For larger events (20+ guests), Roots Rock Reggae Package, or Special Events (picnic, dining, wedding, etc.), an <strong>18% service fee</strong> is automatically added. This goes directly to the hardworking crew who make your setup magical!</p>
+          <p>Tipping your attendant is always appreciated but never expected. 100% of gratuity goes directly to your setup crew.</p>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Changes &amp; Add-Ons <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>We&rsquo;ll always do our best to accommodate your requests! Please make any changes, food orders, or add-ons <strong>before the day of your bonfire</strong> &mdash; same-day requests are not guaranteed. Chalkboard messages must also be submitted before event day.</p>
+          <div class="warning">
+            <strong>Heads up:</strong> As we receive very high inquiry volume, same-day requests, changes, or add-ons could be missed. Do not assume a change or update has been made unless you have received confirmation from our staff.
+          </div>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Beach Rules <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>Click below to view the official county beach rules for your area:</p>
+          <div style="margin:14px 0;">
+            <a href="#" class="rules-link">Walton County Beach Rules</a>
+            <a href="#" class="rules-link">PCB / Bay County Beach Rules</a>
+          </div>
+
+          <div class="no-rule">
+            <div class="nr-icon">&#9940;</div>
+            <div class="nr-text">
+              <strong>NO GLASS PERMITTED ON BEACH</strong>
+              You may bring anything you&rsquo;d like to your beach bonfire &mdash; just NO GLASS. Bringing glass to your fire will result in a $250 ticket fee per item by Walton County Beach Code Compliance, shutdown of your event, and suspension of our company with fees and points assessed to our vendor permit.
+            </div>
+          </div>
+
+          <div class="no-rule">
+            <div class="nr-icon">&#128054;</div>
+            <div class="nr-text">
+              <strong>NO DOGS ON BEACH</strong>
+              No dogs on the beach unless you have a permit (permits are only issued to property owners). Bringing your dog to the beach will result in a ticket with fine, shutdown of your event, and suspension of our company with potential points assessed to our vendor permit.
+            </div>
+          </div>
+
+          <p style="margin-top:14px;font-style:italic;color:var(--text-mid);">Help us protect the beach, keep them beautiful, and protect our vendor permit so we can keep lighting fires for years to come!</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: CHAIR RENTAL POLICIES ===== -->
+  <section class="policy-section" id="chair-policies">
+    <div class="policy-inner">
+      <div class="policy-section-header">
+        <span class="policy-section-label">Beach Chair Rentals</span>
+        <h2 class="policy-section-title">Beach Chair Rental <em>Policies</em></h2>
+        <p class="policy-section-intro">Please review our beach chair rental policies before booking. We want your beach day to be as smooth and enjoyable as possible.</p>
+      </div>
+
+      <details class="policy-item">
+        <summary>Locations <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>Currently, our beach chair rentals are provided <strong>only on areas of Panama City Beach.</strong></p>
+          <ul>
+            <li>We do <strong>NOT</strong> service condos or properties contracted with other beach services.</li>
+            <li>Locations vary and are not guaranteed.</li>
+            <li>When you book, we will let you know if we do not service your location.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Payment <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p><strong>Full amount is due at time of booking.</strong></p>
+          <ul>
+            <li>Upon booking, you will either pay by credit card over the phone or via email invoice.</li>
+            <li>Reservations are <strong>NOT finalized</strong> until full payment is made.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Inclement Weather <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>High winds and high rain percentages are cause for setup cancellation.</p>
+          <ul>
+            <li>In the event of inclement weather that causes us to be <strong>completely unable</strong> to set up, you will receive a full refund for the day(s) affected.</li>
+            <li>In the event of high winds, we reserve the right to close or remove umbrellas for safety reasons. <strong>No refunds or credits are given if umbrellas have to be closed or removed.</strong></li>
+            <li>In the event of inclement weather which causes us to have to remove equipment from the beach before 5PM, no refunds will be issued.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Refunds <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>Beach chair rentals are <strong>non-refundable</strong>, unless we are completely unable to set up due to inclement weather.</p>
+          <p>If we are unable to set up, you will receive a full refund for the day(s) affected.</p>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Cancellations <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <p>Cancellations to reservations made under 24 hours will be charged a <strong>$100 cancellation fee.</strong></p>
+          <p>A full refund minus $100 cancellation fee will be issued upon cancellation. If the $100 cancellation fee exceeds the chair rental amount, the chair rental payment will serve as the cancellation fee and no refund will be issued.</p>
+        </div>
+      </details>
+
+      <details class="policy-item">
+        <summary>Set Up &amp; Break Down Times <span class="plus">+</span></summary>
+        <div class="policy-body">
+          <div class="highlight">
+            <strong>Standard Hours:</strong> We set up by 9AM and break down at 5PM.<br/><br/>
+            <strong>Sept – Nov Hours:</strong> Setup by 10AM, breakdown at 5PM.
+          </div>
+          <p>Early setup and/or late breakdown are available upon request and are subject to additional fees depending on time of year and number of sets booked.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- THANK YOU -->
+  <div class="thankyou-section">
+    <div class="thankyou-inner">
+      <h2>Thank <em>you</em></h2>
+      <p>We&rsquo;re so grateful you chose us to bring the magic to your beach night. Our goal is always to make your experience simple, beautiful, and memorable &mdash; from booking to bonfire glow. If you have questions about your reservation or these policies, please reach out anytime. We&rsquo;re here to help!</p>
+      <a href="mailto:hello@lightmeupbonfires.com" class="btn btn-outline" style="margin-top:22px;">Contact Us Anytime</a>
+    </div>
+  </div>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-section" id="booking">
+    <div class="booking-wrapper">
+      <div class="booking-header">
+        <span class="section-label">Ready to Book?</span>
+        <h2 class="section-title">Reserve Your <em>Beach Experience</em></h2>
+        <p style="font-size:0.97rem;color:var(--text-mid);max-width:520px;margin:12px auto 0;text-align:center;font-weight:300;">Fill out the form below and the LMU team will be in touch within 24 hours to confirm your reservation.</p>
+      </div>
+
+      <div class="booking-card">
+        <div class="progress-bar-wrap">
+          <div class="progress-steps">
+            <div class="progress-step active"><div class="step-dot">1</div><span class="step-prog-label">Your Info</span></div>
+            <div class="progress-step"><div class="step-dot">2</div><span class="step-prog-label">Service</span></div>
+            <div class="progress-step"><div class="step-dot">3</div><span class="step-prog-label">Location</span></div>
+            <div class="progress-step"><div class="step-dot">4</div><span class="step-prog-label">Confirm</span></div>
+          </div>
+        </div>
+
+        <div class="form-content">
+          <!-- STEP 1 -->
+          <div class="form-step active" id="step-1">
+            <h3 class="form-step-title">Tell us about yourself</h3>
+            <p class="form-step-desc">We&rsquo;d love to know who&rsquo;s joining us on the beach.</p>
+            <div class="form-group">
+              <label>Full Name <span class="req">*</span></label>
+              <input type="text" id="f-name" placeholder="Jane Smith" />
+            </div>
+            <div class="form-group">
+              <label>Email Address <span class="req">*</span></label>
+              <input type="email" id="f-email" placeholder="jane@example.com" />
+            </div>
+            <div class="form-group">
+              <label>Phone Number <span class="req">*</span></label>
+              <input type="tel" id="f-phone" placeholder="(850) 555-0000" />
+            </div>
+            <div class="form-nav"><span></span><button class="btn btn-primary" onclick="nextStep(1)">Continue</button></div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="form-step" id="step-2">
+            <h3 class="form-step-title">What are you booking?</h3>
+            <p class="form-step-desc">Tell us what service you&rsquo;d like and your preferred dates.</p>
+            <div class="form-group">
+              <label>Service <span class="req">*</span></label>
+              <select id="f-service">
+                <option value="">Select a service</option>
+                <option>Beach Bonfire</option>
+                <option>Beach Picnic</option>
+                <option>Bonfire + Picnic</option>
+                <option>Beach Chair &amp; Umbrella Rental</option>
+                <option>Special / Private Event</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Preferred Date 1 <span class="req">*</span></label>
+                <input type="date" id="f-date1" />
+              </div>
+              <div class="form-group">
+                <label>Preferred Date 2 (optional)</label>
+                <input type="date" id="f-date2" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Number of Guests <span class="req">*</span></label>
+              <input type="number" id="f-guests" placeholder="Enter number of guests" min="1" max="500" />
+            </div>
+            <div class="form-group">
+              <label>Notes or Requests</label>
+              <textarea id="f-notes-s2" rows="2" placeholder="Package preferences, add-ons, or anything else..."></textarea>
+            </div>
+            <div class="form-nav">
+              <button class="btn btn-back" onclick="prevStep(2)">Back</button>
+              <button class="btn btn-primary" onclick="nextStep(2)">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Where? -->
+          <div class="form-step" id="step-3">
+            <h3 class="form-step-title">When and Where?</h3>
+            <p class="form-step-desc">Let's find where the magic will be happening</p>
+
+            <div class="location-mode-tabs">
+              <button type="button" class="location-mode-tab active" id="tab-address" onclick="switchLocationMode('address')">Enter my address</button>
+              <button type="button" class="location-mode-tab" id="tab-area" onclick="switchLocationMode('area')">Choose my beach area</button>
+            </div>
+
+            <div id="mode-address">
+              <div class="form-group">
+                <label>Rental / Hotel Address <span class="field-caption">— find the closest beach access to you!</span></label>
+                <input type="text" id="f-rental"
+                  placeholder="e.g. 123 Beachside Dr, Panama City Beach, FL"
+                  oninput="handleAddressInput(this.value)" autocomplete="street-address" />
+                <div class="geocoding-status" id="geocoding-status"></div>
+              </div>
+            </div>
+
+            <div id="mode-area" style="display:none;">
+              <div class="form-group">
+                <label>Beach Area <span class="req">*</span></label>
+                <select id="f-area-select" onchange="onAreaSelectChange(this.value)">
+                  <option value="">Select a beach area…</option>
+                  <option value="30A|Alys Beach">Alys Beach</option>
+                  <option value="30A|Blue Mountain Beach">Blue Mountain Beach</option>
+                  <option value="30A|Dune Allen Beach">Dune Allen Beach</option>
+                  <option value="30A|Grayton Beach">Grayton Beach</option>
+                  <option value="30A|Inlet Beach">Inlet Beach</option>
+                  <option value="PCB|Mexico Beach">Mexico Beach</option>
+                  <option value="30A|Miramar Beach">Miramar Beach</option>
+                  <option value="PCB|Panama City Beach">Panama City Beach</option>
+                  <option value="30A|Rosemary Beach">Rosemary Beach</option>
+                  <option value="30A|Santa Rosa Beach">Santa Rosa Beach</option>
+                  <option value="30A|Seaside">Seaside</option>
+                  <option value="30A|WaterColor">WaterColor</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Social fires note -->
+            <p class="social-fires-note">For social fire bookings, please visit our <a href="social-fires.html">Social Fires</a> page.</p>
+
+            <div class="beach-access-section" id="beach-access-section">
+              <span class="beach-access-label">Select Your Beach Access Preferences <span class="req">*</span></span>
+              <div class="beach-access-layout">
+                <div class="beach-access-list-col">
+                  <div class="beach-access-list" id="beach-access-list"></div>
+                  <div class="beach-access-show-more" id="beach-access-show-more" onclick="showMoreBeachAccess()" style="display:none;">View more locations</div>
+                </div>
+                <div id="beach-access-map"></div>
+              </div>
+              <div class="pref-picker" id="pref-picker">
+                <div class="pref-picker-title">Your Preferences (ranked)</div>
+                <div class="pref-slots">
+                  <div class="pref-slot" id="pref-slot-0"><div class="pref-rank">1</div><span class="pref-empty">Tap a location above to add</span></div>
+                  <div class="pref-slot" id="pref-slot-1"><div class="pref-rank">2</div><span class="pref-empty">Tap a location above to add</span></div>
+                  <div class="pref-slot" id="pref-slot-2"><div class="pref-rank">3</div><span class="pref-empty">Tap a location above to add</span></div>
+                </div>
+                <p class="pref-hint">Add 3 preferences in order. Our team will confirm the best available option with you.</p>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top:18px;">
+              <label>Additional Notes</label>
+              <textarea id="f-notes" rows="3" placeholder="Anything that helps us plan your perfect event..."></textarea>
+            </div>
+            <div class="form-nav">
+              <button class="btn btn-back" onclick="prevStep(3)">Back</button>
+              <button class="btn btn-primary" id="step3-next-btn" onclick="nextStep(3)" disabled style="opacity:0.5;cursor:not-allowed;">Continue</button>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="form-step" id="step-4">
+            <h3 class="form-step-title">Almost there!</h3>
+            <p class="form-step-desc">Please confirm you&rsquo;ve read the policies and submit your request.</p>
+            <div class="checkbox-group">
+              <input type="checkbox" id="f-policy" />
+              <label for="f-policy">I have read and agree to the <a href="#bonfire-policies">Light Me Up Beach Bonfires policies</a> above. <span style="color:var(--flame)">*</span></label>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="f-sms" />
+              <label for="f-sms">I agree to receive text messages from Light Me Up Beach Bonfires, including booking confirmations, updates, and occasional promotions. Message and data rates may apply.</label>
+            </div>
+            <div class="form-notice">
+              <strong>What happens next?</strong><br/>
+              Once you submit, our team will reach out within 24 hours to confirm your date, go over all the details, and collect payment to lock in your spot. We can&rsquo;t wait to see you on the beach!
+            </div>
+            <div class="form-nav">
+              <button class="btn btn-back" onclick="prevStep(4)">Back</button>
+              <button class="btn btn-primary" onclick="submitForm()">Send My Request</button>
+            </div>
+          </div>
+
+          <!-- SUCCESS -->
+          <div class="success-message" id="success-msg">
+
+            <h3>You&rsquo;re all set!</h3>
+            <p>Thank you for reaching out. The LMU team will be in touch within 24 hours to confirm your reservation. We can&rsquo;t wait to see you!</p>
+            <p style="margin-top:12px;font-style:italic;font-family:var(--font-display);font-size:1.1rem;color:var(--flame);">Love, The LMU Team</p>
+            <a href="index.html" class="btn btn-primary" style="margin-top:26px;display:inline-flex;">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container cta-content">
+      <span class="section-label">Ready to Get Started?</span>
+      <h2 class="cta-title">Make tonight <em>unforgettable</em></h2>
+      <p class="cta-sub">Whether it&rsquo;s a quiet night for two or a big family gathering, we&rsquo;re ready to make it a night nobody forgets. See you on the beach.</p>
+      <div class="cta-actions">
+        <a href="#booking" class="btn btn-white">Book Your Experience</a>
+        <a href="mailto:hello@lightmeupbonfires.com" class="btn btn-outline-white">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-name">Light Me <span>Up</span> Beach Bonfires</div>
+          <div class="tagline">Family Owned &amp; Operated &middot; Est. 2015</div>
+          <p>One of the first beach bonfire companies on the Emerald Coast, serving Panama City Beach, Walton County, and 30A since 2015.</p>
+          <div class="footer-actions">
+            <a href="#booking" class="btn btn-primary">Book Now</a>
+            <a href="mailto:hello@lightmeupbonfires.com" class="btn btn-outline">Contact Us</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="beach-bonfire.html">Beach Bonfires</a></li>
+            <li><a href="beach-picnics.html">Beach Picnics</a></li>
+            <li><a href="beach-chairs.html">Beach Chairs &amp; Umbrellas</a></li>
+            <li><a href="event-planning.html">Event Planning</a></li>
+            <li><a href="faq.html">FAQ &amp; Policies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Along</h4>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+          <div style="margin-top:26px;">
+            <h4>Contact</h4>
+            <p style="font-size:0.86rem;color:rgba(255,255,255,0.50);font-weight:300;line-height:1.72;">
+              hello@lightmeupbonfires.com<br/>
+              (850) 555-FIRE<br/>
+              Panama City Beach to 30A
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Light Me Up Beach Bonfires. All rights reserved.</p>
+        <p style="font-size:0.70rem;color:rgba(255,255,255,0.18);">Family Owned &amp; Operated &middot; Bay County &middot; Walton County &middot; 30A</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
+
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    navToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+    function updateProgress(step) {
+      document.querySelectorAll('.progress-step').forEach((el, i) => {
+        el.classList.remove('active', 'completed');
+        if (i + 1 < step) el.classList.add('completed');
+        if (i + 1 === step) el.classList.add('active');
+      });
+    }
+    function showStep(step) {
+      document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById('step-' + step);
+      if (target) target.classList.add('active');
+      updateProgress(step);
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function nextStep(from) {
+      if (from === 1) {
+        const name = document.getElementById('f-name').value.trim();
+        const email = document.getElementById('f-email').value.trim();
+        const phone = document.getElementById('f-phone').value.trim();
+        if (!name || !email || !phone) { alert('Please fill in all required fields.'); return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+      }
+      if (from === 2) {
+        if (!document.getElementById('f-service').value) { alert('Please select a service.'); return; }
+        if (!document.getElementById('f-date1').value) { alert('Please enter at least one preferred date.'); return; }
+        const g = document.getElementById('f-guests').value.trim();
+        if (!g || isNaN(g) || parseInt(g) < 1) { alert('Please enter the number of guests.'); return; }
+      }
+      if (from === 3) {
+        if (!locationStep.preferences.every(function(p) { return p !== null; })) {
+          alert('Please select your 3 beach access location preferences.');
+          return;
+        }
+      }
+      if (from < 4) showStep(from + 1);
+    }
+    function prevStep(from) { if (from > 1) showStep(from - 1); }
+
+    var locationStep = new BookingWizard.LocationStep({
+      nextBtnId: 'step3-next-btn',
+      services:  ['bonfire']
+    });
+
+    async function submitForm() {
+      if (!document.getElementById('f-policy').checked) { alert('Please agree to our policies to continue.'); return; }
+      var name   = document.getElementById('f-name').value.trim();
+      var email  = document.getElementById('f-email').value.trim();
+      var phone  = document.getElementById('f-phone').value.trim();
+      var rental = locationStep.locationMode === 'address' ? document.getElementById('f-rental').value.trim() : '';
+      var service = document.getElementById('f-service') ? document.getElementById('f-service').value : '';
+      var guests  = parseInt((document.getElementById('f-guests') || {}).value) || null;
+      var sms     = document.getElementById('f-sms') ? document.getElementById('f-sms').checked : false;
+      var date1   = document.getElementById('f-date1') ? (document.getElementById('f-date1').value || null) : null;
+      var date2   = document.getElementById('f-date2') ? (document.getElementById('f-date2').value || null) : null;
+      var beachAreaSelected = locationStep.locationMode === 'area' && locationStep.selectedAreaName ? locationStep.selectedAreaName : null;
+      var notes = document.getElementById('f-notes') ? document.getElementById('f-notes').value.trim() : '';
+      var bookingData = {
+        name: name, email: email, phone: phone, rental_address: rental || null,
+        beach_area_selected: beachAreaSelected,
+        beach_access_preference_1: locationStep.preferences[0] ? locationStep.preferences[0].name : null,
+        beach_access_preference_2: locationStep.preferences[1] ? locationStep.preferences[1].name : null,
+        beach_access_preference_3: locationStep.preferences[2] ? locationStep.preferences[2].name : null,
+        location_zone: locationStep.preferences[0] ? locationStep.preferences[0].zone : (locationStep.areaZone || null),
+        preferred_date_1: date1, preferred_date_2: date2,
+        guest_count: guests, package_type: service || 'inquiry',
+        sms_consent: sms, notes: notes || null, status: 'pending_contact'
+      };
+      if (typeof LMU !== 'undefined') {
+        var { data, error } = await LMU.db.submitBooking(bookingData);
+        if (!error && data) LMU.db.triggerWebhook(data.id, 'bonfire');
+        else console.error('Booking save error:', error);
+      }
+      document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+      document.getElementById('success-msg').classList.add('show');
+      document.querySelector('.progress-bar-wrap').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
