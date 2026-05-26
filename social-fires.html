@@ -209,7 +209,7 @@
 
     /* RESPONSIVE */
     @media(max-width:1024px){.hotels-grid{grid-template-columns:1fr 1fr;}.what-inner{grid-template-columns:1fr;gap:36px;}.includes-grid{grid-template-columns:1fr 1fr;}}
-    @media(max-width:768px){.hotels-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;gap:36px;}.includes-grid{grid-template-columns:1fr;}.header-nav,.header-actions{display:none;}.nav-toggle{display:flex;}}
+    @media(max-width:768px){.hotels-grid{grid-template-columns:1fr;}.partner-hotels-grid{grid-template-columns:1fr !important;}.footer-top{grid-template-columns:1fr;gap:36px;}.includes-grid{grid-template-columns:1fr;}.header-nav,.header-actions{display:none;}.nav-toggle{display:flex;}}
     @media(max-width:480px){.hero-title{font-size:2.4rem;}.form-row{grid-template-columns:1fr;}.form-nav{flex-direction:column;}.form-nav .btn{width:100%;}}
     .lg-overlay{position:fixed;inset:0;background:rgba(28,34,40,0.60);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px;}
     .lg-overlay.open{display:flex;}
@@ -360,7 +360,7 @@
           </div>
           <div class="what-feature">
             <div class="what-feature-dot"></div>
-            <div class="what-feature-text">From $45 per person. Get the full Light Me Up experience for a fraction of the private bonfire price. Same fire, same s'mores, same magic.</div>
+            <div class="what-feature-text">From $39 per person for hotel guests, $45 per person at Señor Frog's. Ages 5 & under are always free. Get the full Light Me Up experience for a fraction of the private bonfire price. Same fire, same s'mores, same magic.</div>
           </div>
           <div class="what-feature">
             <div class="what-feature-dot"></div>
@@ -369,7 +369,7 @@
         </div>
       </div>
       <div class="what-img">
-        <img src="Website Images/SocialPic.webp" alt="Social Fire on the beach" />
+        <img src="website-images/SocialPic.webp" alt="Social Fire on the beach" />
       </div>
     </div>
   </section>
@@ -379,25 +379,61 @@
     <div class="container">
       <div class="hotels-header">
         <span class="section-label">Our Partner Hotels</span>
-        <h2 class="section-title">Choose your <em>hotel</em></h2>
-        <p class="section-subtitle">Click your hotel below to learn more about the Social Fire experience at that property and get started with your booking.</p>
+        <h2 class="section-title">Which hotel <em>are you at?</em></h2>
+        <p class="section-subtitle">Book directly through your hotel's page — scan the QR code at check-in or click your hotel below to get started.</p>
+      </div>
+
+      <!-- Partner hotel cards — 2-column grid -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:0;" class="partner-hotels-grid">
+        <!-- Hyatt Place -->
+        <div class="hotel-card">
+          <div class="hotel-card-img">
+            <img src="website-images/hotel-hyatt-pcb.jpg" alt="Hyatt Place Panama City Beach" onerror="this.style.display='none'" />
+            <span class="hotel-badge">Partner Hotel &middot; Mondays</span>
+          </div>
+          <div class="hotel-card-body">
+            <div class="hotel-name">Hyatt Place</div>
+            <div class="hotel-location">Panama City Beach, FL</div>
+            <div class="hotel-desc">Exclusive Monday night Social Fire right on the beach at the Hyatt Place. $39 per person &middot; Ages 5 &amp; under free.</div>
+            <div class="hotel-cta">
+              <a href="social-fire-hyatt.html" class="btn btn-primary">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Springhill Suites -->
+        <div class="hotel-card">
+          <div class="hotel-card-img">
+            <img src="website-images/hotel-springhill-pcb.jpg" alt="Springhill Suites Panama City Beach" onerror="this.style.display='none'" />
+            <span class="hotel-badge">Partner Hotel &middot; Tuesdays</span>
+          </div>
+          <div class="hotel-card-body">
+            <div class="hotel-name">Springhill Suites</div>
+            <div class="hotel-location">Panama City Beach, FL</div>
+            <div class="hotel-desc">Tuesday night beachfront Social Fire experience at Springhill Suites. $39 per person &middot; Ages 5 &amp; under free.</div>
+            <div class="hotel-cta">
+              <a href="social-fire-springhill.html" class="btn btn-primary">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider + Señor Frog's -->
+      <div style="text-align:center;padding:36px 0 24px;border-top:1px solid rgba(200,86,42,0.12);margin-top:16px;">
+        <p style="font-family:var(--font-display);font-size:1.35rem;font-weight:300;font-style:italic;color:var(--text-mid);">Not staying at a partner hotel? No worries.</p>
+        <p style="font-size:0.88rem;color:var(--text-light);margin-top:6px;font-weight:300;">The Señor Frog's Social Fire is open to everyone on Panama City Beach — no hotel required.</p>
       </div>
 
       <!-- Señor Frog's — Thursday social fire (open to all guests) -->
       <div style="background:linear-gradient(135deg,#1e2d38,#2c4a5a);border-radius:var(--radius-lg);padding:36px 32px;margin-bottom:48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:28px;box-shadow:var(--shadow-soft);">
         <div>
-          <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--golden);display:block;margin-bottom:10px;">Open to All Guests &middot; Every Thursday</span>
+          <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--golden);display:block;margin-bottom:10px;">Open to All Guests &middot; Every Thursday &middot; $45/person</span>
           <h3 style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;color:var(--white);margin-bottom:10px;">Social Fire at <em style="color:var(--golden);">Señor Frog's</em></h3>
-          <!-- COPY_PLACEHOLDER: Update description with final marketing copy -->
-          <p style="font-size:0.95rem;color:rgba(255,255,255,0.72);font-weight:300;max-width:520px;line-height:1.72;margin-bottom:0;">A beach bonfire right on the sand outside Señor Frog's, every Thursday night at 7:00 PM. No hotel required — open to all guests on Panama City Beach.</p>
+          <p style="font-size:0.95rem;color:rgba(255,255,255,0.72);font-weight:300;max-width:520px;line-height:1.72;margin-bottom:0;">A beach bonfire right on the sand outside Señor Frog's, every Thursday night at 7:00 PM. No hotel required — open to all guests on Panama City Beach. Ages 5 &amp; under free.</p>
         </div>
         <div style="flex-shrink:0;">
           <a href="social-fire-senor-frogs.html" class="btn btn-primary" style="font-size:0.90rem;padding:14px 36px;">Book Thursday Fire</a>
         </div>
-      </div>
-
-      <div class="hotels-grid" id="hotels-grid">
-        <!-- Rendered by sfRenderHotelCards() -->
       </div>
     </div>
   </section>
@@ -470,14 +506,14 @@
 
           <!-- STEP 2: Hotel & Guests -->
           <div class="form-step" id="sf-step-2">
-            <h3 class="form-step-title">Hotel &amp; guests</h3>
-            <p class="form-step-desc">Select your hotel and tell us how many guests are joining you.</p>
+            <h3 class="form-step-title">Your hotel &amp; guests</h3>
+            <p class="form-step-desc">Which hotel are you at, and how many guests are joining you?</p>
             <div class="form-group">
-              <label>Hotel <span class="req">*</span></label>
+              <label>Which hotel are you at? <span class="req">*</span></label>
               <select id="sf-hotel" onchange="sfOnHotelChange()">
-                <option value="">Select your hotel</option>
-                <!-- Populated by sfPopulateHotelDropdown() -->
+                <option value="">Select your hotel…</option>
               </select>
+              <div id="sf-price-note" style="font-size:0.78rem;color:var(--text-light);margin-top:5px;display:none;"></div>
             </div>
             <div class="form-group">
               <label>Number of Guests <span class="req">*</span></label>
@@ -493,7 +529,7 @@
           <!-- STEP 3: Choose Your Fire -->
           <div class="form-step" id="sf-step-3">
             <h3 class="form-step-title">Choose your fire</h3>
-            <p class="form-step-desc">Select an available fire date below. Partner hotel guests may attend Monday or Tuesday fires; the Thursday fire at Señor Frog's is open to all.</p>
+            <p class="form-step-desc">Select your fire date below.</p>
             <div id="sf-fire-options"></div>
             <div class="form-nav">
               <button class="btn btn-back" onclick="sfPrevStep(3)">Back</button>
@@ -597,20 +633,15 @@
     var PRICE_PLACEHOLDER_TUESDAY = 0;  // TODO: update when pricing confirmed
     var MAX_GUESTS_PER_FIRE       = 20;
 
-    // TODO: Replace with real hotel data from Supabase partner_hotels table
     var FALLBACK_PARTNER_HOTELS = [
-      { id: 1, name: 'Hotel 1', slug: 'hotel-1', address: 'Address TBD', zone: '30a', active: true },
-      { id: 2, name: 'Hotel 2', slug: 'hotel-2', address: 'Address TBD', zone: 'pcb', active: true },
-      { id: 3, name: 'Hotel 3', slug: 'hotel-3', address: 'Address TBD', zone: '30a', active: true },
-      { id: 4, name: 'Hotel 4', slug: 'hotel-4', address: 'Address TBD', zone: 'pcb', active: true },
-      { id: 5, name: 'Hotel 5', slug: 'hotel-5', address: 'Address TBD', zone: '30a', active: true },
-      { id: 6, name: 'Hotel 6', slug: 'hotel-6', address: 'Address TBD', zone: 'pcb', active: true },
+      { id: 'hyatt',      name: 'Hyatt Regency',    slug: 'hyatt',      address: 'Panama City Beach, FL', zone: 'pcb', active: true, venue_key: 'monday_hyatt',      landing_page: 'social-fire-hyatt.html' },
+      { id: 'springhill', name: 'Springhill Suites', slug: 'springhill', address: 'Panama City Beach, FL', zone: 'pcb', active: true, venue_key: 'tuesday_springhill', landing_page: 'social-fire-springhill.html' },
     ];
 
     var SF_VENUES = {
-      monday_hyatt:         { label: 'Monday Night Fire at the Hyatt',          day: 'Monday',   dow: 1, price: PRICE_PLACEHOLDER_MONDAY,  location: 'Hyatt',             location_id: 'hyatt_monday' },
-      tuesday_springhill:   { label: 'Tuesday Night Fire at Springhill Suites', day: 'Tuesday',  dow: 2, price: PRICE_PLACEHOLDER_TUESDAY, location: 'Springhill Suites', location_id: 'springhill_tuesday' },
-      thursday_senor_frogs: { label: "Thursday Night Fire at Señor Frog's",     day: 'Thursday', dow: 4, price: 45,                        location: "Señor Frog's",      location_id: 'senor_frogs_thursday' },
+      monday_hyatt:         { label: 'Monday Night Fire — Hyatt Regency',    day: 'Monday',   dow: 1, price: 39, location: 'Hyatt Regency',    location_id: 'hyatt_monday' },
+      tuesday_springhill:   { label: 'Tuesday Night Fire — Springhill Suites', day: 'Tuesday', dow: 2, price: 39, location: 'Springhill Suites', location_id: 'springhill_tuesday' },
+      thursday_senor_frogs: { label: "Thursday Night Fire at Señor Frog's",  day: 'Thursday', dow: 4, price: 45, location: "Señor Frog's",     location_id: 'senor_frogs_thursday' },
     };
 
     // Supabase client — only initialized when real credentials are present
@@ -629,7 +660,7 @@
       guestCount: 1, additionalGuests: [],
       selectedVenueKey: null, eventDate: null,
       ticketPrice: 0, totalCharged: 0,
-      source: '', hotels: [],
+      source: '', _venueKey: '',
     };
 
     // Returns the next occurrence of a weekday (0=Sun…6=Sat), starting from tomorrow
@@ -655,54 +686,34 @@
       return FALLBACK_PARTNER_HOTELS;
     }
 
-    function sfRenderHotelCards(hotels) {
-      var grid = document.getElementById('hotels-grid');
-      if (!grid) return;
-      grid.innerHTML = '';
-      hotels.forEach(function(h) {
-        var card = document.createElement('div');
-        card.className = 'hotel-card';
-        card.innerHTML =
-          '<div class="hotel-card-body" style="padding:28px 24px;justify-content:space-between;">' +
-          '<div><div class="hotel-name">' + h.name + '</div>' +
-          '<div class="hotel-location">' + (h.address || 'Address TBD') + '</div></div>' +
-          '<div class="hotel-cta" style="margin-top:22px;">' +
-          '<a href="#social-fire-form" class="btn btn-primary" onclick="sfPreSelectHotel(' + h.id + ')" style="width:100%;justify-content:center;">Book Now</a>' +
-          '</div></div>';
-        grid.appendChild(card);
-      });
-    }
-
-    function sfPopulateHotelDropdown(hotels) {
+    function sfPopulateHotelDropdown() {
       var sel = document.getElementById('sf-hotel');
       if (!sel) return;
-      sel.innerHTML = '<option value="">Select your hotel</option>';
-      hotels.forEach(function(h) {
-        var o = document.createElement('option');
-        o.value = h.id; o.dataset.slug = h.slug; o.dataset.name = h.name;
-        o.textContent = h.name;
-        sel.appendChild(o);
-      });
-      var np = document.createElement('option');
-      np.value = 'not_partner'; np.textContent = 'Not a partner hotel';
-      sel.appendChild(np);
-    }
-
-    function sfPreSelectHotel(hotelId) {
-      var sel = document.getElementById('sf-hotel');
-      if (sel) { sel.value = hotelId; sfOnHotelChange(); }
+      sel.innerHTML =
+        '<option value="">Select your hotel…</option>' +
+        '<option value="hyatt" data-slug="hyatt" data-name="Hyatt Regency" data-venue="monday_hyatt">Hyatt Regency</option>' +
+        '<option value="springhill" data-slug="springhill" data-name="Springhill Suites" data-venue="tuesday_springhill">Springhill Suites</option>' +
+        '<option value="senor_frogs" data-slug="senor-frogs" data-name="Señor Frog\'s" data-venue="thursday_senor_frogs">Señor Frog\'s (Open to All)</option>';
     }
 
     function sfOnHotelChange() {
       var sel = document.getElementById('sf-hotel'), val = sel ? sel.value : '';
-      _sf.isPartner = (val !== '' && val !== 'not_partner');
-      if (val === 'not_partner') {
-        _sf.hotelId = null; _sf.hotelName = 'Not a partner hotel'; _sf.hotelSlug = '';
-      } else if (val) {
+      if (val) {
         var o = sel.options[sel.selectedIndex];
-        _sf.hotelId = parseInt(val); _sf.hotelName = o.dataset.name || o.textContent; _sf.hotelSlug = o.dataset.slug || '';
+        _sf.hotelId   = val;
+        _sf.hotelName = o.dataset.name || o.textContent;
+        _sf.hotelSlug = o.dataset.slug || '';
+        _sf.isPartner = (val !== 'senor_frogs');
+        _sf._venueKey = o.dataset.venue || '';
+        var note = document.getElementById('sf-price-note');
+        if (note) {
+          note.style.display = 'block';
+          note.textContent = _sf.isPartner ? '$39/person · Ages 5 & under free' : '$45/person · Ages 5 & under free';
+        }
       } else {
-        _sf.hotelId = null; _sf.hotelName = ''; _sf.hotelSlug = '';
+        _sf.hotelId = null; _sf.hotelName = ''; _sf.hotelSlug = ''; _sf.isPartner = false; _sf._venueKey = '';
+        var note2 = document.getElementById('sf-price-note');
+        if (note2) note2.style.display = 'none';
       }
       sfUpdateStep2Btn();
     }
@@ -755,7 +766,7 @@
       var wrap = document.getElementById('sf-fire-options');
       if (!wrap) return;
       wrap.innerHTML = '<p style="color:var(--text-light);font-size:0.88rem;padding:8px 0;">Loading available dates…</p>';
-      var keys = _sf.isPartner ? ['monday_hyatt', 'tuesday_springhill'] : ['thursday_senor_frogs'];
+      var keys = _sf._venueKey ? [_sf._venueKey] : (_sf.isPartner ? ['monday_hyatt', 'tuesday_springhill'] : ['thursday_senor_frogs']);
       var html = '<div class="fire-option-grid">';
       for (var i = 0; i < keys.length; i++) {
         var key = keys[i], v = SF_VENUES[key];
@@ -898,11 +909,13 @@
       var params = new URLSearchParams(window.location.search);
       var hotelSlug = params.get('hotel'), source = params.get('source');
       if (source) _sf.source = source;
-      if (hotelSlug && _sf.hotels.length) {
-        var match = _sf.hotels.filter(function(h) { return h.slug === hotelSlug; })[0];
-        if (match) {
-          var sel = document.getElementById('sf-hotel');
-          if (sel) { sel.value = match.id; sfOnHotelChange(); }
+      if (hotelSlug) {
+        var sel = document.getElementById('sf-hotel');
+        if (sel) {
+          var opts = sel.options;
+          for (var i = 0; i < opts.length; i++) {
+            if (opts[i].dataset.slug === hotelSlug) { sel.selectedIndex = i; sfOnHotelChange(); break; }
+          }
         }
       }
     }
@@ -935,9 +948,7 @@
         nt.addEventListener('click', function() { mn.classList.toggle('open'); });
         mn.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { mn.classList.remove('open'); }); });
       }
-      _sf.hotels = await sfLoadPartnerHotels();
-      sfRenderHotelCards(_sf.hotels);
-      sfPopulateHotelDropdown(_sf.hotels);
+      sfPopulateHotelDropdown();
       sfUpdateStep2Btn();
       sfRenderCalendar();
       sfReadUrlParams();

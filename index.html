@@ -105,7 +105,7 @@
 
     /* HERO */
     .hero{position:relative;min-height:91vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-    .hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,34,40,0.22) 0%,rgba(28,34,40,0.50) 55%,rgba(28,34,40,0.76) 100%),url('Website Images/HomeLandingHero.webp') center/cover no-repeat;z-index:0;}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,34,40,0.22) 0%,rgba(28,34,40,0.50) 55%,rgba(28,34,40,0.76) 100%),url('website-images/HomeLandingHero.webp') center/cover no-repeat;z-index:0;}
     .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(200,86,42,0.14) 0%,transparent 55%);}
     .hero-content{position:relative;z-index:1;text-align:center;padding:60px 28px;max-width:820px;}
     .hero-eyebrow{font-family:var(--font-body);font-size:0.72rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--golden);display:block;margin-bottom:20px;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
@@ -372,6 +372,7 @@
   <link rel="stylesheet" href="lmu-design.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="lib/beachAccessLocations.js"></script>
   <script src="lib/lmu-backend.js"></script>
   <script src="components/booking-wizard.js"></script>
 </head>
@@ -923,7 +924,7 @@
       <div class="wol-header">
         <span class="section-label">Wall of Love</span>
         <h2 class="section-title">What our guests <em>are saying</em></h2>
-        <p class="section-subtitle" style="margin:12px auto 0;text-align:center;">Real reviews from real guests who've experienced a little LMU magic on the beach.</p>
+        <p class="section-subtitle" style="margin:12px auto 0;text-align:center;">What our guests have to say about the LMU experience</p>
       </div>
       <div class="wol-grid">
 
@@ -938,7 +939,7 @@
             <div class="wol-avatar">D</div>
             <div>
               <div class="wol-name">Denyse Russo</div>
-              <div class="wol-source">&#9733; Google Review</div>
+              <div class="wol-source">Google Review</div>
             </div>
           </div>
         </div>
@@ -954,7 +955,7 @@
             <div class="wol-avatar">C</div>
             <div>
               <div class="wol-name">Clay McCann</div>
-              <div class="wol-source">&#9733; Google Review</div>
+              <div class="wol-source">Google Review</div>
             </div>
           </div>
         </div>
@@ -970,7 +971,7 @@
             <div class="wol-avatar">E</div>
             <div>
               <div class="wol-name">Elle Thurman</div>
-              <div class="wol-source">&#9733; Google Review</div>
+              <div class="wol-source">Google Review</div>
             </div>
           </div>
         </div>
@@ -986,7 +987,7 @@
             <div class="wol-avatar">C</div>
             <div>
               <div class="wol-name">Chris Lakin</div>
-              <div class="wol-source">&#9733; Google Review</div>
+              <div class="wol-source">Google Review</div>
             </div>
           </div>
         </div>
@@ -995,10 +996,10 @@
 
       <!-- Wall of Love photos -->
       <div class="wol-photos">
-        <img src="Website Images/Wall1.webp" alt="Light Me Up Beach Bonfires moment" class="wol-photo" />
-        <img src="Website Images/Wall2.webp" alt="Light Me Up Beach Bonfires moment" class="wol-photo" />
-        <img src="Website Images/Wall3.webp" alt="Light Me Up Beach Bonfires moment" class="wol-photo" />
-        <img src="Website Images/Wall4.webp" alt="Light Me Up Beach Bonfires moment" class="wol-photo" />
+        <img src="website-images/Wall1.webp" alt="Light Me Up Beach Bonfires moment" class="wol-photo" />
+        <img src="website-images/Wall2.webp" alt="Light Me Up Beach Bonfires moment" class="wol-photo" />
+        <img src="website-images/Wall3.webp" alt="Light Me Up Beach Bonfires moment" class="wol-photo" />
+        <img src="website-images/Wall4.webp" alt="Light Me Up Beach Bonfires moment" class="wol-photo" />
       </div>
     </div>
   </section>
@@ -1104,7 +1105,7 @@
       <div class="two-col">
         <img
           class="two-col-img"
-          src="Website Images/HomePicnic.webp"
+          src="website-images/HomePicnic.webp"
           alt="Styled beach picnic setup on the Florida coast"
         />
         <div class="two-col-text">
@@ -1131,7 +1132,7 @@
         </div>
         <img
           class="two-col-img"
-          src="Website Images/HomeChair.webp"
+          src="website-images/HomeChair.webp"
           alt="Beach chairs and umbrella set up on a Florida beach"
         />
       </div>
@@ -1148,28 +1149,28 @@
       </div>
       <div class="locations-grid">
         <div class="location-card">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="30A" />
+          <img src="https://images.unsplash.com/photo-1705452883404-0ba60e594453?w=800&q=85" alt="30A emerald water" />
           <div class="location-overlay">
             <div class="location-name">30A</div>
             <div class="location-detail">Seaside &middot; Rosemary &middot; Alys &middot; WaterColor</div>
           </div>
         </div>
         <div class="location-card">
-          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80" alt="Bay County" />
+          <img src="https://images.unsplash.com/photo-1656261443293-02c750b32bb5?w=800&q=85" alt="Panama City Beach aerial" />
           <div class="location-overlay">
             <div class="location-name">Bay County</div>
             <div class="location-detail">Panama City Beach &middot; Mexico Beach</div>
           </div>
         </div>
         <div class="location-card">
-          <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=600&q=80" alt="Walton County" />
+          <img src="https://images.unsplash.com/photo-1599163174538-8a5ad89299c3?w=800&q=85" alt="Walton County beach" />
           <div class="location-overlay">
             <div class="location-name">Walton County</div>
             <div class="location-detail">Miramar Beach &middot; Dune Allen &middot; Inlet Beach</div>
           </div>
         </div>
         <div class="location-card">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Santa Rosa Beach" />
+          <img src="https://images.unsplash.com/photo-1560427791-bcf0b027ff44?w=800&q=85" alt="Santa Rosa Beach boardwalk" />
           <div class="location-overlay">
             <div class="location-name">Santa Rosa Beach</div>
             <div class="location-detail">Blue Mountain Beach &middot; Grayton Beach &middot; Inlet Beach</div>

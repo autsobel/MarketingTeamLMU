@@ -28,121 +28,356 @@
      Sourced from supabase/seed_beach_access.sql
      ============================================================ */
   var FALLBACK_LOCATIONS = [
-    // ── Bay County (zone=PCB, county=Bay) ──────────────────────
+    // ── Bay County (zone=PCB, county=Bay) — type: access_point ─
+    // Coordinates verified from Bay County GIS (Facilities/MapServer layer 1)
+    // and Nominatim geocoding. Accesses are numbered east→west along Front Beach Rd.
     { id: 'bay_sunnyside', name: 'Sunnyside Beach & Tennis Resort',
-      zone: 'PCB', county: 'Bay', latitude: 30.1655, longitude: -85.8871,
+      zone: 'PCB', county: 'Bay', latitude: 30.257960, longitude: -85.963566,
+      type: 'access_point',
       services_offered: ['bonfire','picnic','chair_rental','social_fire'] },
-    { id: 'bay_1',  name: 'Bay County Public Access 1',
-      zone: 'PCB', county: 'Bay', latitude: 30.1648, longitude: -85.9512,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_4',  name: 'Bay County Public Access 4',
-      zone: 'PCB', county: 'Bay', latitude: 30.1641, longitude: -85.9447,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_8',  name: 'Bay County Public Access 8',
-      zone: 'PCB', county: 'Bay', latitude: 30.1632, longitude: -85.9392,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_12', name: 'Bay County Public Access 12',
-      zone: 'PCB', county: 'Bay', latitude: 30.1622, longitude: -85.9298,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_16', name: 'Bay County Public Access 16',
-      zone: 'PCB', county: 'Bay', latitude: 30.1608, longitude: -85.9119,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_18', name: 'Bay County Public Access 18',
-      zone: 'PCB', county: 'Bay', latitude: 30.1600, longitude: -85.9062,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_20', name: 'Bay County Public Access 20',
-      zone: 'PCB', county: 'Bay', latitude: 30.1597, longitude: -85.9038,
-      services_offered: ['bonfire','picnic'] },
+    { id: 'bay_1',   name: 'Bay County Public Access 1',
+      zone: 'PCB', county: 'Bay', latitude: 30.137340, longitude: -85.750140,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_2',   name: 'Bay County Public Access 2',
+      zone: 'PCB', county: 'Bay', latitude: 30.138423, longitude: -85.751426,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_3',   name: 'Bay County Public Access 3',
+      zone: 'PCB', county: 'Bay', latitude: 30.139314, longitude: -85.752598,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_4',   name: 'Bay County Public Access 4',
+      zone: 'PCB', county: 'Bay', latitude: 30.141328, longitude: -85.754492,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_5',   name: 'Bay County Public Access 5',
+      zone: 'PCB', county: 'Bay', latitude: 30.141698, longitude: -85.754970,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_6',   name: 'Bay County Public Access 6',
+      zone: 'PCB', county: 'Bay', latitude: 30.142362, longitude: -85.755810,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_7',   name: 'Bay County Public Access 7',
+      zone: 'PCB', county: 'Bay', latitude: 30.142854, longitude: -85.756608,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_8',   name: 'Bay County Public Access 8',
+      zone: 'PCB', county: 'Bay', latitude: 30.143516, longitude: -85.757239,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_9',   name: 'Bay County Public Access 9',
+      zone: 'PCB', county: 'Bay', latitude: 30.144181, longitude: -85.758071,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_10',  name: 'Bay County Public Access 10',
+      zone: 'PCB', county: 'Bay', latitude: 30.144767, longitude: -85.758799,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_11',  name: 'Bay County Public Access 11',
+      zone: 'PCB', county: 'Bay', latitude: 30.145494, longitude: -85.759631,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_12',  name: 'Bay County Public Access 12',
+      zone: 'PCB', county: 'Bay', latitude: 30.148753, longitude: -85.764271,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_12a', name: 'Bay County Public Access 12A',
+      zone: 'PCB', county: 'Bay', latitude: 30.153341, longitude: -85.770361,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_13',  name: 'Bay County Public Access 13',
+      zone: 'PCB', county: 'Bay', latitude: 30.154063, longitude: -85.771346,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_14',  name: 'Bay County Public Access 14',
+      zone: 'PCB', county: 'Bay', latitude: 30.154889, longitude: -85.772456,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_15',  name: 'Bay County Public Access 15',
+      zone: 'PCB', county: 'Bay', latitude: 30.155040, longitude: -85.772538,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_16',  name: 'Bay County Public Access 16',
+      zone: 'PCB', county: 'Bay', latitude: 30.159989, longitude: -85.779834,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_17',  name: 'Bay County Public Access 17',
+      zone: 'PCB', county: 'Bay', latitude: 30.161075, longitude: -85.781511,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_18',  name: 'Bay County Public Access 18',
+      zone: 'PCB', county: 'Bay', latitude: 30.162911, longitude: -85.784184,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_19',  name: 'Bay County Public Access 19',
+      zone: 'PCB', county: 'Bay', latitude: 30.163377, longitude: -85.784892,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_20',  name: 'Bay County Public Access 20',
+      zone: 'PCB', county: 'Bay', latitude: 30.164325, longitude: -85.786318,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_21',  name: 'Bay County Public Access 21',
+      zone: 'PCB', county: 'Bay', latitude: 30.164771, longitude: -85.786987,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
     { id: 'bay_hickey', name: 'Edward F. Hickey, Jr. Park',
-      zone: 'PCB', county: 'Bay', latitude: 30.1594, longitude: -85.9022,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_77', name: 'Bay County Public Access 77',
-      zone: 'PCB', county: 'Bay', latitude: 30.1668, longitude: -85.8928,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_80', name: 'Bay County Public Access 80',
-      zone: 'PCB', county: 'Bay', latitude: 30.1662, longitude: -85.8892,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_85', name: 'Bay County Public Access 85',
-      zone: 'PCB', county: 'Bay', latitude: 30.1655, longitude: -85.8851,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_90', name: 'Bay County Public Access 90',
-      zone: 'PCB', county: 'Bay', latitude: 30.1640, longitude: -85.8719,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'bay_93', name: 'Bay County Public Access 93',
-      zone: 'PCB', county: 'Bay', latitude: 30.1634, longitude: -85.8688,
-      services_offered: ['bonfire','picnic'] },
+      zone: 'PCB', county: 'Bay', latitude: 30.166378, longitude: -85.789222,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_23',  name: 'Bay County Public Access 23',
+      zone: 'PCB', county: 'Bay', latitude: 30.166356, longitude: -85.789542,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_77',  name: 'Bay County Public Access 77',
+      zone: 'PCB', county: 'Bay', latitude: 30.243156, longitude: -85.932669,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_78',  name: 'Bay County Public Access 78',
+      zone: 'PCB', county: 'Bay', latitude: 30.243845, longitude: -85.934045,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_79',  name: 'Bay County Public Access 79',
+      zone: 'PCB', county: 'Bay', latitude: 30.244252, longitude: -85.935069,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_80',  name: 'Bay County Public Access 80',
+      zone: 'PCB', county: 'Bay', latitude: 30.244676, longitude: -85.936020,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_81',  name: 'Bay County Public Access 81',
+      zone: 'PCB', county: 'Bay', latitude: 30.245106, longitude: -85.937013,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_82',  name: 'Bay County Public Access 82',
+      zone: 'PCB', county: 'Bay', latitude: 30.245570, longitude: -85.938031,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_83',  name: 'Bay County Public Access 83',
+      zone: 'PCB', county: 'Bay', latitude: 30.245797, longitude: -85.938530,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_84',  name: 'Bay County Public Access 84',
+      zone: 'PCB', county: 'Bay', latitude: 30.246635, longitude: -85.940406,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_85',  name: 'Bay County Public Access 85',
+      zone: 'PCB', county: 'Bay', latitude: 30.247109, longitude: -85.941393,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_86',  name: 'Bay County Public Access 86',
+      zone: 'PCB', county: 'Bay', latitude: 30.252750, longitude: -85.953970,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_87',  name: 'Bay County Public Access 87',
+      zone: 'PCB', county: 'Bay', latitude: 30.253897, longitude: -85.956574,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_88',  name: 'Bay County Public Access 88',
+      zone: 'PCB', county: 'Bay', latitude: 30.255111, longitude: -85.959220,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_89',  name: 'Bay County Public Access 89',
+      zone: 'PCB', county: 'Bay', latitude: 30.255297, longitude: -85.959684,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_90',  name: 'Bay County Public Access 90',
+      zone: 'PCB', county: 'Bay', latitude: 30.255526, longitude: -85.960293,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_91',  name: 'Bay County Public Access 91',
+      zone: 'PCB', county: 'Bay', latitude: 30.255784, longitude: -85.960885,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_92',  name: 'Bay County Public Access 92',
+      zone: 'PCB', county: 'Bay', latitude: 30.255973, longitude: -85.961522,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_93',  name: 'Bay County Public Access 93',
+      zone: 'PCB', county: 'Bay', latitude: 30.257608, longitude: -85.965645,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_94',  name: 'Bay County Public Access 94',
+      zone: 'PCB', county: 'Bay', latitude: 30.258230, longitude: -85.967353,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_95',  name: 'Bay County Public Access 95',
+      zone: 'PCB', county: 'Bay', latitude: 30.259550, longitude: -85.970712,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'bay_96',  name: 'Bay County Public Access 96',
+      zone: 'PCB', county: 'Bay', latitude: 30.261899, longitude: -85.974887,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
     { id: 'bay_natural', name: 'Natural Beach Access',
       zone: 'PCB', county: 'Bay', latitude: 30.1637, longitude: -85.8701,
-      services_offered: ['bonfire','picnic'] },
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
 
-    // ── PCB City (zone=PCB, county=PCB) ────────────────────────
+    // ── PCB City (zone=PCB, county=PCB) — type: access_point ───
+    // Coordinates verified from Bay County GIS (Facilities/MapServer layer 1).
     { id: 'pcb_frogs', name: 'Señor Frogs',
-      zone: 'PCB', county: 'PCB', latitude: 30.1671, longitude: -85.8011,
+      zone: 'PCB', county: 'PCB', latitude: 30.207574, longitude: -85.861592,
+      type: 'access_point',
       services_offered: ['bonfire','picnic','social_fire','chair_rental'] },
-    { id: 'pcb_24', name: 'Public Beach Access 24',
-      zone: 'PCB', county: 'PCB', latitude: 30.1589, longitude: -85.8998,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'pcb_28', name: 'Public Beach Access 28',
-      zone: 'PCB', county: 'PCB', latitude: 30.1582, longitude: -85.8868,
-      services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_24',  name: 'Public Beach Access 24',
+      zone: 'PCB', county: 'PCB', latitude: 30.166715, longitude: -85.789969,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_25',  name: 'Public Beach Access 25',
+      zone: 'PCB', county: 'PCB', latitude: 30.173046, longitude: -85.800720,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_26',  name: 'Public Beach Access 26',
+      zone: 'PCB', county: 'PCB', latitude: 30.173197, longitude: -85.800964,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_27',  name: 'Public Beach Access 27',
+      zone: 'PCB', county: 'PCB', latitude: 30.173343, longitude: -85.801237,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_28',  name: 'Public Beach Access 28',
+      zone: 'PCB', county: 'PCB', latitude: 30.173486, longitude: -85.801505,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_29',  name: 'Public Beach Access 29',
+      zone: 'PCB', county: 'PCB', latitude: 30.173625, longitude: -85.801762,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_30',  name: 'Public Beach Access 30',
+      zone: 'PCB', county: 'PCB', latitude: 30.173782, longitude: -85.802016,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_31',  name: 'Public Beach Access 31',
+      zone: 'PCB', county: 'PCB', latitude: 30.173945, longitude: -85.802305,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_32',  name: 'Public Beach Access 32',
+      zone: 'PCB', county: 'PCB', latitude: 30.174029, longitude: -85.802451,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_33',  name: 'Public Beach Access 33',
+      zone: 'PCB', county: 'PCB', latitude: 30.174241, longitude: -85.802827,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_34',  name: 'Public Beach Access 34',
+      zone: 'PCB', county: 'PCB', latitude: 30.174377, longitude: -85.803078,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
     { id: 'pcb_35a', name: 'Public Beach Access 35A',
-      zone: 'PCB', county: 'PCB', latitude: 30.1621, longitude: -85.8481,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'pcb_40', name: 'Public Beach Access 40',
-      zone: 'PCB', county: 'PCB', latitude: 30.1631, longitude: -85.8381,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'pcb_43', name: 'Public Beach Access 43',
-      zone: 'PCB', county: 'PCB', latitude: 30.1648, longitude: -85.8181,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'pcb_51', name: 'Public Beach Access 51',
-      zone: 'PCB', county: 'PCB', latitude: 30.1665, longitude: -85.8041,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'pcb_52', name: 'Public Beach Access 52',
-      zone: 'PCB', county: 'PCB', latitude: 30.1672, longitude: -85.7981,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'pcb_53', name: 'Public Beach Access 53',
-      zone: 'PCB', county: 'PCB', latitude: 30.1679, longitude: -85.7921,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'pcb_58', name: 'Public Beach Access 58',
-      zone: 'PCB', county: 'PCB', latitude: 30.1681, longitude: -85.7901,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'pcb_64', name: 'Public Beach Access 64',
-      zone: 'PCB', county: 'PCB', latitude: 30.1691, longitude: -85.7841,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'pcb_68', name: 'Public Beach Access 68',
-      zone: 'PCB', county: 'PCB', latitude: 30.1698, longitude: -85.7791,
-      services_offered: ['bonfire','picnic'] },
-    { id: 'pcb_73', name: 'Public Beach Access 73',
-      zone: 'PCB', county: 'PCB', latitude: 30.1702, longitude: -85.7771,
-      services_offered: ['bonfire','picnic'] },
+      zone: 'PCB', county: 'PCB', latitude: 30.179028, longitude: -85.810833,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_36',  name: 'Public Beach Access 36',
+      zone: 'PCB', county: 'PCB', latitude: 30.179340, longitude: -85.811448,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_37',  name: 'Public Beach Access 37',
+      zone: 'PCB', county: 'PCB', latitude: 30.179944, longitude: -85.812570,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_38',  name: 'Public Beach Access 38',
+      zone: 'PCB', county: 'PCB', latitude: 30.180513, longitude: -85.813735,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_39',  name: 'Public Beach Access 39',
+      zone: 'PCB', county: 'PCB', latitude: 30.181257, longitude: -85.814736,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_40',  name: 'Public Beach Access 40',
+      zone: 'PCB', county: 'PCB', latitude: 30.183167, longitude: -85.818086,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_41',  name: 'Public Beach Access 41',
+      zone: 'PCB', county: 'PCB', latitude: 30.183981, longitude: -85.819423,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_42',  name: 'Public Beach Access 42',
+      zone: 'PCB', county: 'PCB', latitude: 30.186913, longitude: -85.824525,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_43',  name: 'Public Beach Access 43',
+      zone: 'PCB', county: 'PCB', latitude: 30.193830, longitude: -85.836653,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_44',  name: 'Public Beach Access 44',
+      zone: 'PCB', county: 'PCB', latitude: 30.195404, longitude: -85.839677,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_45',  name: 'Public Beach Access 45',
+      zone: 'PCB', county: 'PCB', latitude: 30.195510, longitude: -85.839881,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_46',  name: 'Public Beach Access 46',
+      zone: 'PCB', county: 'PCB', latitude: 30.196151, longitude: -85.841056,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_47',  name: 'Public Beach Access 47',
+      zone: 'PCB', county: 'PCB', latitude: 30.196790, longitude: -85.842220,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_48',  name: 'Public Beach Access 48',
+      zone: 'PCB', county: 'PCB', latitude: 30.197445, longitude: -85.843421,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_49',  name: 'Public Beach Access 49',
+      zone: 'PCB', county: 'PCB', latitude: 30.198087, longitude: -85.844591,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_50',  name: 'Public Beach Access 50',
+      zone: 'PCB', county: 'PCB', latitude: 30.198556, longitude: -85.845451,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_51',  name: 'Public Beach Access 51',
+      zone: 'PCB', county: 'PCB', latitude: 30.205119, longitude: -85.857206,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_52',  name: 'Public Beach Access 52',
+      zone: 'PCB', county: 'PCB', latitude: 30.209735, longitude: -85.866350,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_53',  name: 'Public Beach Access 53',
+      zone: 'PCB', county: 'PCB', latitude: 30.214725, longitude: -85.875235,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_54',  name: 'Public Beach Access 54',
+      zone: 'PCB', county: 'PCB', latitude: 30.215248, longitude: -85.876213,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_55',  name: 'Public Beach Access 55',
+      zone: 'PCB', county: 'PCB', latitude: 30.215420, longitude: -85.876912,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_56',  name: 'Public Beach Access 56',
+      zone: 'PCB', county: 'PCB', latitude: 30.215712, longitude: -85.877479,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_57',  name: 'Public Beach Access 57',
+      zone: 'PCB', county: 'PCB', latitude: 30.216102, longitude: -85.877821,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_58',  name: 'Public Beach Access 58',
+      zone: 'PCB', county: 'PCB', latitude: 30.216540, longitude: -85.878645,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_59',  name: 'Public Beach Access 59',
+      zone: 'PCB', county: 'PCB', latitude: 30.216909, longitude: -85.879240,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_60',  name: 'Public Beach Access 60',
+      zone: 'PCB', county: 'PCB', latitude: 30.217176, longitude: -85.879813,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_61',  name: 'Public Beach Access 61',
+      zone: 'PCB', county: 'PCB', latitude: 30.217787, longitude: -85.880900,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_62',  name: 'Public Beach Access 62',
+      zone: 'PCB', county: 'PCB', latitude: 30.218093, longitude: -85.881454,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_63',  name: 'Public Beach Access 63',
+      zone: 'PCB', county: 'PCB', latitude: 30.219332, longitude: -85.883872,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_64',  name: 'Public Beach Access 64',
+      zone: 'PCB', county: 'PCB', latitude: 30.221616, longitude: -85.888201,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_65',  name: 'Public Beach Access 65',
+      zone: 'PCB', county: 'PCB', latitude: 30.222297, longitude: -85.889519,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_66',  name: 'Public Beach Access 66',
+      zone: 'PCB', county: 'PCB', latitude: 30.225671, longitude: -85.896671,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_67',  name: 'Public Beach Access 67',
+      zone: 'PCB', county: 'PCB', latitude: 30.228439, longitude: -85.902031,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_68',  name: 'Public Beach Access 68',
+      zone: 'PCB', county: 'PCB', latitude: 30.228773, longitude: -85.902916,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_69',  name: 'Public Beach Access 69',
+      zone: 'PCB', county: 'PCB', latitude: 30.229337, longitude: -85.903924,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_70',  name: 'Public Beach Access 70',
+      zone: 'PCB', county: 'PCB', latitude: 30.230255, longitude: -85.905597,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_71',  name: 'Public Beach Access 71',
+      zone: 'PCB', county: 'PCB', latitude: 30.230664, longitude: -85.906547,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_72',  name: 'Public Beach Access 72',
+      zone: 'PCB', county: 'PCB', latitude: 30.231621, longitude: -85.908485,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_73',  name: 'Public Beach Access 73',
+      zone: 'PCB', county: 'PCB', latitude: 30.232276, longitude: -85.909801,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_74',  name: 'Public Beach Access 74',
+      zone: 'PCB', county: 'PCB', latitude: 30.232919, longitude: -85.911119,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_76',  name: 'Public Beach Access 76',
+      zone: 'PCB', county: 'PCB', latitude: 30.233636, longitude: -85.912543,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_76a', name: 'Public Beach Access 76A',
+      zone: 'PCB', county: 'PCB', latitude: 30.234074, longitude: -85.913407,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
+    { id: 'pcb_76b', name: 'Public Beach Access 76B',
+      zone: 'PCB', county: 'PCB', latitude: 30.235527, longitude: -85.916415,
+      type: 'access_point', services_offered: ['bonfire','picnic'] },
 
-    // ── Walton County / 30A (zone=30A, county=Walton) ──────────
+    // ── Walton County / 30A (zone=30A, county=Walton) — type: region ─
+    // These named areas are REGION records (Flow 2 dropdown only).
+    // Option A: each is also its own single bookable access point for that region.
     { id: '30a_inlet',   name: 'Inlet Beach',
       zone: '30A', county: 'Walton', latitude: 30.2741, longitude: -86.0102,
+      type: 'region', region: 'Inlet Beach',
       services_offered: ['bonfire','picnic','social_fire'] },
     { id: '30a_walton',  name: 'Walton Dunes',
       zone: '30A', county: 'Walton', latitude: 30.2756, longitude: -86.1354,
+      type: 'region', region: 'Walton Dunes',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_clara',   name: 'Santa Clara',
       zone: '30A', county: 'Walton', latitude: 30.2919, longitude: -86.1750,
+      type: 'region', region: 'Santa Clara',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_grayton', name: 'Grayton Dunes',
       zone: '30A', county: 'Walton', latitude: 30.2963, longitude: -86.1522,
+      type: 'region', region: 'Grayton Dunes',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_blue',    name: 'Blue Mountain',
       zone: '30A', county: 'Walton', latitude: 30.2981, longitude: -86.1671,
+      type: 'region', region: 'Blue Mountain',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_gulf',    name: 'Gulfview Heights',
       zone: '30A', county: 'Walton', latitude: 30.2999, longitude: -86.1812,
+      type: 'region', region: 'Gulfview Heights',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_walline', name: 'Ed Walline',
       zone: '30A', county: 'Walton', latitude: 30.3012, longitude: -86.2198,
+      type: 'region', region: 'Ed Walline',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_fort',    name: 'Fort Panic',
       zone: '30A', county: 'Walton', latitude: 30.3028, longitude: -86.2512,
+      type: 'region', region: 'Fort Panic',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_dune',    name: 'Dune Allen',
       zone: '30A', county: 'Walton', latitude: 30.3041, longitude: -86.2701,
+      type: 'region', region: 'Dune Allen',
       services_offered: ['bonfire','picnic'] }
   ];
 
@@ -163,7 +398,7 @@
   /* ============================================================
      PRIVATE HELPERS
      ============================================================ */
-  var BEACHFRONT_THRESHOLD = 0.25; // miles
+  var BEACHFRONT_THRESHOLD = 0.095; // miles (≈ 500 feet)
 
   function haversine(lat1, lon1, lat2, lon2) {
     var R    = 3958.8;
@@ -214,6 +449,13 @@
       });
     }
 
+    // Flow 1 (address mode): exclude region records — they belong to Flow 2 only
+    if (!areaZone) {
+      locations = locations.filter(function (l) {
+        return (l.type || 'access_point') !== 'region';
+      });
+    }
+
     // Area mode → alphabetical
     if (areaZone) {
       var zoneKey = (areaZone === 'PCB') ? 'PCB' : '30A';
@@ -222,45 +464,16 @@
         .sort(function (a, b) { return a.name.localeCompare(b.name); });
     }
 
-    // Address mode → distance sorted
+    // Address mode → sort all access_points by distance from geocoded address
     if (rentalLat && rentalLon) {
-      var zone = detectZone(rentalLat, rentalLon);
-
-      if (zone === '30A') {
-        return locations
-          .filter(function (l) { return l.zone === '30A'; })
-          .map(function (l) {
-            return Object.assign({}, l, {
-              distanceMiles: haversine(rentalLat, rentalLon, l.latitude, l.longitude)
-            });
-          })
-          .sort(function (a, b) { return a.distanceMiles - b.distanceMiles; });
-      }
-
-      // PCB: beachfront vs. inland split
-      var pcbLocs = locations
-        .filter(function (l) { return l.zone === 'PCB'; })
+      return locations
+        .filter(function (l) { return l.latitude && l.longitude; })
         .map(function (l) {
           return Object.assign({}, l, {
             distanceMiles: haversine(rentalLat, rentalLon, l.latitude, l.longitude)
           });
-        });
-
-      if (pcbLocs.length === 0) return [];
-
-      var minDist = Math.min.apply(null, pcbLocs.map(function (l) { return l.distanceMiles; }));
-
-      if (minDist <= BEACHFRONT_THRESHOLD) {
-        return pcbLocs.sort(function (a, b) { return a.distanceMiles - b.distanceMiles; });
-      }
-
-      var bayCounty = pcbLocs
-        .filter(function (l) { return l.county === 'Bay'; })
+        })
         .sort(function (a, b) { return a.distanceMiles - b.distanceMiles; });
-      var pcbCity = pcbLocs
-        .filter(function (l) { return l.county === 'PCB'; })
-        .sort(function (a, b) { return a.distanceMiles - b.distanceMiles; });
-      return bayCounty.concat(pcbCity);
     }
 
     return locations;
@@ -375,14 +588,14 @@
     try {
       if (typeof LMU !== 'undefined' && LMU.geocode) {
         geo = await LMU.geocode(address);
-      } else {
-        // Direct Nominatim call when LMU is not available.
-        // BEACHFRONT_GEOCODING — viewbox biases toward the Emerald Coast without
-        // hard-restricting results (no bounded=1), so inland rental addresses still resolve.
+      }
+      // If LMU geocode returned nothing, try direct Nominatim with viewbox bias toward
+      // the Emerald Coast (no bounded=1, so inland addresses still resolve).
+      if (!geo) {
         var encoded = encodeURIComponent(address.trim() + ', FL, USA');
         var url     = 'https://nominatim.openstreetmap.org/search?format=json&q=' + encoded +
                       '&limit=1&countrycodes=us&viewbox=-86.6000,30.1400,-85.6500,30.3400';
-        var res     = await fetch(url, { headers: { 'User-Agent': 'LMU-Beach-Bonfires/1.0' } });
+        var res     = await fetch(url);
         if (res.ok) {
           var data = await res.json();
           if (data && data.length > 0) {
@@ -398,7 +611,21 @@
         status.textContent = 'Location found: ' + geo.display_name.split(',').slice(0, 3).join(',');
         status.className   = 'geocoding-status found';
       }
-      await self._loadAndRender(null);
+      try {
+        await self._loadAndRender(null);
+        if (status && self._allAccessList.length > 0) {
+          status.textContent += ' — ' + self._allAccessList.length + ' accesses nearby. Scroll down to select.';
+        } else if (status && self._allAccessList.length === 0) {
+          status.textContent += ' — no accesses found for this area.';
+          status.className    = 'geocoding-status error';
+        }
+      } catch (e) {
+        console.error('[LMU] _loadAndRender failed:', e);
+        if (status) {
+          status.textContent = 'Error loading locations (' + e.message + ') — please refresh and try again.';
+          status.className   = 'geocoding-status error';
+        }
+      }
     } else {
       self.geo = null;
       if (status) {
@@ -421,15 +648,27 @@
 
     if (locations.length === 0) return;
 
+    console.log('[LMU] Rendering', locations.length, 'locations');
+
     var section = document.getElementById('beach-access-section');
-    if (section) section.classList.add('visible');
+    if (section) {
+      section.classList.add('visible');
+      section.style.display = 'block';
+      setTimeout(function () { section.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 80);
+    }
 
     self._renderList(locations.slice(0, self._shownCount));
 
     var showMore = document.getElementById('beach-access-show-more');
     if (showMore) showMore.style.display = locations.length > self._shownCount ? 'block' : 'none';
 
-    self._initMap(lat, lon, locations);
+    // Defer Leaflet init to next event tick so the browser finishes layout
+    // on the newly-visible container before Leaflet reads its dimensions.
+    var _lat = lat, _lon = lon, _locs = locations;
+    setTimeout(function () {
+      try { self._initMap(_lat, _lon, _locs); }
+      catch (e) { console.error('[LMU] Map init failed:', e); }
+    }, 0);
   };
 
   LocationStep.prototype._renderList = function (locations) {
@@ -642,6 +881,10 @@
 
     // Apply current preference state to freshly-created markers
     self._updateMapPinStates();
+
+    // Leaflet can silently initialize at 0×0 when its container just became visible.
+    // invalidateSize() recalculates dimensions once the browser has done layout.
+    setTimeout(function () { if (self._map) self._map.invalidateSize(); }, 100);
   };
 
   /* ============================================================
