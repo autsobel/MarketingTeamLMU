@@ -51,13 +51,6 @@
     .section-title em{font-style:italic;color:var(--flame);}
     .section-subtitle{font-size:0.97rem;color:var(--text-mid);max-width:520px;margin-top:13px;font-weight:300;}
 
-    /* BURN BAN BANNER */
-    .burn-ban-bar{background:#7a2818;color:#fff;font-size:0.80rem;font-weight:500;letter-spacing:0.04em;padding:10px 20px;display:none;align-items:center;justify-content:center;gap:10px;position:relative;z-index:1100;}
-    .burn-ban-bar.active{display:flex;}
-    .burn-ban-bar .burn-ban-text{line-height:1.4;text-align:center;}
-    .burn-ban-bar .burn-ban-close{background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:1.1rem;padding:2px 6px;margin-left:4px;flex-shrink:0;transition:color 0.2s;line-height:1;}
-    .burn-ban-bar .burn-ban-close:hover{color:#fff;}
-
     /* LOGO BANNER */
     .logo-banner{background:var(--warm-white);display:flex;align-items:center;gap:18px;padding:11px 28px;border-bottom:1px solid rgba(200,86,42,0.13);}
     .logo-banner img.logo-img{height:58px;width:auto;margin:0;display:block;object-fit:contain;flex-shrink:0;}
@@ -269,12 +262,6 @@
 </head>
 <body>
 
-  <!-- BURN BAN BANNER -->
-  <div class="burn-ban-bar" id="burn-ban-bar" role="alert">
-    <span class="burn-ban-text" id="burn-ban-text"></span>
-    <button class="burn-ban-close" onclick="document.getElementById('burn-ban-bar').style.display='none'" aria-label="Dismiss">&#10005;</button>
-  </div>
-
   <!-- LOGO BANNER -->
   <div class="logo-banner">
     <img class="logo-img" src="lmu-logo.webp" alt="Light Me Up Beach Bonfires" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block';" />
@@ -385,40 +372,41 @@
 
       <!-- Partner hotel cards — 2-column grid -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:0;" class="partner-hotels-grid">
-        <!-- Hyatt Place -->
-        <div class="hotel-card">
-          <div class="hotel-card-img">
-            <img src="website-images/hotel-hyatt-pcb.jpg" alt="Hyatt Place Panama City Beach" onerror="this.style.display='none'" />
-            <span class="hotel-badge">Partner Hotel &middot; Mondays</span>
-          </div>
-          <div class="hotel-card-body">
-            <div class="hotel-name">Hyatt Place</div>
-            <div class="hotel-location">Panama City Beach, FL</div>
-            <div class="hotel-desc">Exclusive Monday night Social Fire right on the beach at the Hyatt Place. $39 per person &middot; Ages 5 &amp; under free.</div>
-            <div class="hotel-cta">
-              <a href="social-fire-hyatt.html" class="btn btn-primary">Book Now</a>
-            </div>
-          </div>
-        </div>
-
         <!-- Springhill Suites -->
         <div class="hotel-card">
           <div class="hotel-card-img">
             <img src="website-images/hotel-springhill-pcb.jpg" alt="Springhill Suites Panama City Beach" onerror="this.style.display='none'" />
-            <span class="hotel-badge">Partner Hotel &middot; Tuesdays</span>
+            <span class="hotel-badge">Partner Hotel &middot; Mondays</span>
           </div>
           <div class="hotel-card-body">
             <div class="hotel-name">Springhill Suites</div>
             <div class="hotel-location">Panama City Beach, FL</div>
-            <div class="hotel-desc">Tuesday night beachfront Social Fire experience at Springhill Suites. $39 per person &middot; Ages 5 &amp; under free.</div>
+            <div class="hotel-desc">Monday night beachfront Social Fire experience at Springhill Suites. $39 per person &middot; Ages 5 &amp; under free.</div>
             <div class="hotel-cta">
               <a href="social-fire-springhill.html" class="btn btn-primary">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hyatt Place -->
+        <div class="hotel-card">
+          <div class="hotel-card-img">
+            <img src="website-images/hotel-hyatt-pcb.jpg" alt="Hyatt Place Panama City Beach" onerror="this.style.display='none'" />
+            <span class="hotel-badge">Partner Hotel &middot; Tuesdays</span>
+          </div>
+          <div class="hotel-card-body">
+            <div class="hotel-name">Hyatt Place</div>
+            <div class="hotel-location">Panama City Beach, FL</div>
+            <div class="hotel-desc">Exclusive Tuesday night Social Fire right on the beach at the Hyatt Place. $39 per person &middot; Ages 5 &amp; under free.</div>
+            <div class="hotel-cta">
+              <a href="social-fire-hyatt.html" class="btn btn-primary">Book Now</a>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Divider + Señor Frog's -->
+      <div style="display:none">
       <div style="text-align:center;padding:36px 0 24px;border-top:1px solid rgba(200,86,42,0.12);margin-top:16px;">
         <p style="font-family:var(--font-display);font-size:1.35rem;font-weight:300;font-style:italic;color:var(--text-mid);">Not staying at a partner hotel? No worries.</p>
         <p style="font-size:0.88rem;color:var(--text-light);margin-top:6px;font-weight:300;">The Señor Frog's Social Fire is open to everyone on Panama City Beach — no hotel required.</p>
@@ -434,6 +422,7 @@
         <div style="flex-shrink:0;">
           <a href="social-fire-senor-frogs.html" class="btn btn-primary" style="font-size:0.90rem;padding:14px 36px;">Book Thursday Fire</a>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -634,13 +623,13 @@
     var MAX_GUESTS_PER_FIRE       = 20;
 
     var FALLBACK_PARTNER_HOTELS = [
-      { id: 'hyatt',      name: 'Hyatt Regency',    slug: 'hyatt',      address: 'Panama City Beach, FL', zone: 'pcb', active: true, venue_key: 'monday_hyatt',      landing_page: 'social-fire-hyatt.html' },
-      { id: 'springhill', name: 'Springhill Suites', slug: 'springhill', address: 'Panama City Beach, FL', zone: 'pcb', active: true, venue_key: 'tuesday_springhill', landing_page: 'social-fire-springhill.html' },
+      { id: 'hyatt',      name: 'Hyatt Place',       slug: 'hyatt',      address: 'Panama City Beach, FL', zone: 'pcb', active: true, venue_key: 'tuesday_hyatt',     landing_page: 'social-fire-hyatt.html' },
+      { id: 'springhill', name: 'Springhill Suites', slug: 'springhill', address: 'Panama City Beach, FL', zone: 'pcb', active: true, venue_key: 'monday_springhill',  landing_page: 'social-fire-springhill.html' },
     ];
 
     var SF_VENUES = {
-      monday_hyatt:         { label: 'Monday Night Fire — Hyatt Regency',    day: 'Monday',   dow: 1, price: 39, location: 'Hyatt Regency',    location_id: 'hyatt_monday' },
-      tuesday_springhill:   { label: 'Tuesday Night Fire — Springhill Suites', day: 'Tuesday', dow: 2, price: 39, location: 'Springhill Suites', location_id: 'springhill_tuesday' },
+      tuesday_hyatt:        { label: 'Tuesday Night Fire — Hyatt Place',       day: 'Tuesday',  dow: 2, price: 39, location: 'Hyatt Place',       location_id: 'hyatt_tuesday' },
+      monday_springhill:    { label: 'Monday Night Fire — Springhill Suites',  day: 'Monday',   dow: 1, price: 39, location: 'Springhill Suites', location_id: 'springhill_monday' },
       thursday_senor_frogs: { label: "Thursday Night Fire at Señor Frog's",  day: 'Thursday', dow: 4, price: 45, location: "Señor Frog's",     location_id: 'senor_frogs_thursday' },
     };
 
@@ -691,8 +680,8 @@
       if (!sel) return;
       sel.innerHTML =
         '<option value="">Select your hotel…</option>' +
-        '<option value="hyatt" data-slug="hyatt" data-name="Hyatt Regency" data-venue="monday_hyatt">Hyatt Regency</option>' +
-        '<option value="springhill" data-slug="springhill" data-name="Springhill Suites" data-venue="tuesday_springhill">Springhill Suites</option>' +
+        '<option value="hyatt" data-slug="hyatt" data-name="Hyatt Place" data-venue="tuesday_hyatt">Hyatt Place</option>' +
+        '<option value="springhill" data-slug="springhill" data-name="Springhill Suites" data-venue="monday_springhill">Springhill Suites</option>' +
         '<option value="senor_frogs" data-slug="senor-frogs" data-name="Señor Frog\'s" data-venue="thursday_senor_frogs">Señor Frog\'s (Open to All)</option>';
     }
 
@@ -766,7 +755,7 @@
       var wrap = document.getElementById('sf-fire-options');
       if (!wrap) return;
       wrap.innerHTML = '<p style="color:var(--text-light);font-size:0.88rem;padding:8px 0;">Loading available dates…</p>';
-      var keys = _sf._venueKey ? [_sf._venueKey] : (_sf.isPartner ? ['monday_hyatt', 'tuesday_springhill'] : ['thursday_senor_frogs']);
+      var keys = _sf._venueKey ? [_sf._venueKey] : (_sf.isPartner ? ['tuesday_hyatt', 'monday_springhill'] : ['thursday_senor_frogs']);
       var html = '<div class="fire-option-grid">';
       for (var i = 0; i < keys.length; i++) {
         var key = keys[i], v = SF_VENUES[key];
@@ -924,9 +913,8 @@
       var body = document.getElementById('sf-calendar-body');
       if (!body) return;
       var events = [
-        { v: SF_VENUES.monday_hyatt,         loc: 'PCB' },
-        { v: SF_VENUES.tuesday_springhill,   loc: 'PCB' },
-        { v: SF_VENUES.thursday_senor_frogs, loc: 'PCB' },
+        { v: SF_VENUES.monday_springhill,    loc: 'PCB' },
+        { v: SF_VENUES.tuesday_hyatt,        loc: 'PCB' },
       ];
       body.innerHTML = events.map(function(ev, idx) {
         var nd = sfGetNextWeekday(ev.v.dow);
@@ -952,18 +940,6 @@
       sfUpdateStep2Btn();
       sfRenderCalendar();
       sfReadUrlParams();
-    })();
-  </script>
-  <script>
-    var BURN_BAN_ACTIVE = true;
-    var BURN_BAN_DATE   = 'May 1, 2026';
-    (function () {
-      var bar = document.getElementById('burn-ban-bar');
-      if (BURN_BAN_ACTIVE && bar) {
-        document.getElementById('burn-ban-text').textContent =
-          '⚠️ BURN BANS IN EFFECT: Burn bans are currently in effect and may affect option availability. Contact us to discuss your event options.';
-        bar.classList.add('active');
-      }
     })();
   </script>
 </body>

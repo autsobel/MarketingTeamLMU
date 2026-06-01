@@ -55,13 +55,6 @@
     .section-title em{font-style:italic;color:var(--flame);}
     .section-subtitle{font-size:0.97rem;color:var(--text-mid);max-width:520px;margin-top:13px;font-weight:300;}
 
-    /* BURN BAN BANNER */
-    .burn-ban-bar{background:#7a2818;color:#fff;font-size:0.80rem;font-weight:500;letter-spacing:0.04em;padding:10px 20px;display:none;align-items:center;justify-content:center;gap:10px;position:relative;z-index:1100;}
-    .burn-ban-bar.active{display:flex;}
-    .burn-ban-bar .burn-ban-text{line-height:1.4;text-align:center;}
-    .burn-ban-bar .burn-ban-close{background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:1.1rem;padding:2px 6px;margin-left:4px;flex-shrink:0;transition:color 0.2s;line-height:1;}
-    .burn-ban-bar .burn-ban-close:hover{color:#fff;}
-
     /* LOGO BANNER */
     .logo-banner{background:var(--warm-white);display:flex;align-items:center;gap:18px;padding:11px 28px;border-bottom:1px solid rgba(200,86,42,0.13);}
     .logo-banner img.logo-img{height:58px;width:auto;margin:0;display:block;object-fit:contain;flex-shrink:0;}
@@ -286,12 +279,6 @@
   <link rel="stylesheet" href="lmu-design.css" />
 </head>
 <body>
-
-  <!-- BURN BAN BANNER (chairs page: burn ban not relevant but kept for consistency) -->
-  <div class="burn-ban-bar" id="burn-ban-bar" role="alert">
-    <span class="burn-ban-text" id="burn-ban-text"></span>
-    <button class="burn-ban-close" onclick="document.getElementById('burn-ban-bar').style.display='none'" aria-label="Dismiss">&#10005;</button>
-  </div>
 
   <!-- LOGO BANNER -->
   <div class="logo-banner">
