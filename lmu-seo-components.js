@@ -48,8 +48,9 @@
     '@media(max-width:768px){.logo-banner{flex-direction:column;align-items:center;text-align:center;padding:22px 28px 16px;gap:6px;}.logo-banner img.logo-img{height:80px;}.logo-banner-text{text-align:center;}.logo-banner .logo-fallback{font-size:clamp(1.3rem,4vw,1.8rem);}.logo-banner .logo-tagline,.logo-banner .logo-est{display:block;}}',
     /* popup */
     '.lg-overlay{position:fixed;inset:0;background:rgba(28,34,40,0.60);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px;}.lg-overlay.open{display:flex;}',
-    '.lg-modal{background:var(--warm-white);border-radius:var(--radius-lg);box-shadow:0 24px 80px rgba(28,34,40,0.32);max-width:500px;width:100%;position:relative;overflow:hidden;}',
-    '.lg-modal-img{width:100%;height:210px;object-fit:cover;display:block;}.lg-modal-body{padding:26px 28px 30px;}',
+    '.lg-modal{background:var(--warm-white);border-radius:var(--radius-lg);box-shadow:0 24px 80px rgba(28,34,40,0.32);max-width:500px;width:100%;position:relative;max-height:90vh;overflow-y:auto;}',
+    '.lg-modal-img{width:100%;height:180px;object-fit:cover;display:block;border-radius:var(--radius-lg) var(--radius-lg) 0 0;}.lg-modal-body{padding:26px 28px 30px;}',
+    '.hs-form-frame{min-height:140px;}',
     '.lg-caption{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean);margin-bottom:9px;}',
     '.lg-modal-title{font-family:var(--font-display);font-size:1.55rem;font-weight:400;color:var(--text-dark);line-height:1.2;margin-bottom:9px;}',
     '.lg-modal-sub{font-size:0.88rem;color:var(--text-mid);margin-bottom:20px;line-height:1.65;font-weight:300;}',
@@ -519,12 +520,15 @@
                 '<div class="pkg-filter-note" id="loc-price-note"></div>',
                 '<div class="pkg-filter-note" id="pkg-filter-note"></div>',
                 '<div class="form-group"><label>Bonfire Package</label></div>',
+                '<p style="font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--flame);margin-bottom:14px;">Starting at $549!*</p>',
                 '<div class="sub-packages">',
+                  '<label class="sub-pkg" id="pkg-all-inclusive" data-pkg="all-inclusive" onclick="selectBonfirePkg(this)" style="border-color:var(--golden);background:rgba(212,168,75,0.06);"><input type="radio" name="bf-pkg" value="all-inclusive"/><div><div class="sub-pkg-name" style="color:var(--golden);">All Inclusive Beach Bonfire</div><div class="sub-pkg-details">The complete LMU experience &mdash; details &amp; pricing coming soon. Contact us to learn more.</div></div><div class="sub-pkg-price" style="color:var(--golden);">Inquire</div></label>',
                   '<label class="sub-pkg" id="pkg-one-love" data-pkg="one-love" onclick="selectBonfirePkg(this)"><input type="radio" name="bf-pkg" value="one-love"/><div><div class="sub-pkg-name">&ldquo;One Love&rdquo;</div><div class="sub-pkg-details">2 hr fire &middot; 2 chairs &middot; Tiki torches &middot; Side table &middot; S&rsquo;mores for 2 &middot; Bluetooth speaker &middot; Permit<br/><em style="color:var(--flame);font-size:0.72rem;">Couples only &mdash; add roses +$60</em></div></div><div class="sub-pkg-price" id="price-one-love"></div></label>',
                   '<label class="sub-pkg" id="pkg-high-tide" data-pkg="high-tide" onclick="selectBonfirePkg(this)"><input type="radio" name="bf-pkg" value="high-tide"/><div><div class="sub-pkg-name">&ldquo;High Tide or Low Tide&rdquo;</div><div class="sub-pkg-details">2 hr fire &middot; Up to 8 chairs &middot; Tiki torches &middot; Side table &middot; S&rsquo;mores for up to 8 &middot; Bluetooth speaker &middot; Permit</div></div><div class="sub-pkg-price" id="price-high-tide"></div></label>',
                   '<label class="sub-pkg" id="pkg-three-birds" data-pkg="three-little-birds" onclick="selectBonfirePkg(this)"><input type="radio" name="bf-pkg" value="three-little-birds"/><div><div class="sub-pkg-name">&ldquo;Three Little Birds&rdquo;</div><div class="sub-pkg-details">3 hr fire &middot; Up to 12 chairs &middot; 6ft table &middot; S&rsquo;mores &middot; Speaker &middot; Sparklers &middot; Chalkboard greeting &middot; Permit</div></div><div class="sub-pkg-price" id="price-three-birds"></div></label>',
                   '<label class="sub-pkg" id="pkg-roots-reggae" data-pkg="roots-rock-reggae" onclick="selectBonfirePkg(this)"><input type="radio" name="bf-pkg" value="roots-rock-reggae"/><div><div class="sub-pkg-name">&ldquo;Roots, Rock, Reggae&rdquo;</div><div class="sub-pkg-details">3 hr fire &middot; Up to 20 chairs &middot; (2) 6ft tables &middot; S&rsquo;mores &middot; Large speaker &middot; Sparklers &middot; Cornhole &middot; Chalkboard &middot; Permit</div></div><div class="sub-pkg-price" id="price-roots-reggae"></div></label>',
                 '</div>',
+                '<p style="font-size:0.73rem;color:var(--text-light);font-style:italic;margin-top:10px;margin-bottom:18px;">*Pricing varies by location, set up, and group size. Book now to customize your options.</p>',
                 '<div style="margin:4px 0 18px;">',
                   '<button type="button" id="picnic-toggle-btn" onclick="togglePicnic()" style="width:100%;text-align:left;padding:14px 18px;background:rgba(74,125,156,0.06);border:1.5px solid rgba(74,125,156,0.20);border-radius:12px;cursor:pointer;font-family:inherit;display:flex;justify-content:space-between;align-items:center;transition:all 0.25s;">',
                     '<span style="font-size:0.88rem;font-weight:600;color:var(--text-mid);">Add a Picnic to your bonfire booking</span>',
@@ -631,8 +635,7 @@
           '<div class="lg-caption">Don\'t know what to plan? We\'ve got you!</div>',
           '<h3 class="lg-modal-title">Local\'s Guide to the Perfect Day:<br/>30A &amp; PCB</h3>',
           '<p class="lg-modal-sub">Our free PDF guide covers the best beach spots, local tips, and everything you need to plan an unforgettable trip on the Emerald Coast.</p>',
-          '<div class="lg-form-wrap" id="lg-form-wrap"><form class="lg-form" onsubmit="submitGuideForm(event)"><input type="email" id="lg-email" placeholder="your@email.com" required/><button type="submit" class="btn btn-primary">Send My Guide</button></form></div>',
-          '<div class="lg-success" id="lg-success"><div style="font-size:2rem;margin-bottom:8px;">&#127774;</div><p style="font-family:var(--font-display);font-size:1.2rem;color:var(--text-dark);">Check your inbox!</p><p style="font-size:0.85rem;color:var(--text-mid);margin-top:6px;">Your guide is on its way. See you on the beach!</p></div>',
+          '<div class="hs-form-frame" data-region="na1" data-form-id="7891f273-d9bb-4421-bc8d-ba09e74fd964" data-portal-id="50932974"></div>',
         '</div>',
       '</div>',
     '</div>'
@@ -671,6 +674,101 @@
     document.getElementById('mobile-nav').classList.toggle('open');
   });
 
+  /* ── HUBSPOT PROGRESSIVE SYNC ───────────────────────────────────────── */
+  var HUBSPOT_PORTAL_ID = '50932974';
+  var HUBSPOT_FORM_GUID = '61b14a6f-ce3b-46fa-8d18-fb773087565a';
+
+  function sendToHubSpot(fields) {
+    var email = (document.getElementById('f-email') || {}).value || '';
+    if (!email) return;
+
+    var payload = {
+      fields: [{ name: 'email', value: email }].concat(
+        fields
+          .filter(function (f) { return f.value !== null && f.value !== undefined && f.value !== ''; })
+          .map(function (f) { return { name: f.name, value: String(f.value) }; })
+      ),
+      context: { pageUri: window.location.href, pageName: document.title }
+    };
+
+    fetch(
+      'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + HUBSPOT_FORM_GUID,
+      { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }
+    ).catch(function (err) { console.warn('[HubSpot] Submission error:', err); });
+  }
+
+  function collectStep1Fields() {
+    var name  = (document.getElementById('f-name')  || {}).value || '';
+    var phone = (document.getElementById('f-phone') || {}).value || '';
+    var parts = name.trim().split(/\s+/);
+    return [
+      { name: 'firstname', value: parts[0] || '' },
+      { name: 'lastname',  value: parts.slice(1).join(' ') || '' },
+      { name: 'phone',     value: phone }
+    ];
+  }
+
+  function collectStep2Fields() {
+    var date1    = (document.getElementById('f-date1')    || {}).value || '';
+    var date2    = (document.getElementById('f-date2')    || {}).value || '';
+    var guests   = (document.getElementById('f-guests')   || {}).value || '';
+    var location = (document.getElementById('f-location') || {}).value || '';
+    var rental   = (document.getElementById('f-rental')   || {}).value || '';
+    return [
+      { name: 'location_detail',  value: location },
+      { name: 'rental_address',   value: rental   },
+      { name: 'preferred_date_1', value: date1    },
+      { name: 'preferred_date_2', value: date2    },
+      { name: 'number_of_guests', value: guests   }
+    ];
+  }
+
+  function collectStep3Fields() {
+    var pkgInput = document.querySelector('input[name="bf-pkg"]:checked');
+    var pkg      = pkgInput ? pkgInput.value : '';
+    var addonInputs = document.querySelectorAll('input[name="addon"]:checked');
+    var addons      = Array.prototype.slice.call(addonInputs).map(function (el) { return el.value; }).join(', ');
+    var picnicAddonInput = document.querySelector('input[name="picnic-addon-pkg"]:checked');
+    var picnicAddon      = picnicAddonInput ? picnicAddonInput.value : '';
+    var picnicOnlyInput  = document.querySelector('input[name="picnic-only-pkg"]:checked');
+    var picnicOnly       = picnicOnlyInput  ? picnicOnlyInput.value  : '';
+    var notes = (document.getElementById('f-notes') || {}).value || '';
+    return [
+      { name: 'package_selection', value: pkg         },
+      { name: 'addon_selections',  value: addons      },
+      { name: 'picnic_addon_pkg',  value: picnicAddon },
+      { name: 'picnic_only_pkg',   value: picnicOnly  },
+      { name: 'additional_notes',  value: notes       }
+    ];
+  }
+
+  function hubspotStep1() {
+    sendToHubSpot(collectStep1Fields());
+  }
+
+  function hubspotStep2() {
+    sendToHubSpot(collectStep1Fields().concat(collectStep2Fields()));
+  }
+
+  function hubspotStep3() {
+    sendToHubSpot(collectStep1Fields().concat(collectStep2Fields()).concat(collectStep3Fields()));
+  }
+
+  function hubspotStep4() {
+    var policyAgreed = (document.getElementById('f-policy') || {}).checked ? 'Yes' : 'No';
+    var smsOptIn     = (document.getElementById('f-sms')    || {}).checked ? 'true' : 'false';
+    sendToHubSpot(
+      collectStep1Fields()
+        .concat(collectStep2Fields())
+        .concat(collectStep3Fields())
+        .concat([
+          { name: 'policy_agreed',        value: policyAgreed },
+          { name: 'hs_marketable_status', value: smsOptIn     }
+        ])
+    );
+  }
+  /* ── END HUBSPOT ────────────────────────────────────────────────────── */
+
   /* form step navigation */
   window.nextStep = function (current) {
     if (current === 1) {
@@ -680,6 +778,7 @@
         alert('Please fill in all required fields.');
         return;
       }
+      hubspotStep1();
     }
     if (current === 2) {
       if (!document.getElementById('f-location').value ||
@@ -688,6 +787,10 @@
         alert('Please fill in all required fields.');
         return;
       }
+      hubspotStep2();
+    }
+    if (current === 3) {
+      hubspotStep3();
     }
     var steps = document.querySelectorAll('.progress-step');
     var formSteps = document.querySelectorAll('.form-step');
@@ -819,13 +922,18 @@
       alert('Please agree to our policies to continue.');
       return;
     }
+    hubspotStep4();
     document.querySelectorAll('.form-step').forEach(function (el) { el.classList.remove('active'); });
     document.getElementById('success-msg').classList.add('show');
     document.querySelector('.progress-bar-wrap').style.display = 'none';
   };
 
-  /* popup */
+  /* popup — HubSpot next-gen form (hs-form-frame) renders on page load via portal script */
   (function () {
+    var hs = document.createElement('script');
+    hs.src = 'https://js.hsforms.net/forms/embed/50932974.js';
+    document.head.appendChild(hs);
+
     var overlay  = document.getElementById('lg-overlay');
     var closeBtn = document.getElementById('lg-close');
     function openPopup()  { overlay.classList.add('open'); }
@@ -833,16 +941,8 @@
     closeBtn.addEventListener('click', closePopup);
     overlay.addEventListener('click', function (e) { if (e.target === overlay) closePopup(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePopup(); });
-    if (!localStorage.getItem('lmu-guide-shown')) {
-      setTimeout(function () { openPopup(); localStorage.setItem('lmu-guide-shown', '1'); }, 5000);
-    }
+    setTimeout(openPopup, 3000);
   })();
-
-  window.submitGuideForm = function (e) {
-    e.preventDefault();
-    document.getElementById('lg-form-wrap').classList.add('hide');
-    document.getElementById('lg-success').classList.add('show');
-  };
 
   /* burn ban */
   (function () {

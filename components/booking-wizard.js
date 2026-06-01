@@ -168,7 +168,7 @@
       zone: 'PCB', county: 'Bay', latitude: 30.261899, longitude: -85.974887,
       type: 'access_point', services_offered: ['bonfire','picnic'] },
     { id: 'bay_natural', name: 'Natural Beach Access',
-      zone: 'PCB', county: 'Bay', latitude: 30.1637, longitude: -85.8701,
+      zone: 'PCB', county: 'Bay', latitude: 30.256165149689807, longitude: -85.96273172889843,
       type: 'access_point', services_offered: ['bonfire','picnic'] },
 
     // ── PCB City (zone=PCB, county=PCB) — type: access_point ───
@@ -340,44 +340,53 @@
       zone: 'PCB', county: 'PCB', latitude: 30.235527, longitude: -85.916415,
       type: 'access_point', services_offered: ['bonfire','picnic'] },
 
-    // ── Walton County / 30A (zone=30A, county=Walton) — type: region ─
-    // These named areas are REGION records (Flow 2 dropdown only).
-    // Option A: each is also its own single bookable access point for that region.
+    // ── Walton County / 30A beach accesses ─────────────────────────────────────
+    // type: access_point so these appear in both address mode (Flow 1, distance-sorted)
+    // and area mode (Flow 2, zone-filtered). Street addresses from Bay County/Walton GIS.
     { id: '30a_inlet',   name: 'Inlet Beach',
-      zone: '30A', county: 'Walton', latitude: 30.2741, longitude: -86.0102,
-      type: 'region', region: 'Inlet Beach',
+      address: '438 W Park Place Ave, Inlet Beach, FL 32461',
+      zone: '30A', county: 'Walton', latitude: 30.27409775384565, longitude: -86.00391597125422,
+      type: 'access_point', region: 'Inlet Beach',
       services_offered: ['bonfire','picnic','social_fire'] },
     { id: '30a_walton',  name: 'Walton Dunes',
-      zone: '30A', county: 'Walton', latitude: 30.2756, longitude: -86.1354,
-      type: 'region', region: 'Walton Dunes',
+      address: '320 Beachfront Trail, Santa Rosa Beach, FL 32459',
+      zone: '30A', county: 'Walton', latitude: 30.303752520564466, longitude: -86.08680838659403,
+      type: 'access_point', region: 'Walton Dunes',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_clara',   name: 'Santa Clara',
-      zone: '30A', county: 'Walton', latitude: 30.2919, longitude: -86.1750,
-      type: 'region', region: 'Santa Clara',
+      address: '3468 E County Highway 30A, Santa Rosa Beach, FL 32459',
+      zone: '30A', county: 'Walton', latitude: 30.3142561378197, longitude: -86.11911140009583,
+      type: 'access_point', region: 'Santa Clara',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_grayton', name: 'Grayton Dunes',
-      zone: '30A', county: 'Walton', latitude: 30.2963, longitude: -86.1522,
-      type: 'region', region: 'Grayton Dunes',
+      address: '288 Garfield Street, Santa Rosa Beach, FL 32459',
+      zone: '30A', county: 'Walton', latitude: 30.32889864199775, longitude: -86.16470087733391,
+      type: 'access_point', region: 'Grayton Dunes',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_blue',    name: 'Blue Mountain',
-      zone: '30A', county: 'Walton', latitude: 30.2981, longitude: -86.1671,
-      type: 'region', region: 'Blue Mountain',
+      address: '475 Blue Mountain Rd, Santa Rosa Beach, FL 32459',
+      zone: '30A', county: 'Walton', latitude: 30.33757180491334, longitude: -86.19863182469412,
+      type: 'access_point', region: 'Blue Mountain',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_gulf',    name: 'Gulfview Heights',
-      zone: '30A', county: 'Walton', latitude: 30.2999, longitude: -86.1812,
-      type: 'region', region: 'Gulfview Heights',
+      address: '186 Gulfview Heights St, Santa Rosa Beach, FL 32459',
+      zone: '30A', county: 'Walton', latitude: 30.344032563326802, longitude: -86.22110375774244,
+      type: 'access_point', region: 'Gulfview Heights',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_walline', name: 'Ed Walline',
-      zone: '30A', county: 'Walton', latitude: 30.3012, longitude: -86.2198,
-      type: 'region', region: 'Ed Walline',
+      address: '4447 W County Highway 30A, Santa Rosa Beach, FL 32459',
+      zone: '30A', county: 'Walton', latitude: 30.34651684140995, longitude: -86.23009937127232,
+      type: 'access_point', region: 'Ed Walline',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_fort',    name: 'Fort Panic',
-      zone: '30A', county: 'Walton', latitude: 30.3028, longitude: -86.2512,
-      type: 'region', region: 'Fort Panic',
+      address: '5753 W County Highway 30A, Santa Rosa Beach, FL 32459',
+      zone: '30A', county: 'Walton', latitude: 30.35223853275155, longitude: -86.25127755779789,
+      type: 'access_point', region: 'Fort Panic',
       services_offered: ['bonfire','picnic'] },
     { id: '30a_dune',    name: 'Dune Allen',
-      zone: '30A', county: 'Walton', latitude: 30.3041, longitude: -86.2701,
-      type: 'region', region: 'Dune Allen',
+      address: '5999 W County Highway 30A, Santa Rosa Beach, FL 32459',
+      zone: '30A', county: 'Walton', latitude: 30.352960676712467, longitude: -86.25144921916687,
+      type: 'access_point', region: 'Dune Allen',
       services_offered: ['bonfire','picnic'] }
   ];
 
@@ -398,7 +407,31 @@
   /* ============================================================
      PRIVATE HELPERS
      ============================================================ */
-  var BEACHFRONT_THRESHOLD = 0.095; // miles (≈ 500 feet)
+  // BEACHFRONT_THRESHOLD — nearest access ≤ this → treat rental as beachfront (Rule 1)
+  var BEACHFRONT_THRESHOLD_MILES  = 0.25;   // BEACHFRONT_THRESHOLD
+  // PCB_REROUTE_THRESHOLD — nearest PCB city access > this → route to Bay County first (Rule 2)
+  var PCB_REROUTE_THRESHOLD_MILES = 3.0;    // PCB_REROUTE_THRESHOLD
+
+  var PCB_CITY_BOUNDS = {                   // BOUNDARY_PLACEHOLDER
+    north: 30.215, south: 30.150,
+    east: -85.730, west: -85.970
+  };
+
+  var BAY_COUNTY_BOUNDS = {                 // BOUNDARY_PLACEHOLDER
+    north: 30.350, south: 30.100,
+    east: -85.290, west: -85.970
+  };
+
+  function isInPCBCity(lat, lng) {
+    return lat >= PCB_CITY_BOUNDS.south && lat <= PCB_CITY_BOUNDS.north &&
+           lng >= PCB_CITY_BOUNDS.west  && lng <= PCB_CITY_BOUNDS.east;
+  }
+
+  function isInBayCounty(lat, lng) {
+    return lat >= BAY_COUNTY_BOUNDS.south && lat <= BAY_COUNTY_BOUNDS.north &&
+           lng >= BAY_COUNTY_BOUNDS.west  && lng <= BAY_COUNTY_BOUNDS.east &&
+           !isInPCBCity(lat, lng);
+  }
 
   function haversine(lat1, lon1, lat2, lon2) {
     var R    = 3958.8;
@@ -464,16 +497,43 @@
         .sort(function (a, b) { return a.name.localeCompare(b.name); });
     }
 
-    // Address mode → sort all access_points by distance from geocoded address
+    // Address mode → 4-rule recommendation logic (first matching rule wins)
     if (rentalLat && rentalLon) {
-      return locations
+      // Attach distance to every location up front
+      var withDist = locations
         .filter(function (l) { return l.latitude && l.longitude; })
         .map(function (l) {
           return Object.assign({}, l, {
             distanceMiles: haversine(rentalLat, rentalLon, l.latitude, l.longitude)
           });
-        })
-        .sort(function (a, b) { return a.distanceMiles - b.distanceMiles; });
+        });
+
+      var minDistance = Math.min.apply(null, withDist.map(function (l) { return l.distanceMiles; }));
+
+      // RULE 1 — Beachfront (any county): nearest access ≤ threshold → pure distance sort
+      if (minDistance <= BEACHFRONT_THRESHOLD_MILES) {
+        return withDist.sort(function (a, b) { return a.distanceMiles - b.distanceMiles; });
+      }
+
+      // RULE 2 — Non-beachfront PCB city rental, far from PCB city accesses:
+      //   show Bay County first, then everything else by distance
+      if (isInPCBCity(rentalLat, rentalLon)) {
+        var pcbCityAccesses = withDist.filter(function (l) { return l.county === 'PCB'; });
+        var nearestPCB = Math.min.apply(null, pcbCityAccesses.map(function (l) { return l.distanceMiles; }));
+        if (nearestPCB > PCB_REROUTE_THRESHOLD_MILES) {
+          var bayAccesses = withDist
+            .filter(function (l) { return l.county === 'Bay'; })
+            .sort(function (a, b) { return a.distanceMiles - b.distanceMiles; });
+          var otherAccesses = withDist
+            .filter(function (l) { return l.county !== 'Bay'; })
+            .sort(function (a, b) { return a.distanceMiles - b.distanceMiles; });
+          return bayAccesses.concat(otherAccesses);
+        }
+      }
+
+      // RULE 3 — Bay County non-beachfront: pure distance sort
+      // RULE 4 — Walton County / 30A / catch-all: pure distance sort
+      return withDist.sort(function (a, b) { return a.distanceMiles - b.distanceMiles; });
     }
 
     return locations;

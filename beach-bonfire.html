@@ -78,11 +78,6 @@
     .mobile-nav a{font-size:0.9rem;font-weight:500;color:var(--text-mid);padding:10px 0;border-bottom:1px solid rgba(200,86,42,0.07);transition:color var(--transition);}
     .mobile-nav a:hover{color:var(--flame);}
     .mobile-nav .btn{margin-top:12px;justify-content:center;width:100%;}
-    .burn-ban-bar{background:#7a2818;color:#fff;font-size:0.80rem;font-weight:500;letter-spacing:0.04em;padding:10px 20px;display:none;align-items:center;justify-content:center;gap:10px;position:relative;z-index:1100;}
-    .burn-ban-bar.active{display:flex;}
-    .burn-ban-bar .burn-ban-text{line-height:1.4;text-align:center;}
-    .burn-ban-bar .burn-ban-close{background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:1.1rem;padding:2px 6px;margin-left:4px;flex-shrink:0;transition:color 0.2s;line-height:1;}
-    .burn-ban-bar .burn-ban-close:hover{color:#fff;}
 
     /* HERO */
     .hero{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
@@ -463,12 +458,6 @@
     </nav>
   </header>
 
-  <!-- BURN BAN BANNER -->
-  <div class="burn-ban-bar" id="burn-ban-bar" role="alert">
-    <span class="burn-ban-text" id="burn-ban-text"></span>
-    <button class="burn-ban-close" onclick="document.getElementById('burn-ban-bar').style.display='none'" aria-label="Dismiss">&#10005;</button>
-  </div>
-
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
@@ -529,6 +518,15 @@
         <h2 class="section-title">Inspired by <em>the Legend himself</em></h2>
       </div>
       <p class="pricing-tagline">Let's get together and feeeeel alright!</p>
+      <p style="text-align:center;font-size:0.80rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.90);margin-bottom:22px;">Starting at $549!*</p>
+
+      <!-- All Inclusive Beach Bonfire — placeholder, add details when ready -->
+      <div style="background:rgba(255,255,255,0.10);border:1.5px solid rgba(255,255,255,0.30);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:24px;text-align:center;backdrop-filter:blur(8px);">
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.20em;text-transform:uppercase;color:var(--golden);margin-bottom:10px;">Signature Package</div>
+        <div style="font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:400;color:var(--white);margin-bottom:8px;font-style:italic;">All Inclusive Beach Bonfire</div>
+        <div style="font-size:0.88rem;color:rgba(255,255,255,0.65);font-weight:300;max-width:480px;margin:0 auto 22px;line-height:1.7;">The complete LMU experience &mdash; package details &amp; pricing coming soon. Contact us to learn more.</div>
+        <a href="#booking" class="btn btn-outline pricing-cta">Book Now &rarr;</a>
+      </div>
 
       <div class="pricing-grid">
 
@@ -611,6 +609,8 @@
         </div>
 
       </div>
+
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.48);text-align:center;margin-top:22px;font-style:italic;">*Pricing varies by location, set up, and group size. Book now to customize your options.</p>
     </div>
   </section>
 
@@ -1341,6 +1341,117 @@
       document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    /* ── HUBSPOT PROGRESSIVE SYNC ───────────────────────────────────────── */
+    var HUBSPOT_PORTAL_ID = '50932974';
+    var HUBSPOT_FORM_GUID = '61b14a6f-ce3b-46fa-8d18-fb773087565a';
+
+    function sendToHubSpot(fields) {
+      var email = (document.getElementById('f-email') || {}).value || '';
+      if (!email) return;
+
+      var payload = {
+        fields: [{ name: 'email', value: email }].concat(
+          fields
+            .filter(function (f) { return f.value !== null && f.value !== undefined && f.value !== ''; })
+            .map(function (f) { return { name: f.name, value: String(f.value) }; })
+        ),
+        context: { pageUri: window.location.href, pageName: document.title }
+      };
+
+      fetch(
+        'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + HUBSPOT_FORM_GUID,
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }
+      ).catch(function (err) { console.warn('[HubSpot] Submission error:', err); });
+    }
+
+    function collectStep1Fields() {
+      var name  = (document.getElementById('f-name')  || {}).value || '';
+      var phone = (document.getElementById('f-phone') || {}).value || '';
+      var parts = name.trim().split(/\s+/);
+      return [
+        { name: 'firstname', value: parts[0] || '' },
+        { name: 'lastname',  value: parts.slice(1).join(' ') || '' },
+        { name: 'phone',     value: phone }
+      ];
+    }
+
+    function collectStep2Fields() {
+      var date1  = (document.getElementById('f-date1')  || {}).value || '';
+      var date2  = (document.getElementById('f-date2')  || {}).value || '';
+      var guests = (document.getElementById('f-guests') || {}).value || '';
+      var prefs = (typeof locationStep !== 'undefined' && locationStep.preferences) || [null, null, null];
+      var pref1 = prefs[0] ? prefs[0].name : '';
+      var pref2 = prefs[1] ? prefs[1].name : '';
+      var pref3 = prefs[2] ? prefs[2].name : '';
+      var zone = '';
+      if (prefs[0]) zone = prefs[0].zone;
+      else if (typeof locationStep !== 'undefined' && locationStep.areaZone) zone = locationStep.areaZone;
+      var locationMode = (typeof locationStep !== 'undefined') ? locationStep.locationMode : '';
+      var locationDesc = '';
+      if (locationMode === 'address' && typeof locationStep !== 'undefined' && locationStep.geo) {
+        locationDesc = locationStep.geo.display_name || '';
+      } else if (locationMode === 'area' && typeof locationStep !== 'undefined') {
+        locationDesc = locationStep.selectedAreaName || '';
+      }
+      return [
+        { name: 'location_mode',      value: locationMode  },
+        { name: 'location_detail',    value: locationDesc  },
+        { name: 'beach_zone',         value: zone          },
+        { name: 'beach_preference_1', value: pref1         },
+        { name: 'beach_preference_2', value: pref2         },
+        { name: 'beach_preference_3', value: pref3         },
+        { name: 'preferred_date_1',   value: date1         },
+        { name: 'preferred_date_2',   value: date2         },
+        { name: 'number_of_guests',   value: guests        }
+      ];
+    }
+
+    function collectStep3Fields() {
+      var pkgInput = document.querySelector('input[name="bf-pkg"]:checked');
+      var pkg      = pkgInput ? pkgInput.value : '';
+      var addonInputs = document.querySelectorAll('input[name="addon"]:checked');
+      var addons      = Array.prototype.slice.call(addonInputs).map(function (el) { return el.value; }).join(', ');
+      var picnicAddonInput = document.querySelector('input[name="picnic-addon-pkg"]:checked');
+      var picnicAddon      = picnicAddonInput ? picnicAddonInput.value : '';
+      var picnicOnlyInput  = document.querySelector('input[name="picnic-only-pkg"]:checked');
+      var picnicOnly       = picnicOnlyInput  ? picnicOnlyInput.value  : '';
+      var notes = (document.getElementById('f-notes') || {}).value || '';
+      return [
+        { name: 'package_selection', value: pkg         },
+        { name: 'addon_selections',  value: addons      },
+        { name: 'picnic_addon_pkg',  value: picnicAddon },
+        { name: 'picnic_only_pkg',   value: picnicOnly  },
+        { name: 'additional_notes',  value: notes       }
+      ];
+    }
+
+    function hubspotStep1() {
+      sendToHubSpot(collectStep1Fields());
+    }
+
+    function hubspotStep2() {
+      sendToHubSpot(collectStep1Fields().concat(collectStep2Fields()));
+    }
+
+    function hubspotStep3() {
+      sendToHubSpot(collectStep1Fields().concat(collectStep2Fields()).concat(collectStep3Fields()));
+    }
+
+    function hubspotStep4() {
+      var policyAgreed = (document.getElementById('f-policy') || {}).checked ? 'Yes' : 'No';
+      var smsOptIn     = (document.getElementById('f-sms')    || {}).checked ? 'true' : 'false';
+      sendToHubSpot(
+        collectStep1Fields()
+          .concat(collectStep2Fields())
+          .concat(collectStep3Fields())
+          .concat([
+            { name: 'policy_agreed',        value: policyAgreed },
+            { name: 'hs_marketable_status', value: smsOptIn     }
+          ])
+      );
+    }
+    /* ── END HUBSPOT ────────────────────────────────────────────────────── */
+
     function nextStep(from) {
       if (from === 1) {
         const name  = document.getElementById('f-name').value.trim();
@@ -1348,6 +1459,7 @@
         const phone = document.getElementById('f-phone').value.trim();
         if (!name || !email || !phone) { alert('Please fill in all required fields.'); return; }
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+        hubspotStep1();
       }
       if (from === 2) {
         if (!locationStep.preferences.every(function(p) { return p !== null; })) {
@@ -1361,10 +1473,12 @@
         filterPackages(guests);
         var zone = locationStep.preferences[0] ? locationStep.preferences[0].zone : (locationStep.areaZone === 'PCB' ? 'PCB' : '30A');
         applyLocationPricing(zone === '30A' ? '30a' : 'pcb');
+        hubspotStep2();
       }
       if (from === 3) {
         const pkg = document.querySelector('input[name="bf-pkg"]:checked');
         if (!pkg) { alert('Please select a bonfire package.'); return; }
+        hubspotStep3();
       }
       if (from < 4) showStep(from + 1);
     }
@@ -1479,6 +1593,7 @@
         alert('Please agree to our policies to continue.');
         return;
       }
+      hubspotStep4();
 
       // Collect form data
       var name   = document.getElementById('f-name').value.trim();

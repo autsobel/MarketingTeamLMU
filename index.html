@@ -51,13 +51,6 @@
     .section-title em{font-style:italic;color:var(--flame);}
     .section-subtitle{font-size:0.97rem;color:var(--text-mid);max-width:520px;margin-top:13px;font-weight:300;}
 
-    /* BURN BAN BANNER */
-    .burn-ban-bar{background:#7a2818;color:#fff;font-size:0.80rem;font-weight:500;letter-spacing:0.04em;padding:10px 20px;display:none;align-items:center;justify-content:center;gap:10px;position:relative;z-index:1100;}
-    .burn-ban-bar.active{display:flex;}
-    .burn-ban-bar .burn-ban-text{line-height:1.4;text-align:center;}
-    .burn-ban-bar .burn-ban-close{background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:1.1rem;padding:2px 6px;margin-left:4px;flex-shrink:0;transition:color 0.2s;line-height:1;}
-    .burn-ban-bar .burn-ban-close:hover{color:#fff;}
-
     /* LOGO BANNER */
     .logo-banner{background:var(--warm-white);display:flex;align-items:center;gap:18px;padding:11px 28px;border-bottom:1px solid rgba(200,86,42,0.13);}
     .logo-banner img.logo-img{height:58px;width:auto;margin:0;display:block;object-fit:contain;flex-shrink:0;}
@@ -71,9 +64,10 @@
     /* LOCALS GUIDE POPUP */
     .lg-overlay{position:fixed;inset:0;background:rgba(28,34,40,0.60);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px;}
     .lg-overlay.open{display:flex;}
-    .lg-modal{background:var(--warm-white);border-radius:var(--radius-lg);box-shadow:0 24px 80px rgba(28,34,40,0.32);max-width:500px;width:100%;position:relative;overflow:hidden;}
-    .lg-modal-img{width:100%;height:210px;object-fit:cover;display:block;}
+    .lg-modal{background:var(--warm-white);border-radius:var(--radius-lg);box-shadow:0 24px 80px rgba(28,34,40,0.32);max-width:500px;width:100%;position:relative;max-height:90vh;overflow-y:auto;}
+    .lg-modal-img{width:100%;height:180px;object-fit:cover;display:block;border-radius:var(--radius-lg) var(--radius-lg) 0 0;}
     .lg-modal-body{padding:26px 28px 30px;}
+    .hs-form-frame{min-height:140px;}
     .lg-caption{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean);margin-bottom:9px;}
     .lg-modal-title{font-family:var(--font-display);font-size:1.55rem;font-weight:400;color:var(--text-dark);line-height:1.2;margin-bottom:9px;}
     .lg-modal-sub{font-size:0.88rem;color:var(--text-mid);margin-bottom:20px;line-height:1.65;font-weight:300;}
@@ -377,12 +371,6 @@
   <script src="components/booking-wizard.js"></script>
 </head>
 <body>
-
-  <!-- BURN BAN BANNER — set BURN_BAN_ACTIVE = true in the JS below to enable -->
-  <div class="burn-ban-bar" id="burn-ban-bar" role="alert">
-    <span class="burn-ban-text" id="burn-ban-text"></span>
-    <button class="burn-ban-close" onclick="document.getElementById('burn-ban-bar').style.display='none'" aria-label="Dismiss">&#10005;</button>
-  </div>
 
   <!-- LOGO BANNER -->
   <div class="logo-banner">
@@ -922,7 +910,7 @@
   <section class="wall-of-love" id="wall-of-love">
     <div class="container">
       <div class="wol-header">
-        <span class="section-label">Wall of Love</span>
+        <span class="section-label">Could those be Love?</span>
         <h2 class="section-title">What our guests <em>are saying</em></h2>
         <p class="section-subtitle" style="margin:12px auto 0;text-align:center;">What our guests have to say about the LMU experience</p>
       </div>
@@ -1012,7 +1000,15 @@
         <h2 class="section-title" style="color:var(--white);">Inspired by <em>the Legend himself</em></h2>
       </div>
       <p class="pricing-tagline">Let's get together and feeeeel alright!</p>
-      <p class="pricing-disclaimer">Listed price does not include tax, processing, or gratuity.</p>
+      <p style="text-align:center;font-size:0.80rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.90);margin-bottom:22px;">Starting at $549!*</p>
+
+      <!-- All Inclusive Beach Bonfire — placeholder, add details when ready -->
+      <div style="background:rgba(255,255,255,0.10);border:1.5px solid rgba(255,255,255,0.30);border-radius:var(--radius-lg);padding:28px 32px;margin-bottom:24px;text-align:center;backdrop-filter:blur(8px);">
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.20em;text-transform:uppercase;color:var(--golden);margin-bottom:10px;">Signature Package</div>
+        <div style="font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:400;color:var(--white);margin-bottom:8px;font-style:italic;">All Inclusive Beach Bonfire</div>
+        <div style="font-size:0.88rem;color:rgba(255,255,255,0.65);font-weight:300;max-width:480px;margin:0 auto 22px;line-height:1.7;">The complete LMU experience &mdash; package details &amp; pricing coming soon. Contact us to learn more.</div>
+        <a href="#booking" class="btn btn-primary">Book Now &rarr;</a>
+      </div>
 
       <div class="pricing-grid">
 
@@ -1091,6 +1087,8 @@
         </div>
 
       </div>
+
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.48);text-align:center;margin-top:22px;font-style:italic;">*Pricing varies by location, set up, and group size. Book now to customize your options.</p>
 
       <div class="social-fire-note">
         <h4>Social Fire &mdash; Select Hotel Locations Only</h4>
@@ -1318,6 +1316,117 @@
       document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    /* ── HUBSPOT PROGRESSIVE SYNC ───────────────────────────────────────── */
+    var HUBSPOT_PORTAL_ID = '50932974';
+    var HUBSPOT_FORM_GUID = '61b14a6f-ce3b-46fa-8d18-fb773087565a';
+
+    function sendToHubSpot(fields) {
+      var email = (document.getElementById('f-email') || {}).value || '';
+      if (!email) return;
+
+      var payload = {
+        fields: [{ name: 'email', value: email }].concat(
+          fields
+            .filter(function (f) { return f.value !== null && f.value !== undefined && f.value !== ''; })
+            .map(function (f) { return { name: f.name, value: String(f.value) }; })
+        ),
+        context: { pageUri: window.location.href, pageName: document.title }
+      };
+
+      fetch(
+        'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + HUBSPOT_FORM_GUID,
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }
+      ).catch(function (err) { console.warn('[HubSpot] Submission error:', err); });
+    }
+
+    function collectStep1Fields() {
+      var name  = (document.getElementById('f-name')  || {}).value || '';
+      var phone = (document.getElementById('f-phone') || {}).value || '';
+      var parts = name.trim().split(/\s+/);
+      return [
+        { name: 'firstname', value: parts[0] || '' },
+        { name: 'lastname',  value: parts.slice(1).join(' ') || '' },
+        { name: 'phone',     value: phone }
+      ];
+    }
+
+    function collectStep2Fields() {
+      var date1  = (document.getElementById('f-date1')  || {}).value || '';
+      var date2  = (document.getElementById('f-date2')  || {}).value || '';
+      var guests = (document.getElementById('f-guests') || {}).value || '';
+      var prefs = (typeof locationStep !== 'undefined' && locationStep.preferences) || [null, null, null];
+      var pref1 = prefs[0] ? prefs[0].name : '';
+      var pref2 = prefs[1] ? prefs[1].name : '';
+      var pref3 = prefs[2] ? prefs[2].name : '';
+      var zone = '';
+      if (prefs[0]) zone = prefs[0].zone;
+      else if (typeof locationStep !== 'undefined' && locationStep.areaZone) zone = locationStep.areaZone;
+      var locationMode = (typeof locationStep !== 'undefined') ? locationStep.locationMode : '';
+      var locationDesc = '';
+      if (locationMode === 'address' && typeof locationStep !== 'undefined' && locationStep.geo) {
+        locationDesc = locationStep.geo.display_name || '';
+      } else if (locationMode === 'area' && typeof locationStep !== 'undefined') {
+        locationDesc = locationStep.selectedAreaName || '';
+      }
+      return [
+        { name: 'location_mode',      value: locationMode  },
+        { name: 'location_detail',    value: locationDesc  },
+        { name: 'beach_zone',         value: zone          },
+        { name: 'beach_preference_1', value: pref1         },
+        { name: 'beach_preference_2', value: pref2         },
+        { name: 'beach_preference_3', value: pref3         },
+        { name: 'preferred_date_1',   value: date1         },
+        { name: 'preferred_date_2',   value: date2         },
+        { name: 'number_of_guests',   value: guests        }
+      ];
+    }
+
+    function collectStep3Fields() {
+      var pkgInput = document.querySelector('input[name="bf-pkg"]:checked');
+      var pkg      = pkgInput ? pkgInput.value : '';
+      var addonInputs = document.querySelectorAll('input[name="addon"]:checked');
+      var addons      = Array.prototype.slice.call(addonInputs).map(function (el) { return el.value; }).join(', ');
+      var picnicAddonInput = document.querySelector('input[name="picnic-addon-pkg"]:checked');
+      var picnicAddon      = picnicAddonInput ? picnicAddonInput.value : '';
+      var picnicOnlyInput  = document.querySelector('input[name="picnic-only-pkg"]:checked');
+      var picnicOnly       = picnicOnlyInput  ? picnicOnlyInput.value  : '';
+      var notes = (document.getElementById('f-notes') || {}).value || '';
+      return [
+        { name: 'package_selection', value: pkg         },
+        { name: 'addon_selections',  value: addons      },
+        { name: 'picnic_addon_pkg',  value: picnicAddon },
+        { name: 'picnic_only_pkg',   value: picnicOnly  },
+        { name: 'additional_notes',  value: notes       }
+      ];
+    }
+
+    function hubspotStep1() {
+      sendToHubSpot(collectStep1Fields());
+    }
+
+    function hubspotStep2() {
+      sendToHubSpot(collectStep1Fields().concat(collectStep2Fields()));
+    }
+
+    function hubspotStep3() {
+      sendToHubSpot(collectStep1Fields().concat(collectStep2Fields()).concat(collectStep3Fields()));
+    }
+
+    function hubspotStep4() {
+      var policyAgreed = (document.getElementById('f-policy') || {}).checked ? 'Yes' : 'No';
+      var smsOptIn     = (document.getElementById('f-sms')    || {}).checked ? 'true' : 'false';
+      sendToHubSpot(
+        collectStep1Fields()
+          .concat(collectStep2Fields())
+          .concat(collectStep3Fields())
+          .concat([
+            { name: 'policy_agreed',        value: policyAgreed },
+            { name: 'hs_marketable_status', value: smsOptIn     }
+          ])
+      );
+    }
+    /* ── END HUBSPOT ────────────────────────────────────────────────────── */
+
     function nextStep(from) {
       if (from === 1) {
         const name  = document.getElementById('f-name').value.trim();
@@ -1325,6 +1434,7 @@
         const phone = document.getElementById('f-phone').value.trim();
         if (!name || !email || !phone) { alert('Please fill in all required fields.'); return; }
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+        hubspotStep1();
       }
       if (from === 2) {
         if (!locationStep.preferences.every(function(p) { return p !== null; })) {
@@ -1338,6 +1448,7 @@
         filterPackages(guests);
         var zone = locationStep.preferences[0] ? locationStep.preferences[0].zone : (locationStep.areaZone === 'PCB' ? 'PCB' : '30A');
         applyLocationPricing(zone === '30A' ? '30a' : 'pcb');
+        hubspotStep2();
       }
       if (from === 3) {
         const bfPkg     = document.querySelector('input[name="bf-pkg"]:checked');
@@ -1346,6 +1457,7 @@
           alert('Please select a bonfire package or a picnic-only option to continue.');
           return;
         }
+        hubspotStep3();
       }
       if (from < 4) showStep(from + 1);
     }
@@ -1476,6 +1588,7 @@
 
     async function submitForm() {
       if (!document.getElementById('f-policy').checked) { alert('Please agree to our policies to continue.'); return; }
+      hubspotStep4();
       var name   = document.getElementById('f-name').value.trim();
       var email  = document.getElementById('f-email').value.trim();
       var phone  = document.getElementById('f-phone').value.trim();
@@ -1600,50 +1713,27 @@
         <div class="lg-caption">Don't know what to plan? We've got you!</div>
         <h3 class="lg-modal-title">Local's Guide to the Perfect Day:<br/>30A &amp; PCB</h3>
         <p class="lg-modal-sub">Our free PDF guide covers the best beach spots, local tips, and everything you need to plan an unforgettable trip on the Emerald Coast.</p>
-        <!-- HubSpot will inject the email form here.
-             To update this form: HubSpot → Marketing → Forms → select your form → Actions → Embed
-             Copy the portalId and formId values and paste them into the hbspt.forms.create() call below. -->
-        <div id="hbspt-form-container"></div>
+        <div class="hs-form-frame" data-region="na1" data-form-id="7891f273-d9bb-4421-bc8d-ba09e74fd964" data-portal-id="50932974"></div>
       </div>
     </div>
   </div>
 
   <script>
-    /* ── BURN BAN TOGGLE ─────────────────────────────────────────
-       Set BURN_BAN_ACTIVE = true and update BURN_BAN_DATE to enable.
-       The banner will appear automatically on page load.
-    ────────────────────────────────────────────────────────────── */
-    var BURN_BAN_ACTIVE = true;   // ← change to false to hide the banner
-    var BURN_BAN_DATE   = 'May 1, 2026';
-    (function () {
-      var bar = document.getElementById('burn-ban-bar');
-      if (BURN_BAN_ACTIVE && bar) {
-        document.getElementById('burn-ban-text').textContent =
-          '⚠️ BURN BANS IN EFFECT: Burn bans are currently in effect and may affect option availability. Contact us to discuss your event options.';
-        bar.classList.add('active');
-      }
-    })();
+
 
     /* ── LOCAL'S GUIDE POPUP ─────────────────────────────────────
-       Shows 5 seconds after first visit. Stored in localStorage.
+       Shows 3 seconds after landing. HubSpot next-gen form
+       (hs-form-frame) renders on page load via the portal script.
     ────────────────────────────────────────────────────────────── */
     (function () {
-      var overlay = document.getElementById('lg-overlay');
+      var overlay  = document.getElementById('lg-overlay');
       var closeBtn = document.getElementById('lg-close');
-
-      function openPopup() { overlay.classList.add('open'); }
+      function openPopup()  { overlay.classList.add('open'); }
       function closePopup() { overlay.classList.remove('open'); }
-
       closeBtn.addEventListener('click', closePopup);
       overlay.addEventListener('click', function (e) { if (e.target === overlay) closePopup(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePopup(); });
-
-      if (!localStorage.getItem('lmu-guide-shown')) {
-        setTimeout(function () {
-          openPopup();
-          localStorage.setItem('lmu-guide-shown', '1');
-        }, 5000);
-      }
+      setTimeout(openPopup, 3000);
     })();
 
     function toggleWolReview(btn, wrapId) {
@@ -1667,30 +1757,6 @@
     });
   </script>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       HUBSPOT LOCAL'S GUIDE POPUP FORM
-       ───────────────────────────────────────────────────────────
-       SETUP STEPS (one-time, done inside HubSpot):
-         1. Log in to HubSpot → Marketing → Forms
-         2. Create a form (type: "Embedded") with an Email field
-            and a submit button labelled "Send My Guide"
-         3. In Form Settings → Options, you can attach the PDF guide
-            as an automated follow-up email via a Workflow or the
-            "Follow-up" tab on the form
-         4. Once saved, click Actions → Embed on the form
-         5. Copy the portalId and formId values from the embed code
-         6. Paste them into the two placeholder values below
-         7. Change region from "na1" to "eu1" if your HubSpot
-            account is on the EU data center
-       ─────────────────────────────────────────────────────────── -->
-  <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-  <script>
-    hbspt.forms.create({
-      region:   "na1",                          // ← "eu1" if EU HubSpot account
-      portalId: "YOUR_PORTAL_ID",               // ← replace with your HubSpot portal ID
-      formId:   "YOUR_FORM_ID",                 // ← replace with your HubSpot form ID
-      target:   "#hbspt-form-container"
-    });
-  </script>
+  <script src="https://js.hsforms.net/forms/embed/50932974.js"></script>
 </body>
 </html>
